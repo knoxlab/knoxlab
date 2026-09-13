@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解决方案 — PowerCMS 12</title>
+  <meta name="description" content="PowerCMS 12 解决方案：政府与事业单位、教育与科研、金融、能源与制造、集团企业的内容平台最佳实践。">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= 头部导航 ================= -->
+  <header class="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+          <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2E5BFF"/><stop offset="1" stop-color="#00C2A8"/>
+          </linearGradient></defs>
+          <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#lg)"/>
+          <path d="M20 46V18h13c7.2 0 12 4.6 12 11.4S40.2 41 33 41h-7v5h-6zm6-11h6.6c3.6 0 6-2.2 6-5.6s-2.4-5.4-6-5.4H26v11z" fill="#fff"/>
+          <circle cx="49" cy="15" r="4" fill="#fff" opacity=".9"/>
+        </svg>
+        <span class="brand-name">PowerCMS <em>12</em></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-link" data-nav="product" href="product.html" data-i18n="nav.product">产品能力</a>
+        <a class="nav-link" data-nav="solutions" href="solutions.html" data-i18n="nav.solutions">解决方案</a>
+        <a class="nav-link" data-nav="customers" href="customers.html" data-i18n="nav.customers">客户案例</a>
+        <a class="nav-link" data-nav="pricing" href="pricing.html" data-i18n="nav.pricing">价格方案</a>
+        <a class="nav-link" href="#" data-i18n="nav.developers">开发者</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="zh" class="active">中文</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <a class="btn btn-ghost" href="#" data-i18n="nav.login">登录</a>
+        <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial">免费试用</a>
+        <button class="menu-btn" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0A1633" stroke-width="2" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav">
+      <a href="product.html" data-i18n="nav.product">产品能力</a>
+      <a href="solutions.html" data-i18n="nav.solutions">解决方案</a>
+      <a href="customers.html" data-i18n="nav.customers">客户案例</a>
+      <a href="pricing.html" data-i18n="nav.pricing">价格方案</a>
+      <a href="#" data-i18n="nav.developers">开发者</a>
+      <div class="nav-cta-row">
+        <a class="btn btn-ghost" href="#" data-i18n="nav.login">登录</a>
+        <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial">免费试用</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 页面 Hero ================= -->
+  <section class="sol-hero">
+    <div class="container">
+      <span class="kicker" data-i18n="s.hero.kicker">解决方案</span>
+      <h1 data-i18n="s.hero.title">为你的行业深度打磨</h1>
+      <p data-i18n="s.hero.sub">PowerCMS 12 贴合不同行业的工作流、合规现实与运营节奏——而不是让组织去适配软件。</p>
+    </div>
+  </section>
+
+  <!-- ================= 行业 1：政府与事业单位 ================= -->
+  <section class="ind-section">
+    <div class="container">
+      <div class="ind-head">
+        <div class="ind-ico-lg">🏛️</div>
+        <div>
+          <h2 data-i18n="s.gov.title">政府与事业单位</h2>
+          <p style="color:var(--muted);" data-i18n="s.gov.tag">政务公开 · 政策发布 · 站点群治理</p>
+        </div>
+      </div>
+      <div class="ind-grid">
+        <div>
+          <div class="block-label" data-i18n="s.painLabel">行业痛点</div>
+          <ul class="pain-list">
+            <li data-i18n="s.gov.p1">站点多、分散建设、技术标准不一，安全整改难推进</li>
+            <li data-i18n="s.gov.p2">信息发布审核要求严格，人工留痕难以满足检查</li>
+            <li data-i18n="s.gov.p3">国产化替代时间表紧，系统需快速完成信创适配</li>
+          </ul>
+        </div>
+        <div>
+          <div class="block-label" data-i18n="s.gainLabel">PowerCMS 方案</div>
+          <ul class="gain-list">
+            <li data-i18n="s.gov.g1">站点群统一建模、集中管控，一套平台管理全部站点</li>
+            <li data-i18n="s.gov.g2">三级审批工作流 + 全程审计留痕，对齐等保 2.0 要求</li>
+            <li data-i18n="s.gov.g3">人大金仓数据库、金蝶天燕中间件全栈信创适配</li>
+            <li data-i18n="s.gov.g4">政务公开目录自动生成，栏目内容规范化发布</li>
+          </ul>
+          <div class="ind-result">
+            <div class="rmetric">
+              <div><b>200<em>+</em></b><span data-i18n="s.gov.m1s">站点统一管理</span></div>
+              <div><b>3天→2h</b><span data-i18n="s.gov.m2s">发布时效</span></div>
+              <div><b>100%</b><span data-i18n="s.gov.m3s">审计覆盖</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 行业 2：教育与科研 ================= -->
+  <section class="ind-section alt">
+    <div class="container">
+      <div class="ind-head">
+        <div class="ind-ico-lg">🎓</div>
+        <div>
+          <h2 data-i18n="s.edu.title">教育与科研</h2>
+          <p style="color:var(--muted);" data-i18n="s.edu.tag">院系站点群 · 招生专题 · 国际传播</p>
+        </div>
+      </div>
+      <div class="ind-grid">
+        <div>
+          <div class="block-label" data-i18n="s.painLabel">行业痛点</div>
+          <ul class="pain-list">
+            <li data-i18n="s.edu.p1">院系站点各自为政，学校品牌形象难以统一</li>
+            <li data-i18n="s.edu.p2">招生、校庆等专题页面开发排期长、成本高</li>
+            <li data-i18n="s.edu.p3">师生多为非技术人员，传统 CMS 上手门槛高</li>
+          </ul>
+        </div>
+        <div>
+          <div class="block-label" data-i18n="s.gainLabel">PowerCMS 方案</div>
+          <ul class="gain-list">
+            <li data-i18n="s.edu.g1">站点群模板统一品牌规范，子站点一键开通</li>
+            <li data-i18n="s.edu.g2">UVE 可视化编辑器零代码搭建专题，当天上线</li>
+            <li data-i18n="s.edu.g3">多语言站点支持国际招生与全球传播</li>
+            <li data-i18n="s.edu.g4">媒体库统一沉淀校园影像素材，全院系共享复用</li>
+          </ul>
+          <div class="ind-result">
+            <div class="rmetric">
+              <div><b>60<em>+</em></b><span data-i18n="s.edu.m1s">站点群</span></div>
+              <div><b>80%</b><span data-i18n="s.edu.m2s">零代码页面</span></div>
+              <div><b>5<em>×</em></b><span data-i18n="s.edu.m3s">专题上线速度</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 行业 3：金融 ================= -->
+  <section class="ind-section">
+    <div class="container">
+      <div class="ind-head">
+        <div class="ind-ico-lg">🏦</div>
+        <div>
+          <h2 data-i18n="s.fin.title">金融</h2>
+          <p style="color:var(--muted);" data-i18n="s.fin.tag">营销内容 · 信息披露 · 强监管合规</p>
+        </div>
+      </div>
+      <div class="ind-grid">
+        <div>
+          <div class="block-label" data-i18n="s.painLabel">行业痛点</div>
+          <ul class="pain-list">
+            <li data-i18n="s.fin.p1">信息披露与营销内容合规审查压力大，人工核查成本高</li>
+            <li data-i18n="s.fin.p2">素材分散在各渠道、各分行，品牌规范难以执行</li>
+            <li data-i18n="s.fin.p3">监管要求数据不出域，公有云方案直接出局</li>
+          </ul>
+        </div>
+        <div>
+          <div class="block-label" data-i18n="s.gainLabel">PowerCMS 方案</div>
+          <ul class="gain-list">
+            <li data-i18n="s.fin.g1">信息披露专用工作流：编辑 → 合规审核 → 签发</li>
+            <li data-i18n="s.fin.g2">全行统一素材库，品牌素材规范一处管控</li>
+            <li data-i18n="s.fin.g3">全栈私有化部署，数据零出域</li>
+            <li data-i18n="s.fin.g4">审计报表一键导出，从容应对监管检查</li>
+          </ul>
+          <div class="ind-result">
+            <div class="rmetric">
+              <div><b>100%</b><span data-i18n="s.fin.m1s">审计覆盖</span></div>
+              <div><b>99.99%</b><span data-i18n="s.fin.m2s">服务可用性</span></div>
+              <div><b>0</b><span data-i18n="s.fin.m3s">数据出域</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 行业 4：能源与制造 ================= -->
+  <section class="ind-section alt">
+    <div class="container">
+      <div class="ind-head">
+        <div class="ind-ico-lg">⚡</div>
+        <div>
+          <h2 data-i18n="s.ene.title">能源与制造</h2>
+          <p style="color:var(--muted);" data-i18n="s.ene.tag">集团门户 · 安全生产宣传 · 多媒体运营</p>
+        </div>
+      </div>
+      <div class="ind-grid">
+        <div>
+          <div class="block-label" data-i18n="s.painLabel">行业痛点</div>
+          <ul class="pain-list">
+            <li data-i18n="s.ene.p1">集团子品牌众多，门户网站风格与技术各自为政</li>
+            <li data-i18n="s.ene.p2">安全生产宣传视频、图片体量大，人工处理效率低</li>
+            <li data-i18n="s.ene.p3">内外网内容同步复杂，保密要求下无法依赖外部 SaaS</li>
+          </ul>
+        </div>
+        <div>
+          <div class="block-label" data-i18n="s.gainLabel">PowerCMS 方案</div>
+          <ul class="gain-list">
+            <li data-i18n="s.ene.g1">多品牌多站点架构，统一治理与分级授权</li>
+            <li data-i18n="s.ene.g2">媒体智能流水线：上传即自动转码、打标、审核</li>
+            <li data-i18n="s.ene.g3">定时发布与灰度上线，重大宣传节点零失误</li>
+            <li data-i18n="s.ene.g4">支持内网 / 隔离网络部署，满足保密要求</li>
+          </ul>
+          <div class="ind-result">
+            <div class="rmetric">
+              <div><b>30<em>+</em></b><span data-i18n="s.ene.m1s">子品牌站点</span></div>
+              <div><b>10TB<em>+</em></b><span data-i18n="s.ene.m2s">媒体资产</span></div>
+              <div><b>70%</b><span data-i18n="s.ene.m3s">处理人力节省</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 行业 5：集团企业 ================= -->
+  <section class="ind-section">
+    <div class="container">
+      <div class="ind-head">
+        <div class="ind-ico-lg">🏢</div>
+        <div>
+          <h2 data-i18n="s.grp.title">集团企业</h2>
+          <p style="color:var(--muted);" data-i18n="s.grp.tag">多品牌 · 多区域 · 内容资产复用</p>
+        </div>
+      </div>
+      <div class="ind-grid">
+        <div>
+          <div class="block-label" data-i18n="s.painLabel">行业痛点</div>
+          <ul class="pain-list">
+            <li data-i18n="s.grp.p1">区域公司内容各自维护，总部无法统一管控</li>
+            <li data-i18n="s.grp.p2">各子公司重复采购建站系统，成本居高不下</li>
+            <li data-i18n="s.grp.p3">优质内容资产沉淀在个人电脑，无法跨组织复用</li>
+          </ul>
+        </div>
+        <div>
+          <div class="block-label" data-i18n="s.gainLabel">PowerCMS 方案</div>
+          <ul class="gain-list">
+            <li data-i18n="s.grp.g1">集中平台 + 分级授权：总部定规范，区域自主运营</li>
+            <li data-i18n="s.grp.g2">SHARED 共享内容与组件库，一次创作全集团复用</li>
+            <li data-i18n="s.grp.g3">统一数据看板，全集团内容表现尽收眼底</li>
+            <li data-i18n="s.grp.g4">多站点、多环境、多域名体系，并购扩张平滑纳管</li>
+          </ul>
+          <div class="ind-result">
+            <div class="rmetric">
+              <div><b>40%</b><span data-i18n="s.grp.m1s">建站成本下降</span></div>
+              <div><b>500<em>+</em></b><span data-i18n="s.grp.m2s">站点承载</span></div>
+              <div><b>3<em>×</em></b><span data-i18n="s.grp.m3s">内容复用率</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 部署方式 ================= -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="kicker" data-i18n="s.dep.kicker">部署方式</span>
+        <h2 class="section-title" data-i18n="s.dep.title">你的基础设施，你说了算</h2>
+        <p class="section-sub" data-i18n="s.dep.sub">不把内容战略锁死在某一种部署模型上——随合规策略演进，随时切换。</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <div class="icon-tile">🖥️</div>
+          <h3 data-i18n="s.dep.1t">全栈私有化</h3>
+          <p data-i18n="s.dep.1d">部署在组织自有机房或专有云，从代码到数据完全自主可控。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-tile">🇨🇳</div>
+          <h3 data-i18n="s.dep.2t">信创环境</h3>
+          <p data-i18n="s.dep.2d">适配人大金仓数据库与金蝶天燕中间件，支持国产 CPU 与操作系统。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-tile">☁️</div>
+          <h3 data-i18n="s.dep.3t">托管云服务</h3>
+          <p data-i18n="s.dep.3d">由 PowerCOM 运营团队托管运维，快速起步、按需扩展。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta-band">
+    <h2 data-i18n="s.cta.title">看看 PowerCMS 12 如何落地你的场景</h2>
+    <p data-i18n="s.cta.sub">告诉我们你的行业与挑战，解决方案专家将为你定制演示内容。</p>
+    <div class="hero-cta">
+      <a class="btn btn-light btn-lg" href="#" data-i18n="s.cta.b1">联系解决方案专家</a>
+      <a class="btn btn-outline-light btn-lg" href="customers.html" data-i18n="s.cta.b2">查看客户案例</a>
+    </div>
+  </section>
+
+  <!-- ================= 页脚 ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+              <rect x="2" y="2" width="60" height="60" rx="14" fill="#2E5BFF"/>
+              <path d="M20 46V18h13c7.2 0 12 4.6 12 11.4S40.2 41 33 41h-7v5h-6zm6-11h6.6c3.6 0 6-2.2 6-5.6s-2.4-5.4-6-5.4H26v11z" fill="#fff"/>
+            </svg>
+            <span class="brand-name">PowerCMS <em>12</em></span>
+          </a>
+          <p class="ft-tag" data-i18n="footer.tag">面向政府、事业单位与大型企业的新一代 Headless 内容平台。让内容成为组织的核心数字资产。</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c1">产品</h4>
+          <ul>
+            <li><a href="product.html" data-i18n="footer.l11">产品能力</a></li>
+            <li><a href="product.html" data-i18n="footer.l12">可视化编辑器</a></li>
+            <li><a href="product.html" data-i18n="footer.l13">媒体智能</a></li>
+            <li><a href="#" data-i18n="footer.l14">开发者中心</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c2">解决方案</h4>
+          <ul>
+            <li><a href="solutions.html" data-i18n="footer.l21">政府与事业单位</a></li>
+            <li><a href="solutions.html" data-i18n="footer.l22">教育与科研</a></li>
+            <li><a href="solutions.html" data-i18n="footer.l23">金融</a></li>
+            <li><a href="solutions.html" data-i18n="footer.l24">能源与集团企业</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c3">资源</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer.l31">文档中心</a></li>
+            <li><a href="customers.html" data-i18n="footer.l32">案例研究</a></li>
+            <li><a href="#" data-i18n="footer.l33">版本发布</a></li>
+            <li><a href="#" data-i18n="footer.l34">博客</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c4">公司</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer.l41">关于我们</a></li>
+            <li><a href="#" data-i18n="footer.l42">联系我们</a></li>
+            <li><a href="#" data-i18n="footer.l43">合作伙伴</a></li>
+            <li><a href="#" data-i18n="footer.l44">加入我们</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copy">© 2026 PowerCOM · 保留所有权利</span>
+        <span data-i18n="footer.icp">某ICP备XXXXXXXX号-X</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

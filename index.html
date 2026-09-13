@@ -1,1 +1,466 @@
-Hello world！
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="Z3zCW57FfeIdr6Wz9tpjtq">
+<head data-page-node-id="WjNXLZk2TrXkSm9NDhCzuV">
+  <meta charset="UTF-8" data-page-node-id="423FnBr1VRAIdDVBE4B3vF">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="BAmvBkwfvZGQnsPDZHV0Ll">
+  <title>PowerCMS 12 — 面向大型组织的新一代 Headless 内容平台</title>
+  <meta name="description" content="PowerCMS 12 是面向政府、事业单位与大型企业的 Headless 内容平台：内容建模、版本治理、模板引擎、媒体智能、可视化编辑器，支持私有化部署与信创环境。" data-page-node-id="FqWoCxioWAnpmRwpm8Pwj5">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" data-page-node-id="GtfBVXceMHrastHqHXdTW0">
+  <link rel="stylesheet" href="css/style.css" data-page-node-id="KbmSV0vgxRPyPYLOCqRTsx">
+</head>
+<body data-page-node-id="ESgAHIvkIpDrCXJwJNt02K">
+
+  <!-- ================= 头部导航 ================= -->
+  <header class="header" data-page-node-id="9n3vwceBYKkImLRKy8BBYR">
+    <div class="container nav-wrap" data-page-node-id="tN9GM4h2JTBADzNpuPi0jq">
+      <a class="brand" href="index.html" data-page-node-id="kBm64wWg0vPMtZdf2hIHkn">
+        <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" data-page-node-id="kfcacWvqrowDWmIJx2w6VP">
+          <defs data-page-node-id="w4UHQdcuuM6nF8UJBm9lKz"><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1" data-page-node-id="FsVrUADwyl8r29qy3dBCau">
+            <stop offset="0" stop-color="#2E5BFF" data-page-node-id="Z16SBh0ld0cdtiwtqBTfk0"/><stop offset="1" stop-color="#00C2A8" data-page-node-id="9vpwlA7lHBZvrdQzG0hSOi"/>
+          </linearGradient></defs>
+          <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#lg)" data-page-node-id="6D706mhOWtNP8Z0FN0ZTiP"/>
+          <path d="M20 46V18h13c7.2 0 12 4.6 12 11.4S40.2 41 33 41h-7v5h-6zm6-11h6.6c3.6 0 6-2.2 6-5.6s-2.4-5.4-6-5.4H26v11z" fill="#fff" data-page-node-id="fYlAi9hgTDp9AlEVzyUsEL"/>
+          <circle cx="49" cy="15" r="4" fill="#fff" opacity=".9" data-page-node-id="9y7acA7lxFz5txYpIrenm8"/>
+        </svg>
+        <span class="brand-name" data-page-node-id="2305ejc1H3ELkQuKnyyeKg">PowerCMS <em data-page-node-id="zvvRjw54YMC8BSNMqo27FQ">12</em></span>
+      </a>
+      <nav class="nav" data-page-node-id="dRsLMFL4TJROxtX893oJS7">
+        <a class="nav-link" data-nav="product" href="product.html" data-i18n="nav.product" data-page-node-id="X4IFkVT5IuqRcQ4VKqVgsS">产品能力</a>
+        <a class="nav-link" data-nav="solutions" href="solutions.html" data-i18n="nav.solutions" data-page-node-id="jmyMZCyeoZlNAvfrllw7FQ">解决方案</a>
+        <a class="nav-link" data-nav="customers" href="customers.html" data-i18n="nav.customers" data-page-node-id="UCuz54tHK0HDdIrtDgzxU0">客户案例</a>
+        <a class="nav-link" data-nav="pricing" href="pricing.html" data-i18n="nav.pricing" data-page-node-id="kEotQNFoD5oagJz4bYGHFp">价格方案</a>
+        <a class="nav-link" href="#" data-i18n="nav.developers" data-page-node-id="XiyfzXvh1tZt9dhjpa0HVW">开发者</a>
+      </nav>
+      <div class="nav-actions" data-page-node-id="jgNkOWWGOOj5m3xJ7qNWlS">
+        <div class="lang-toggle" role="group" aria-label="Language" data-page-node-id="HCqm5H9NsRclr1fGydTES8">
+          <button type="button" data-lang="zh" class="active" data-page-node-id="yWOy7qchpnyJORfSka6H6E">中文</button>
+          <button type="button" data-lang="en" data-page-node-id="VQBYzZhWCFRKokz9sQ9XMn">EN</button>
+        </div>
+        <a class="btn btn-ghost" href="#" data-i18n="nav.login" data-page-node-id="0DbMGS15rXhywrWRHOMjBr">登录</a>
+        <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial" data-page-node-id="kEiDALeFFMjLesGPtpsscO">免费试用</a>
+        <button class="menu-btn" aria-label="菜单" data-page-node-id="xgzkEpn1Sy4mJQ5XYGsF5c">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0A1633" stroke-width="2" stroke-linecap="round" data-page-node-id="VwvkBw6Z7eiJUKRPbPwlZ0"><path d="M3 5h14M3 10h14M3 15h14" data-page-node-id="ZBcE4bF5LdRhEL06WIcjl1"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav" data-page-node-id="eQYFwum7Nb4RdBJosWBveO">
+      <a href="product.html" data-i18n="nav.product" data-page-node-id="7rpJc89udZgAMrYj7N8qZx">产品能力</a>
+      <a href="solutions.html" data-i18n="nav.solutions" data-page-node-id="Ma3f17lNZVQTEBf9mc47Bp">解决方案</a>
+      <a href="customers.html" data-i18n="nav.customers" data-page-node-id="jGoAqwk6DbvP31fHmWinQh">客户案例</a>
+      <a href="pricing.html" data-i18n="nav.pricing" data-page-node-id="wBWgOXZ5xYXNJdEZi9Z5hc">价格方案</a>
+      <a href="#" data-i18n="nav.developers" data-page-node-id="ThccXeKM5TTKYYli9NfQz8">开发者</a>
+      <div class="nav-cta-row" data-page-node-id="M5fM1pVXDHwOZZZ9HD4R2s">
+        <a class="btn btn-ghost" href="#" data-i18n="nav.login" data-page-node-id="imVMyC2pJizzq5Yc0KrEje">登录</a>
+        <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial" data-page-node-id="tmaKCRBKQ8xQUT9apfrRKs">免费试用</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Hero ================= -->
+  <section class="hero" data-page-node-id="DNQpnq8JPTLQId337sNFBD">
+    <div class="container hero-grid" data-page-node-id="1ujV80I1IobrTM2HymTpdq">
+      <div data-page-node-id="EW1zGia3kiCs1RrPchaTin">
+        <div class="hero-badge" data-page-node-id="DfwAEGwMoDpaj70DEqu6oU"><span class="dot" data-page-node-id="zHTadNRelVrqqwDQEItYyc"></span><span data-i18n="h.hero.badge" data-page-node-id="p3hJF8zVQ6L0JAcx1wl1MB"><b data-page-node-id="rd3eD8AWFc4uRW5bSkzDui">PowerCMS 12</b> · 全新一代内容平台</span></div>
+        <h1 data-i18n="h.hero.title" data-page-node-id="TPPGmScMV94W1FxgsVKdr9">让内容成为组织<br data-page-node-id="vrEGTEDkgpyDNfoSI2WeG2">数字化的 <span class="grad" data-page-node-id="Y4ZBeCUFXUeOUsngO0zuD8">核心引擎</span></h1>
+        <p class="hero-sub" data-i18n="h.hero.sub" data-page-node-id="c5QoLqZx2nov8vcg8NFJUm">PowerCMS 12 是面向政府、事业单位与大型企业的 Headless 内容平台。内容建模、版本治理、模板引擎、媒体智能与可视化编辑器开箱即用，全面支持私有化部署与信创环境。</p>
+        <div class="hero-cta" data-page-node-id="yc044M2njuaWICPER4HcJd">
+          <a class="btn btn-light btn-lg" href="pricing.html" data-i18n="h.hero.cta1" data-page-node-id="VWyiVMW6mAZ0KNhHUOq0DN">免费试用</a>
+          <a class="btn btn-outline-light btn-lg" href="#" data-i18n="h.hero.cta2" data-page-node-id="Tr5AJE0wpPLlwgvNqu1XiZ">预约演示</a>
+        </div>
+        <p class="hero-note" data-i18n="h.hero.note" data-page-node-id="Dpmcq0YSYkvvpOKnDV1Pen">支持私有化部署 · 信创环境适配 · 数据不出域</p>
+        <div class="hero-stats" data-page-node-id="XXLmT2um5cFhxf5P69QD6F">
+          <div class="hero-stat" data-page-node-id="RV5dhUAJcsqcsSBtwG9ZFt"><b data-page-node-id="2luviZsozGNtgbhOxTu2WD">99.99%</b><span data-i18n="h.hero.s1" data-page-node-id="CTsrDGrtL2LK8rdAEHLWAd">服务可用性</span></div>
+          <div class="hero-stat" data-page-node-id="UavRZ3J7JHGN2O16G5SIKW"><b data-page-node-id="XvXzXMRRO2HlVAcJ38M16W">500+</b><span data-i18n="h.hero.s2" data-page-node-id="5q6KKzsfEC5w8WhIXRGUhv">站点统一管理</span></div>
+          <div class="hero-stat" data-page-node-id="STBJIhGmR04FeEufX7M5xb"><b data-page-node-id="GNnCWoUE6yIGRsddJM2BRt">70%</b><span data-i18n="h.hero.s3" data-page-node-id="maqWoG7wQMj2RAsPHJ5Riw">发布效率提升</span></div>
+        </div>
+      </div>
+      <div style="position:relative;" data-page-node-id="kOoKZnEPSCEowWu2RCBYoQ">
+        <div class="mockup" data-page-node-id="JfH1YgS42k3N6dD2SC4Jww">
+          <div class="mockup-bar" data-page-node-id="Itzq2BBIlvA5VC8Uq4EGBM"><i data-page-node-id="p1Xg2ekKmn2ZEuAKzaxFrc"></i><i data-page-node-id="CPN0C6SfPDpO0DyYO9aryq"></i><i data-page-node-id="gYeBELgRDqWjNiwZYCYvQU"></i><span class="url" data-page-node-id="TaB1scIC7EEAxKof09qPV5">admin.powercms.example/console</span></div>
+          <div class="mockup-body" data-page-node-id="ISej3ojbbtPYk3NHER5uZe">
+            <div class="mock-side" data-page-node-id="T06GobMwuzyTlZzCXOIYc2">
+              <div class="mlogo" data-page-node-id="DVceBEIQfkjjau3ZmYbHbs">PowerCMS 12</div>
+              <div class="mitem active" data-i18n="h.mock.side1" data-page-node-id="2LFwEVLPIYwWv74zN4h6HS">内容中心</div>
+              <div class="mitem" data-i18n="h.mock.side2" data-page-node-id="KD7oed9Ji37UzEA7YilXj9">媒体库</div>
+              <div class="mitem" data-i18n="h.mock.side3" data-page-node-id="gBFAxykrwCkjlHCMdN2zHd">模板与主题</div>
+              <div class="mitem" data-i18n="h.mock.side4" data-page-node-id="DJUYYOM7QOsKBIVPOzq2W5">站点群管理</div>
+              <div class="mitem" data-i18n="h.mock.side5" data-page-node-id="ji89J8ZBvOcScZOndxCzjJ">工作流</div>
+              <div class="mitem" data-i18n="h.mock.side6" data-page-node-id="frPAWOYgCHbYNRKtlSvhHf">数据洞察</div>
+            </div>
+            <div class="mock-main" data-page-node-id="CY3BS1tfodPxRxkQYVhQUq">
+              <div class="mock-head" data-page-node-id="D66DxEgfOCtIeUKqs0ksEP">
+                <b data-i18n="h.mock.title" data-page-node-id="cywywyIyPloQ2A8KTDuUsS">政务公开栏目 · 内容列表</b>
+                <span class="mock-btn" data-i18n="h.mock.btn" data-page-node-id="JlKsxplGa5vAt5gTjYmDXS">新建内容</span>
+              </div>
+              <div class="mock-row" data-page-node-id="2poh0smGn6fqKFDGXdN8ma"><span data-i18n="h.mock.row1" data-page-node-id="cuMmD2LvrigJ4C7gkUIxO3">2026 年度政策文件汇编发布</span><span class="mbar" data-page-node-id="vmnNrg3KypYe3eVF3fqcOr"></span><span class="pill ok" data-i18n="h.mock.p1" data-page-node-id="PNwKmM7Cr5rifStPshqp2f">已发布</span><span class="pill info" data-page-node-id="APcyEPlXY3MmcLfqCFO2PL">UVE</span></div>
+              <div class="mock-row" data-page-node-id="RHc3FqxhZInOVMa3Y8Eshi"><span data-i18n="h.mock.row2" data-page-node-id="6xiKHUHUxXjfzitrjGfxKy">优化营商环境专题页</span><span class="mbar" data-page-node-id="CIC9O8qFddK6dn8eBczZe7"></span><span class="pill warn" data-i18n="h.mock.p2" data-page-node-id="o1hETu9QN8GLT2A5zz4ZP3">审核中</span><span class="pill info" data-page-node-id="pgLbtiu26nNZX1xxvLwv2h">UVE</span></div>
+              <div class="mock-row" data-page-node-id="m9DsNYq4P2hu7oWok1EEFG"><span data-i18n="h.mock.row3" data-page-node-id="gtByjY00IjIBNATElAKpRE">重点领域信息公开目录</span><span class="mbar" data-page-node-id="uObOIDPbFB2KWsG8Q5ONes"></span><span class="pill ok" data-i18n="h.mock.p1" data-page-node-id="LTapzbPFfVIW5FLiKQWvEp">已发布</span><span class="pill info" data-page-node-id="s06sDrziUdfv29YWk3yIya">API</span></div>
+              <div class="mock-row" data-page-node-id="BIIjt8VhD2O5lGMxWi1M8R"><span data-i18n="h.mock.row4" data-page-node-id="MQXtbiZtSdH8rWBHzjePEO">政策解读：数字政府建设</span><span class="mbar" data-page-node-id="2qtDRPcX9DnD0NofTN9vd7"></span><span class="pill" style="color:#5B6B84;background:#EDF2FB;" data-i18n="h.mock.p3" data-page-node-id="SqnDKx5pwsIFtzSRtumjpB">草稿</span><span class="pill info" data-page-node-id="pMhz4RWrXukTaj8DzLkyFo">AI</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="float-card fc1" data-page-node-id="aRVwtkbzK27Jz6uLnHCkEX">
+          <div class="fico" data-page-node-id="7Y7ydfNCYHLGiFp2hFbWRE">🤖</div>
+          <div data-page-node-id="WniKKwlvDa67olfBvOzilc"><b data-i18n="h.mock.f1t" data-page-node-id="Hpp9wNVyG3DIXEhgT5p284">AI 摘要已生成</b><span data-i18n="h.mock.f1s" data-page-node-id="ye4TkQO20DWgPETHjFZnpi">内容建模 · 内容洞察</span></div>
+        </div>
+        <div class="float-card fc2" data-page-node-id="utx1kemekmmUpHb13cfoN3">
+          <div class="fico" data-page-node-id="ShU6YdL8CoAjCYu3ff7rDY">🔐</div>
+          <div data-page-node-id="VcMVYewzwekVAKbKGlHFN0"><b data-i18n="h.mock.f2t" data-page-node-id="mxHgXdTQlOMFqlIWmH3w0f">三级审批 · 审计留痕</b><span data-i18n="h.mock.f2s" data-page-node-id="pcmUrJIbxAVQxNB1xOnDqg">治理内建于平台</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 客户 Logo 墙 ================= -->
+  <section class="logo-band" data-page-node-id="s6cKVNdfTAfCOLXFLQIRp5">
+    <div class="container" data-page-node-id="iyIZ82y74YnVDegFtcPCGB">
+      <p class="cap" data-i18n="h.logos.cap" data-page-node-id="YEFY2NGU828PkE76CDG0X4">受到政务服务、教育、金融、能源与医疗行业的信赖</p>
+      <div class="logo-wall" data-page-node-id="xgFIHvu5lf6aoNbn2DdNgg">
+        <span data-page-node-id="Ua1KyzUa7qlCeDezYkwkoR">省级政务服务网</span><span data-page-node-id="Y3ciBzCmRadnBYBwKaAIip">部属研究院</span><span data-page-node-id="P3DpeTQ8lUnnvWfrdogjq1">双一流高校</span><span data-page-node-id="zA9vdMlY84KCfhy47wjET3">城市商业银行</span>
+        <span data-page-node-id="eJIhV8DWE8XEEYEpPjh7ua">能源集团</span><span data-page-node-id="zBkCPIGmTfBwPGce9SOW6N">三甲医疗集团</span><span data-page-node-id="s2HODR3GkoetQdwo3Lllil">智能制造集团</span><span data-page-node-id="jeCBbcuQMB0Gr1Jvs3tElY">轨道交通集团</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 平台能力 Tabs ================= -->
+  <section class="section" id="platform" data-page-node-id="eGST7xxwhAi5uAHR6wvpwt">
+    <div class="container" data-page-node-id="d8jdiWNwJGl2RiEJ1xz2La">
+      <div class="section-head center" data-page-node-id="UCFi0Zpaf4VxNoE4IKcIq0">
+        <span class="kicker" data-i18n="h.plat.kicker" data-page-node-id="avRlyCjYpGZFugOLstLHDg">一个平台</span>
+        <h2 class="section-title" data-i18n="h.plat.title" data-page-node-id="u7s4Dr6Ar5tsgH67Y7WIZe">覆盖站点、团队与 AI 的统一内容平台</h2>
+        <p class="section-sub" data-i18n="h.plat.sub" data-page-node-id="7wuEZ9IpzfvkCzbPGoVTTu">从内容建模到全球交付，从可视化编辑到治理合规，PowerCMS 12 将所有内容运营纳入统一的角色、工作流与审计体系。</p>
+      </div>
+      <div class="tabs" data-tab-group="plat" data-page-node-id="OdjM1nsXC4tB33eGHdJB8K">
+        <button class="tab active" data-tab="1" data-i18n="h.plat.tab1" data-page-node-id="zYqVNf6J2RGNmfqV3Lw1z6">建模</button>
+        <button class="tab" data-tab="2" data-i18n="h.plat.tab2" data-page-node-id="Y6lmziqSl1NSYR3SR5GQMu">交付</button>
+        <button class="tab" data-tab="3" data-i18n="h.plat.tab3" data-page-node-id="W5Fk8B1kJehDXMMdl7oyrM">治理</button>
+        <button class="tab" data-tab="4" data-i18n="h.plat.tab4" data-page-node-id="JCDzaZ687k3LCVmEXOT7CV">智能</button>
+      </div>
+
+      <div class="tab-panel active" data-panel-group="plat" data-panel="1" data-page-node-id="DjyHduBOuhnAV5XAUrJXB1">
+        <div class="tab-grid" data-page-node-id="3y63XFsyh5HYaFgXC1phNb">
+          <div data-page-node-id="M6D1NEJTXcSduBI4VEEE2U">
+            <h3 data-i18n="h.plat.p1.title" data-page-node-id="31wFJaVSAGE2GwsrFQdB9w">为开发者而生的内容建模</h3>
+            <p class="lead" data-i18n="h.plat.p1.lead" data-page-node-id="6JO8SJDE90wrCvtWK6jwK5">三层类型体系与图形化建模工具，让结构化内容像搭积木一样被定义、组合与复用。</p>
+            <ul class="check-list" data-page-node-id="H9mRG5Mp6fAMYwVkX4GzZI">
+              <li data-i18n="h.plat.p1.li1" data-page-node-id="L8L2sVKKSuu2l2ngd20B6v">PAGE / COMPONENT / SHARED 三层内容类型，页面、组件与共享内容各得其所</li>
+              <li data-i18n="h.plat.p1.li2" data-page-node-id="qt3Cly7JmlUI61K6fdojAO">双向内容关系与分类法体系，结构化关联一目了然</li>
+              <li data-i18n="h.plat.p1.li3" data-page-node-id="IfMCA3dTyx40QE2v0Wnzqh">20+ 字段类型与字段变量系统，覆盖从富文本到多媒体的完整场景</li>
+              <li data-i18n="h.plat.p1.li4" data-page-node-id="EbVU62twaIXvVfMeYrq2SQ">OpenSearch 驱动的内容检索，为站点群提供毫秒级查询</li>
+            </ul>
+          </div>
+          <div class="code-panel" data-page-node-id="RIFCEleOyWXiDmhOn6tZou"><span class="c-com" data-page-node-id="cquNjTo2AKo3S6bFxb4iFm">// 通过 Headless API 获取结构化内容</span>
+<span class="c-key" data-page-node-id="Ic25d7dBgY8eYDhvbDjCX0">const</span> res = <span class="c-key" data-page-node-id="mO8CizuhPxupIWyA1DsSJI">await</span> fetch(<span class="c-str" data-page-node-id="tSbjdCoA8UqKzd6lYWyl7k">"/api/v1/delivery/content"</span>, {
+  params: { type: <span class="c-str" data-page-node-id="WN08SqaDbBN0yUQz4g1jQD">"policyArticle"</span>, limit: <span class="c-str" data-page-node-id="fF4jLGyfhkLUZtNnoNpvPA">10</span> }
+});
+<span class="c-key" data-page-node-id="Cs3g3eX3mTQzqLEYRejf7c">const</span> { items } = <span class="c-key" data-page-node-id="uqen16aECWjDtMjLgYu12W">await</span> res.<span class="c-fn" data-page-node-id="HOXCgHveDfNNibZVSGbNme">json</span>();
+items.<span class="c-fn" data-page-node-id="EvnZkEF14Mbb3MV3C4DD3v">forEach</span>(render);  <span class="c-com" data-page-node-id="aMPBhzVMLbqyLXOM9kbyLI">// 任意前端框架渲染</span></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel-group="plat" data-panel="2" data-page-node-id="LuMyVpAMWtDQEl7jbSVED1">
+        <div class="tab-grid" data-page-node-id="5TzUrIu4gkrtWzGLQILO7S">
+          <div data-page-node-id="hKwtIVWA2BnLwq1aBTvS7E">
+            <h3 data-i18n="h.plat.p2.title" data-page-node-id="gpu9A1xVDSkAu3JJvPFEHT">一次创作，多端交付</h3>
+            <p class="lead" data-i18n="h.plat.p2.lead" data-page-node-id="gLaf24WN741mURAajsXz8u">Headless API 与服务端渲染双模式并存——门户站点、小程序、App 与大屏，一个内容源全部覆盖。</p>
+            <ul class="check-list" data-page-node-id="1ejDyoBOcNejW9CAUg10mt">
+              <li data-i18n="h.plat.p2.li1" data-page-node-id="dOEEfOHKCqrFwB4QAaD8rI">RESTful 交付 API，任意框架、任意渠道按需取数</li>
+              <li data-i18n="h.plat.p2.li2" data-page-node-id="8NwrMG7zUxihE8PCVTTEEU">FreeMarker 服务端渲染与模板机制，传统站点平滑迁移</li>
+              <li data-i18n="h.plat.p2.li3" data-page-node-id="EQhFfCwP98DBVA4zmt2XJF">静态化与缓存预热，支撑高并发访问场景</li>
+              <li data-i18n="h.plat.p2.li4" data-page-node-id="QUxi3MNzeV9O1zn7k6Mh0s">多站点、多环境、多域名体系，一站管理全局</li>
+            </ul>
+          </div>
+          <div class="flow-panel" data-page-node-id="vHQTHhq8gRsR2Z7TJuoL8N">
+            <div class="v-title" data-i18n="h.plat.p2.flow" data-page-node-id="hqoP8L3gQEvP0mytmwgWGS">发布流水线</div>
+            <div class="flow-step" data-page-node-id="qdL4zFpBLVOz4nDp0TB6E3"><div class="no" data-page-node-id="YJPKsGF0chQ430sSYCRo4z">1</div><div data-page-node-id="jChak9hK2fcGsJbmA4Zl0Y"><b data-i18n="h.plat.p2.s1t" data-page-node-id="vi4lfdUxsESd9FlQr3fUDR">创作</b><span data-i18n="h.plat.p2.s1d" data-page-node-id="kQeeO86DSnWWI5mtkTUXch">可视化编辑器 UVE 中所见即所得</span></div></div>
+            <div class="flow-line" data-page-node-id="8fWiK488tpzpOxHS5FZYXP"></div>
+            <div class="flow-step" data-page-node-id="IG7R5fiPYczOgRpJcw36Hz"><div class="no" data-page-node-id="6TkRgjQM7iP1h4TkFyYyPt">2</div><div data-page-node-id="Oz2zvoVoyEzNJOkeFNjjWG"><b data-i18n="h.plat.p2.s2t" data-page-node-id="sXN4szBmvXIlHrzLrdHGAb">审核</b><span data-i18n="h.plat.p2.s2d" data-page-node-id="NNsLLJEwPfb3C4T7M1xcAW">多级工作流，逐级留痕</span></div></div>
+            <div class="flow-line" data-page-node-id="MAgaY6y39xRiRHKbd8aSnw"></div>
+            <div class="flow-step" data-page-node-id="gm1XVJtZH3DN4ey09bFRGb"><div class="no" data-page-node-id="t11I2WJntwHeRrbA8uhfq6">3</div><div data-page-node-id="wbHvsaAXPEcCsk1OzrHHfw"><b data-i18n="h.plat.p2.s3t" data-page-node-id="2Djlv7e4RHIhHAHFUNeEpD">发布</b><span data-i18n="h.plat.p2.s3d" data-page-node-id="XnfEvIiKC0LnPpjxQPPHdV">灰度发布与即时回滚</span></div></div>
+            <div class="flow-line" data-page-node-id="vNyChsDXnj8y9CV8DXVhAM"></div>
+            <div class="flow-step" data-page-node-id="LJgsSi79S7c3PbJGwL4wvg"><div class="no" data-page-node-id="cCdphkLIPN7Y2eDOPpWYTA">4</div><div data-page-node-id="iE6wEfdWpCbhoFWOfC2EWG"><b data-i18n="h.plat.p2.s4t" data-page-node-id="ThBrNvD8D9tdCuN1KId75p">分发</b><span data-i18n="h.plat.p2.s4d" data-page-node-id="AHWBPpLxp0yFot3YgQIaWT">Web / 小程序 / App / 大屏</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel-group="plat" data-panel="3" data-page-node-id="ZuUUnN26AEHxlHYC8upiTn">
+        <div class="tab-grid" data-page-node-id="yjad1gApQV2xdHRNdqt5eg">
+          <div data-page-node-id="U3KAxAn2rk1LMQk50eUR0l">
+            <h3 data-i18n="h.plat.p3.title" data-page-node-id="YebUxbGxAucL15dq4baHA3">治理内建于平台架构</h3>
+            <p class="lead" data-i18n="h.plat.p3.lead" data-page-node-id="Ahq6aNgtuOi2ElXRKyBuzv">对合规优先的组织而言，治理不是插件，而是地基。每一次变更都可追溯、可审批、可回滚。</p>
+            <ul class="check-list" data-page-node-id="q3ejicuBoYKAaL8xkTH0bL">
+              <li data-i18n="h.plat.p3.li1" data-page-node-id="kd73PrcjX798S4hpe8l6te">多级审批工作流，匹配组织发布制度</li>
+              <li data-i18n="h.plat.p3.li2" data-page-node-id="bGYj1vESZLsqlwb0nLvKT5">细粒度角色权限、SSO 单点登录与多因素认证</li>
+              <li data-i18n="h.plat.p3.li3" data-page-node-id="WEmnuqJTRlJyi7OQCzz885">完整审计日志：谁、在何时、改了什么</li>
+              <li data-i18n="h.plat.p3.li4" data-page-node-id="U18u6LfCbDCSItGEDdQ78O">开发 / 测试 / 生产环境隔离，变更全流程可回滚</li>
+            </ul>
+          </div>
+          <div class="v-panel" data-page-node-id="tcT8p66hq2KFSi6KbBCXDF">
+            <div class="v-title" data-i18n="h.plat.p3.perm" data-page-node-id="7AwHkr9E4k9pmUbMqPbv9N">角色权限矩阵（示例）</div>
+            <div class="perm-grid" data-page-node-id="tP3kPmGAsEUf1AGdv8hyFb">
+              <div class="perm-card" data-page-node-id="H1SonF0J1j1Ouz9BthT1Tt"><b data-i18n="h.plat.p3.r1" data-page-node-id="zIY6u9bouY06Ahq8DHvEq7">内容编辑</b><div class="perm-dots" data-page-node-id="kBsZ29C2HCbMG5AfXhcWAH"><i class="on" data-page-node-id="H4CQEZzV6HKqGILfXva334"></i><i class="on" data-page-node-id="rsOkUzeUWcKSp9wIYihotJ"></i><i data-page-node-id="J9C5hmLYJFjbc56Qm7smBH"></i><i data-page-node-id="OCGN04V1NNBDjtyIU3QWrL"></i></div></div>
+              <div class="perm-card" data-page-node-id="KTwf9tK6NwfWxb47ISnE0z"><b data-i18n="h.plat.p3.r2" data-page-node-id="7RMQIA7W2FXV1fVTDOdBuY">审核员</b><div class="perm-dots" data-page-node-id="jeSj1StOvQrBbluJbrHUPI"><i class="on" data-page-node-id="mjZIYvZ8AYkG2ZtUzBBFug"></i><i class="on" data-page-node-id="zCVpzruqD1MMhXsSb3j9Tx"></i><i class="on" data-page-node-id="HCf0KHroPSE0YR6rrXyCoE"></i><i data-page-node-id="DIRBKe1wYBLwDQSsyducCW"></i></div></div>
+              <div class="perm-card" data-page-node-id="v7L05ngfNJs8QTY4U6pdQo"><b data-i18n="h.plat.p3.r3" data-page-node-id="NVyM0EiiHGQfkae2CR4MJe">系统管理员</b><div class="perm-dots" data-page-node-id="Ch4kn1IDtzADibGlG5VLV9"><i class="on" data-page-node-id="x63vEGdC7LlqO9bqtFf4MS"></i><i class="on" data-page-node-id="Fbv1D3af4OQP6jXP5hjxiC"></i><i class="on" data-page-node-id="BJC1NuRNRCi1DcBHj005ql"></i><i class="on" data-page-node-id="7S1eni1FdltKmmQc3UB8NY"></i></div></div>
+            </div>
+            <p style="font-size:12px;color:var(--muted);margin-top:14px;" data-i18n="h.plat.p3.note" data-page-node-id="dWOuWBvJrnsl3FBMqtwdcF">查看 / 编辑 / 审核 / 发布 权限可细化到站点、栏目与单篇内容</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel-group="plat" data-panel="4" data-page-node-id="Kc8qGCZ9vA0GPqN5Ns4C48">
+        <div class="tab-grid" data-page-node-id="nnIZyYBvbxq7la9ur13hM4">
+          <div data-page-node-id="tCvFQlEZeqdR2NYdBWvBnM">
+            <h3 data-i18n="h.plat.p4.title" data-page-node-id="1ZwllmmpO26mkE9t5rNqEw">让 AI 在规则之内工作</h3>
+            <p class="lead" data-i18n="h.plat.p4.lead" data-page-node-id="iYmz4coNIEadJ2yMNzsSRl">AI 以平台角色的身份参与内容生产，但发布与否始终由人来决定——每一步操作可审计、可追溯、可撤销。</p>
+            <ul class="check-list" data-page-node-id="R4vkl7LuuSEDlHYJTjcdnh">
+              <li data-i18n="h.plat.p4.li1" data-page-node-id="tqayGvinqRa50I7gH8Kjfh">AI 辅助创作：摘要、标题、标签与翻译一键生成</li>
+              <li data-i18n="h.plat.p4.li2" data-page-node-id="OWEfuEeP7aIgzEsgHFrldH">媒体智能流水线：转码、审核、去重、OCR 全自动</li>
+              <li data-i18n="h.plat.p4.li3" data-page-node-id="Hb3T1tmdcBWGEFMyUCjZDT">内容洞察：访问、互动与转化数据驱动内容优化</li>
+              <li data-i18n="h.plat.p4.li4" data-page-node-id="1Y1Ngmn4wHYt1bBRCk8o76">可插拔多模型接入，支持私有化部署大模型</li>
+            </ul>
+          </div>
+          <div class="v-panel" data-page-node-id="lm6JJrezjEDKRrDIquk7KV">
+            <div class="v-title" data-i18n="h.plat.p4.chart" data-page-node-id="K8fAJ4IjCCpip6fjsGMDQn">内容互动趋势（示例）</div>
+            <div class="chart-bars" data-page-node-id="0ri6bpiluE2MC99f8yQIIG">
+              <div class="bar" style="height:42%" data-page-node-id="xqFqP2pt2myu83PIf3BgpJ"><span data-page-node-id="mkEGxQLV775SLsTV4PAYGg">12%</span></div>
+              <div class="bar" style="height:58%" data-page-node-id="deF9FU19glgUTZH9doaRKu"><span data-page-node-id="y6wgihD4t5Ux6Ufgtgfi3p">19%</span></div>
+              <div class="bar hot" style="height:88%" data-page-node-id="2fPX6LZtHZjzQby0wb7AFA"><span data-page-node-id="uzAEdUcrKRfQdvpi1at7vd">34%</span></div>
+              <div class="bar" style="height:70%" data-page-node-id="pTmfMl0Ek2UdcD0FmUB5Ef"><span data-page-node-id="LhvCc3ddhhrjKTHRpsPuZy">26%</span></div>
+              <div class="bar" style="height:46%" data-page-node-id="NmHsDxJDgPaqmfEEO1pJ6j"><span data-page-node-id="D50yhW9NGekuBqLgredGro">9%</span></div>
+            </div>
+            <div class="chart-x" data-page-node-id="Dck8tcQd7bcyRxmhy1bjsj"><span data-page-node-id="UebZjbySfP3kq1oV92EQ8P">Q1</span><span data-page-node-id="UA7ARcCIE98h0LQDDt0Awn">Q2</span><span data-page-node-id="KKTNCx0YfnBL4KBhWoRDmT">Q3</span><span data-page-node-id="AVOX1EIabLvHJrMUXv80ED">Q4</span><span data-page-node-id="AfyGGgAcrPo27VoNiUlCn4">次年Q1</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 八大功能卡片 ================= -->
+  <section class="section section-soft" data-page-node-id="aoDWLyVQFvSb8aekF1GM7H">
+    <div class="container" data-page-node-id="MgpTy0HQP7yMQIS8dqqEdO">
+      <div class="section-head center" data-page-node-id="8lB4FeICZQ47CwCTqDtHcC">
+        <span class="kicker" data-i18n="h.caps.kicker" data-page-node-id="PXKdIJNb2JTa9i5BwFHdpm">产品能力</span>
+        <h2 class="section-title" data-i18n="h.caps.title" data-page-node-id="OMbF0kU52cOyNwLGXeS521">十大领域能力，开箱即用</h2>
+        <p class="section-sub" data-i18n="h.caps.sub" data-page-node-id="xfFGI87zwDXxNdAmrZdI20">从内容建模到媒体智能，从模板引擎到可视化编辑，PowerCMS 12 以完整的平台能力覆盖数字内容运营全生命周期。</p>
+      </div>
+      <div class="grid grid-4" data-page-node-id="iahmjgrjayboCUneDG4Cml">
+        <div class="card reveal" data-page-node-id="Tekgg3pWYj4ZmnNeA8eCpt"><div class="icon-tile" data-page-node-id="VoCx4pDzShdNfr9trg0UC6">🧩</div><h3 data-i18n="h.cap.1t" data-page-node-id="TiwUiTzN3I7h6xwdru0Ton">内容建模</h3><p data-i18n="h.cap.1d" data-page-node-id="NBcaWI6JQrAOmIAWWhpDGO">三层类型体系、内容关系、分类法与字段变量，结构化内容灵活定义。</p></div>
+        <div class="card reveal" data-page-node-id="7HENeGSGoKLjWKhiNg8LC7"><div class="icon-tile" data-page-node-id="Ad2wno4c6wJk9dc7S7z9CV">🕘</div><h3 data-i18n="h.cap.2t" data-page-node-id="LrpglIItsEK3VsELiPmpDX">版本与工作流</h3><p data-i18n="h.cap.2d" data-page-node-id="DFYkCCFtMZbVT07PcAslt6">多级审批、版本对比、定时发布与一键回滚，变更全程可控。</p></div>
+        <div class="card reveal" data-page-node-id="YBmxEf3GI2CIb92FLrlVEk"><div class="icon-tile" data-page-node-id="MUMEiIWxz3N6Xr75zRFe0H">🎨</div><h3 data-i18n="h.cap.3t" data-page-node-id="nZpnl7d62BpkMAvohVGxgx">模板与主题</h3><p data-i18n="h.cap.3d" data-page-node-id="qKbGsdSZND7oh9nlW3lzDD">双模式模板机制：可视化设计器与代码模板并存，主题跨站点复用。</p></div>
+        <div class="card reveal" data-page-node-id="NOK0FBMZCTVfkCFXR6gDPy"><div class="icon-tile" data-page-node-id="Bh3hsPE4xwxp5ONTmFJF57">🖱️</div><h3 data-i18n="h.cap.4t" data-page-node-id="XENn7Ew0l1V5jqYBX5d2yL">可视化编辑器 UVE</h3><p data-i18n="h.cap.4d" data-page-node-id="gOU31mCIQpe1gIqJdAwwzr">拖拽式体验构建器，业务人员零代码完成页面搭建与实时预览。</p></div>
+        <div class="card reveal" data-page-node-id="UASLaT9BbdED2OqhyDwA7e"><div class="icon-tile" data-page-node-id="S7hWdWJ883Ysl5vfXsojfh">🖼️</div><h3 data-i18n="h.cap.5t" data-page-node-id="FWolmXVu0teXeTnSAJRxyM">媒体智能</h3><p data-i18n="h.cap.5d" data-page-node-id="m6Seo7YxffDIHBz0qeYAj5">Knox 媒体库 + AI 流水线：智能分类、转码、审核与素材检索。</p></div>
+        <div class="card reveal" data-page-node-id="XpsIEfqXVDaPIiFUHjsFkb"><div class="icon-tile" data-page-node-id="5ljTlwOwOwY2JJLoXFyHSB">🌐</div><h3 data-i18n="h.cap.6t" data-page-node-id="q4SDGujJLIU1RVCgcROMJK">多语言与本地化</h3><p data-i18n="h.cap.6d" data-page-node-id="JVbTF5uD1gSy6sxBAgEa5g">多语言站点树与翻译工作流，一套内容服务全球受众。</p></div>
+        <div class="card reveal" data-page-node-id="EiWBNGpKVtPqpr0IDgtFBC"><div class="icon-tile" data-page-node-id="1o9AW3IarmSWck2zdEBP9L">🛡️</div><h3 data-i18n="h.cap.7t" data-page-node-id="sMQDpexfKDXajvUKiC2cID">安全与访问控制</h3><p data-i18n="h.cap.7d" data-page-node-id="NRSQgXXHAJ639wbLKQhsDE">细粒度权限、SSO/MFA、审计日志与等保合规设计。</p></div>
+        <div class="card reveal" data-page-node-id="WE7vYZOp0IrODNxD9lJift"><div class="icon-tile" data-page-node-id="WQoMGcPEDlpzGbLwl5IaFa">📊</div><h3 data-i18n="h.cap.8t" data-page-node-id="cjuybnSGfJEAXVotqKs2ix">统计与分析</h3><p data-i18n="h.cap.8d" data-page-node-id="fwMAGMsw2sLLeE79l6xhNI">内容级数据洞察，让每一次发布都可被度量与优化。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 信创适配条 ================= -->
+  <section class="section" style="padding-bottom:0;" data-page-node-id="IAbEaXn1vO4dyDqAHM2uEy">
+    <div class="container" data-page-node-id="3iR7H4XX2ZVwhZ7CUeWpNF">
+      <div class="xc-band reveal" data-page-node-id="cyyYVb6ikWQUjAr6p3fOBr">
+        <div data-page-node-id="GExJHOmuNcxw1fuDkZgZyx">
+          <h3 data-i18n="h.xc.title" data-page-node-id="AKMqFEitw9BHNZfVNi5BBp">全面兼容信创环境</h3>
+          <p data-i18n="h.xc.sub" data-page-node-id="mPvu05712k0oLOn2NigEZ2">从数据库、中间件到操作系统深度适配，满足国产化替代与数据安全要求</p>
+        </div>
+        <div class="xc-badges" data-page-node-id="n9wWcGN38oC4vCITL7uMCy">
+          <span class="xc-badge" data-i18n="h.xc.b1" data-page-node-id="uwuiKnZAkfgJKvSjQQt5eE">人大金仓 KingbaseES</span>
+          <span class="xc-badge" data-i18n="h.xc.b2" data-page-node-id="aav2hLEHU0VySwGBGHST9J">金蝶天燕 Apusic</span>
+          <span class="xc-badge" data-i18n="h.xc.b3" data-page-node-id="NThHB0HCckLp95gFLZIpYN">私有化部署</span>
+          <span class="xc-badge" data-i18n="h.xc.b4" data-page-node-id="XVELD5qzTASLYRSLnmGEDA">数据不出域</span>
+          <span class="xc-badge" data-i18n="h.xc.b5" data-page-node-id="k3Pe3xPckJR5FomO9os0Le">等保 2.0 设计</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 解决方案预览 ================= -->
+  <section class="section" data-page-node-id="iGzWgNnAVcuzRAVCl3EXUl">
+    <div class="container" data-page-node-id="0slALelUxF7eiJOGKdtpqP">
+      <div class="section-head center" data-page-node-id="WJF1Bo003K0B64DIsskwdY">
+        <span class="kicker" data-i18n="h.sol.kicker" data-page-node-id="0LJg3VuCugNqQXCq0of852">解决方案</span>
+        <h2 class="section-title" data-i18n="h.sol.title" data-page-node-id="Fx6KhKWjYSYLFOPKSXNVDs">为你的行业而生</h2>
+        <p class="section-sub" data-i18n="h.sol.sub" data-page-node-id="V65ej7fFA6bK0yWOyN0CVu">PowerCMS 12 深入政务服务、教育、金融、能源与集团企业的业务流程与合规现实。</p>
+      </div>
+      <div class="grid grid-3" data-page-node-id="9VOYB27dUOlcP4PA56Innq">
+        <a class="card ind-card reveal" href="solutions.html" data-page-node-id="4Xy8XChiGzbhfu1Ed3xVBZ">
+          <div class="tag" data-i18n="h.sol.c1tag" data-page-node-id="tU9NwAmq0SYPUh6o8zXco9">合规优先</div>
+          <div class="ind-ico" data-page-node-id="DcdRAOt2yazFiasoS7HpxI">🏛️</div>
+          <h3 data-i18n="h.sol.c1t" data-page-node-id="oiCE8bRH8sAys2f8wiTlZ3">政府与事业单位</h3>
+          <p data-i18n="h.sol.c1d" data-page-node-id="6O2KyJSICmjpEyoTNKvmfu">政务公开、政策发布与站点群统一治理，满足等保与信创要求。</p>
+        </a>
+        <a class="card ind-card reveal" href="solutions.html" data-page-node-id="jHLnNcxaLyCwW89abmD58q">
+          <div class="tag" data-i18n="h.sol.c2tag" data-page-node-id="H4V6xqLstz6M27eV9ivjzQ">多站点群</div>
+          <div class="ind-ico" data-page-node-id="V6tiHGIuutrPYw4vGl2FOH">🎓</div>
+          <h3 data-i18n="h.sol.c2t" data-page-node-id="y1Hz5DQ0g7WrvQJFL5YsWb">教育与科研</h3>
+          <p data-i18n="h.sol.c2d" data-page-node-id="CUw3gF0kU1XKc6KpmgHbX8">院系站点群、招生专题与科研宣传，非技术人员即可搭建页面。</p>
+        </a>
+        <a class="card ind-card reveal" href="solutions.html" data-page-node-id="AIu6XAYIIjy3aNaO77mkh5">
+          <div class="tag" data-i18n="h.sol.c3tag" data-page-node-id="llA9CJy1PQEldZ3jQbhKCJ">强监管</div>
+          <div class="ind-ico" data-page-node-id="4B7pLMaNEN0ZP2Gi3RDtmC">🏦</div>
+          <h3 data-i18n="h.sol.c3t" data-page-node-id="LR1ku4iH5vhI0u3C81Lgu3">金融</h3>
+          <p data-i18n="h.sol.c3d" data-page-node-id="79AH6ZHOoDSTtJ5dAh7bB1">营销内容与信息披露统一治理，审计留痕满足监管检查。</p>
+        </a>
+        <a class="card ind-card reveal" href="solutions.html" data-page-node-id="RTGBiEElK5v0eYHKPoAlOa">
+          <div class="tag" data-i18n="h.sol.c4tag" data-page-node-id="ZsmFRkM8MDBdVjZVRmluNS">全渠道</div>
+          <div class="ind-ico" data-page-node-id="uXT4QP6LzgEiOifjAYhPgk">⚡</div>
+          <h3 data-i18n="h.sol.c4t" data-page-node-id="oT5LsElBzY1EIgvfTGpzBP">能源与制造</h3>
+          <p data-i18n="h.sol.c4d" data-page-node-id="B5qQpyY5DGigot3gqCF1la">集团门户、安全生产宣传与多媒体内容一体化运营。</p>
+        </a>
+        <a class="card ind-card reveal" href="solutions.html" data-page-node-id="SbMMIEDb6xxv9xv3Fy2sLV">
+          <div class="tag" data-i18n="h.sol.c5tag" data-page-node-id="z2Skv72HGYwslrTBzw0RgK">多品牌</div>
+          <div class="ind-ico" data-page-node-id="sAlEb5seV08OODNUqjNTx2">🏢</div>
+          <h3 data-i18n="h.sol.c5t" data-page-node-id="5PE9tbOKglSHij7TdtZLxt">集团企业</h3>
+          <p data-i18n="h.sol.c5d" data-page-node-id="HA1nptBTHlz5WGpkvzLOa3">多品牌、多区域站点群集中管控，内容资产统一沉淀复用。</p>
+        </a>
+        <a class="card ind-card reveal" href="solutions.html" style="display:flex;align-items:center;justify-content:center;background:var(--primary-050);border-color:#C9D8F5;" data-page-node-id="8kZLf9jEqSxjFhuzqqfNIH">
+          <span class="link-arrow" style="font-size:16px;" data-i18n="h.sol.all" data-page-node-id="y6h2Isf1xCVkmUso6zlnvH">查看全部解决方案</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AI 治理 ================= -->
+  <section class="section section-dark" data-page-node-id="qoQTHP9z8B4p9UFdCuDDHX">
+    <div class="container" data-page-node-id="BuBuoMOsoIwGyw1ZqNxPT5">
+      <div class="section-head center" data-page-node-id="tMsndFHDDczYCHg4jfBbpc">
+        <span class="kicker" data-i18n="h.ai.kicker" data-page-node-id="Kv6Adaqzd6X7gKQ0Em30r0">AI · 治理之内</span>
+        <h2 class="section-title" data-i18n="h.ai.title" data-page-node-id="EoZKsC9jUHGmcySpXxpjcV">把 AI 用在既有规则之内</h2>
+        <p class="section-sub" data-i18n="h.ai.sub" data-page-node-id="8Wt9dWPDth3mB7yYRPaBW3">AI 以平台角色参与内容生产：拥有被授予的权限、遵循既定工作流、留下完整审计记录。发布与否，始终由人决定。</p>
+      </div>
+      <div class="grid grid-4" data-page-node-id="1vbkwUjkzu14yrzE9cbh0a">
+        <div class="card reveal" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);" data-page-node-id="XukgzKrhmcQeZdCQ83rSCz">
+          <div class="icon-tile" style="background:rgba(46,91,255,.18);" data-page-node-id="ww5Cw2hmE3yylXXgEi9H2U">✍️</div>
+          <h3 style="color:#fff;" data-i18n="h.ai.1t" data-page-node-id="Upf1VrhDOF14NQIdDxMfLb">智能创作辅助</h3>
+          <p style="color:#9FB2D9;" data-i18n="h.ai.1d" data-page-node-id="oymRd4Yd62u5GtdfPRRBvm">摘要、标题、标签与多语言翻译一键生成，编辑效率倍增。</p>
+        </div>
+        <div class="card reveal" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);" data-page-node-id="IRr2wUvvd19ruU9iPNZnMm">
+          <div class="icon-tile" style="background:rgba(46,91,255,.18);" data-page-node-id="sp2IOB4VyEoSKh33Ehm9LR">🎞️</div>
+          <h3 style="color:#fff;" data-i18n="h.ai.2t" data-page-node-id="La1GWSDe2fcON6YExtesdx">媒体智能流水线</h3>
+          <p style="color:#9FB2D9;" data-i18n="h.ai.2d" data-page-node-id="Jk1BpfxERcSFsh2dPgl2eh">上传即自动转码、审核、去重与打标，海量素材即传即用。</p>
+        </div>
+        <div class="card reveal" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);" data-page-node-id="xuBLSipGmdz1EAGoIzai5i">
+          <div class="icon-tile" style="background:rgba(46,91,255,.18);" data-page-node-id="Ic7BuO3DmlJ1HSwUoZw3Y8">⚖️</div>
+          <h3 style="color:#fff;" data-i18n="h.ai.3t" data-page-node-id="VQyUkY5BWNkBN4SwFFt89F">AI 行为可审计</h3>
+          <p style="color:#9FB2D9;" data-i18n="h.ai.3d" data-page-node-id="fdjfTz88Vonkud8Aw6jyy9">AI 的每一次操作可见、可归因、可审查、可撤销。</p>
+        </div>
+        <div class="card reveal" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);" data-page-node-id="zauTjRVDzj6YNBOe6SMzvK">
+          <div class="icon-tile" style="background:rgba(46,91,255,.18);" data-page-node-id="GSi0lmoI3PLMA6BdFvoBIP">🔌</div>
+          <h3 style="color:#fff;" data-i18n="h.ai.4t" data-page-node-id="Pvei0MweAhYDVsJ12MWtuG">可插拔模型</h3>
+          <p style="color:#9FB2D9;" data-i18n="h.ai.4d" data-page-node-id="cMx6jrOIRsHChVK453obVi">接入自有或第三方大模型，支持全私有化部署，数据不出域。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 客户案例 ================= -->
+  <section class="section" data-page-node-id="HDCWaflZRu2yQWYHdBBT1j">
+    <div class="container" data-page-node-id="Op7GGT51X5JIvVBFlRW13l">
+      <div class="section-head center" data-page-node-id="xhjEQfU5RHUgXU0ve9nHCn">
+        <span class="kicker" data-i18n="h.case.kicker" data-page-node-id="c8ZONPHbhemPk5o0QpXQ7d">客户案例</span>
+        <h2 class="section-title" data-i18n="h.case.title" data-page-node-id="RfJv7Qbr2snwEDvcooWywT">大型组织的共同选择</h2>
+        <p class="section-sub" data-i18n="h.case.sub" data-page-node-id="csVZBanobPlQNZsALI25Oy">从省级政务门户到双一流高校，PowerCMS 12 支撑着要求最严苛的内容运营。</p>
+      </div>
+      <div class="grid grid-3" data-page-node-id="8LqcPW36KNN1MVmYHNgHPk">
+        <div class="card case-card reveal" data-page-node-id="GVV3TqzFKGGW4YEfsPmdJG">
+          <div class="case-org" data-page-node-id="4JHpJ8jbApRZHnp6mt8keV"><div class="case-avatar" data-page-node-id="MdwAU9HsPiG2widYs8yG5q">政</div><div data-page-node-id="vgLfuDb05uHgSwXPneLKsX"><b data-i18n="h.case.1org" data-page-node-id="lPuvzNYnRDHQEMwuPSQvLt">某省级政务服务门户</b><br data-page-node-id="G4oSmnDHUR3EIHzehPcosk"><small style="color:var(--muted);" data-i18n="h.case.1ind" data-page-node-id="uNTAfWJBqpMIbTCASNllbL">政务服务</small></div></div>
+          <blockquote data-i18n="h.case.1q" data-page-node-id="CZAxJnh0V2UVYvKDW6fMIb">200+ 政务站点迁移到统一平台后，发布流程从 3 天缩短到 2 小时，内容审核全程留痕。</blockquote>
+          <div class="case-metrics" data-page-node-id="xhFEAbE562l6aCDowMjqk1">
+            <div data-page-node-id="FoWtrsVZLKhbVzNHc2TuW0"><b data-page-node-id="BSkJNwucIO8foOfeAeQHdy">200+</b><span data-i18n="h.case.1m1s" data-page-node-id="A7ANKBU9k40YtAoCnjmTUC">统一站点</span></div>
+            <div data-page-node-id="rbQUIRBVl4u1jIU3JyG2HG"><b data-page-node-id="vEuiUmyzRiMokceqFBmURb">3天→2h</b><span data-i18n="h.case.1m2s" data-page-node-id="Q21juiR5yf6c8QYR6P6Yuf">发布时效</span></div>
+          </div>
+        </div>
+        <div class="card case-card reveal" data-page-node-id="7dI2WHziIeSXMo4SXafNYk">
+          <div class="case-org" data-page-node-id="u6fHv9bHZ0e0Gk2qAtah4X"><div class="case-avatar" data-page-node-id="8Pf4BwHRUbN4tvFxyAJgmn">校</div><div data-page-node-id="qRtFS5bYLTRJFhqsJcwtJS"><b data-i18n="h.case.2org" data-page-node-id="t8yyIM6G2K8EyqHIBSt5cp">某双一流高校</b><br data-page-node-id="vTEAC4KLHrW50ztUivW8Nb"><small style="color:var(--muted);" data-i18n="h.case.2ind" data-page-node-id="Rc5P3Y161NAzx6WjDCfozH">教育科研</small></div></div>
+          <blockquote data-i18n="h.case.2q" data-page-node-id="ZeRu2WdaN7JAiZM91RLkbX">院系站点群与招生专题全部可视化搭建，80% 的页面由非技术人员独立完成。</blockquote>
+          <div class="case-metrics" data-page-node-id="xcXHGg0PCjbMTSZ0qx50ti">
+            <div data-page-node-id="7GSkN0od2Yp0ROMKQk1HbN"><b data-page-node-id="aZFVcYBSDLtC912DCy3qXG">60+</b><span data-i18n="h.case.2m1s" data-page-node-id="pglviofgCJPezVlsHPyl27">站点群</span></div>
+            <div data-page-node-id="13fP1OwOGnM4u7PwuZZp1L"><b data-page-node-id="H9legVLETkMLW5Cc8RpzsT">80%</b><span data-i18n="h.case.2m2s" data-page-node-id="GwONvahlcBos9AWyS1uSK2">零代码页面</span></div>
+          </div>
+        </div>
+        <div class="card case-card reveal" data-page-node-id="sZWiaFJSPMrtJn0a91B56u">
+          <div class="case-org" data-page-node-id="zI9fhGMOW9rKvhSjDEsM4i"><div class="case-avatar" data-page-node-id="GEpaETJHn5F0DmAEWbBN71">银</div><div data-page-node-id="jJwSOt8chW4rmEiGtPKHqe"><b data-i18n="h.case.3org" data-page-node-id="VAZXA6KMrosQhK0jnczu8e">某城市商业银行</b><br data-page-node-id="rDJwr2GDrEBt08oyaJMGCR"><small style="color:var(--muted);" data-i18n="h.case.3ind" data-page-node-id="CNEVgtiJabMHsQFmj4II53">金融</small></div></div>
+          <blockquote data-i18n="h.case.3q" data-page-node-id="ayL5ewa6dMBkd4VAZiM0Vt">营销内容与信息披露统一治理，审计覆盖率 100%，顺利通过年度监管检查。</blockquote>
+          <div class="case-metrics" data-page-node-id="81EpZANGqfTOgeEHGYGdEg">
+            <div data-page-node-id="YQw4GUxrHOKXc74wx0I58h"><b data-page-node-id="scG3kbUXi6wRnJd5w9GtoS">100%</b><span data-i18n="h.case.3m1s" data-page-node-id="yGnhrrNn73rkXULvw2mDtc">审计覆盖</span></div>
+            <div data-page-node-id="cAsl9oFUaqxcQokI0ukuTX"><b data-page-node-id="yFCqXnj1AvQ3LIgEhKMN3V">99.99%</b><span data-i18n="h.case.3m2s" data-page-node-id="6PGknBthsmf82YuyhaNp9F">可用性</span></div>
+          </div>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:36px;" data-page-node-id="PX0V8cMPBLHM4TnScJTPCX"><a class="link-arrow" href="customers.html" data-i18n="h.case.all" data-page-node-id="cXU1G3VK8BMohxhvOKeAGU">查看全部案例</a></p>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta-band" data-page-node-id="ffzIojqOOzzCcSM1LESZhK">
+    <h2 data-i18n="h.cta.title" data-page-node-id="nNMB9q31Tc8XjyaiyfBdre">准备好让内容运营更进一步了吗？</h2>
+    <p data-i18n="h.cta.sub" data-page-node-id="m4MvVHoGNzTM4mrv5ZuymH">立即开始免费试用，或与我们的解决方案专家聊聊你的场景。</p>
+    <div class="hero-cta" data-page-node-id="TkVmFKqZwhdT2HVSClwR6C">
+      <a class="btn btn-light btn-lg" href="pricing.html" data-i18n="h.cta.b1" data-page-node-id="EUsDFbtrSUE5tDp4RVC4xz">免费试用</a>
+      <a class="btn btn-outline-light btn-lg" href="#" data-i18n="h.cta.b2" data-page-node-id="6MH3PvFNmfA3JRE9iFKkfu">联系销售</a>
+    </div>
+  </section>
+
+  <!-- ================= 页脚 ================= -->
+  <footer class="footer" data-page-node-id="WWUt8uniQvSeePW2aKP1UA">
+    <div class="container" data-page-node-id="ZdKkkvAqMUn9lvoyBri04k">
+      <div class="footer-grid" data-page-node-id="Na5G5x38QroAOjqN8qGWqJ">
+        <div data-page-node-id="RqvjVKh36hRsvagRdPUXbE">
+          <a class="brand" href="index.html" data-page-node-id="ul2QLFifesJJV2ne6gPoPh">
+            <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true" data-page-node-id="nyVj72DT95ZrL7YC2ofZDi">
+              <rect x="2" y="2" width="60" height="60" rx="14" fill="#2E5BFF" data-page-node-id="1myILAoObSBjZ9lfkVYFy0"/>
+              <path d="M20 46V18h13c7.2 0 12 4.6 12 11.4S40.2 41 33 41h-7v5h-6zm6-11h6.6c3.6 0 6-2.2 6-5.6s-2.4-5.4-6-5.4H26v11z" fill="#fff" data-page-node-id="3sfFoQQkz0Td4PSKiDUNSh"/>
+            </svg>
+            <span class="brand-name" data-page-node-id="Gsrl7Ko4FF7zNAZYcgu7Yn">PowerCMS <em data-page-node-id="HYXBr6bvYHKBGI0fi3oAlE">12</em></span>
+          </a>
+          <p class="ft-tag" data-i18n="footer.tag" data-page-node-id="J1sxvgxHXDe8J4JP6xUhae">面向政府、事业单位与大型企业的新一代 Headless 内容平台。让内容成为组织的核心数字资产。</p>
+        </div>
+        <div data-page-node-id="ewUEiCrbc0AripgSIQ6kDC">
+          <h4 data-i18n="footer.c1" data-page-node-id="2hqNhED5UGZcuraQBHOQKd">产品</h4>
+          <ul data-page-node-id="xKHTZ9XEtSXOxA40wpnEpC">
+            <li data-page-node-id="2lRS4jfnkRfftHZxOtZjY6"><a href="product.html" data-i18n="footer.l11" data-page-node-id="axwNT4i05F937mUzX2Fih5">产品能力</a></li>
+            <li data-page-node-id="vSurck4b4hEDkdT5lCP23K"><a href="product.html" data-i18n="footer.l12" data-page-node-id="mWawJWH2JrX1KPVB1qlPGz">可视化编辑器</a></li>
+            <li data-page-node-id="Tsg6JrfS5q4jHVLIrFxRVt"><a href="product.html" data-i18n="footer.l13" data-page-node-id="pXfr2BLXhwLffXaE8WUYPE">媒体智能</a></li>
+            <li data-page-node-id="q7X0I34RAvh9f7qHSWCHkV"><a href="#" data-i18n="footer.l14" data-page-node-id="dpnTD9pDCT9waztukCXjDL">开发者中心</a></li>
+          </ul>
+        </div>
+        <div data-page-node-id="odW8QmkQkw6rbwsoUFzyKW">
+          <h4 data-i18n="footer.c2" data-page-node-id="FA0EAsuyPoZ6ktIktH1H4i">解决方案</h4>
+          <ul data-page-node-id="gMYRuJeEDGWPcPdvxnmL2l">
+            <li data-page-node-id="SDwkLiCkz92ZXMTEAh5cRj"><a href="solutions.html" data-i18n="footer.l21" data-page-node-id="piQtO3gmDCfcDZzFZ9rIdh">政府与事业单位</a></li>
+            <li data-page-node-id="MOjqSuBx5dEfm3hzSHQq7Z"><a href="solutions.html" data-i18n="footer.l22" data-page-node-id="H8Z6nU6v5Xoyk8vEasYevv">教育与科研</a></li>
+            <li data-page-node-id="ZohWdMUeW2yZarMLl2cDih"><a href="solutions.html" data-i18n="footer.l23" data-page-node-id="KYLycm4UkOozXWxP9tw39c">金融</a></li>
+            <li data-page-node-id="aeOPOweyURw9FYCU38QnxU"><a href="solutions.html" data-i18n="footer.l24" data-page-node-id="BsY2IfETfSNkrKkH1BApGg">能源与集团企业</a></li>
+          </ul>
+        </div>
+        <div data-page-node-id="GPzRbd8U57pjVSxotlUa1D">
+          <h4 data-i18n="footer.c3" data-page-node-id="sn25PSB2VN12wa0hR1i88P">资源</h4>
+          <ul data-page-node-id="9Nej1woFfMnDDfqHiH3Gv4">
+            <li data-page-node-id="OS5HCYGFXqRgL0JPmqIWKj"><a href="#" data-i18n="footer.l31" data-page-node-id="l2vgwsHDF8FEHCu4Ewgw1o">文档中心</a></li>
+            <li data-page-node-id="IIUqhkJv47Nu84UWporFis"><a href="customers.html" data-i18n="footer.l32" data-page-node-id="tmBdspg4AkrU2xWFg9FjLo">案例研究</a></li>
+            <li data-page-node-id="0ozarIDl0oibw5vqBVzpyi"><a href="#" data-i18n="footer.l33" data-page-node-id="7RZVxJCryz8JEIDfR5aFqD">版本发布</a></li>
+            <li data-page-node-id="k7D3yK66t2a0o8rfLRpE1h"><a href="#" data-i18n="footer.l34" data-page-node-id="wYN0jQ7TZkUfmVqCpJSFUl">博客</a></li>
+          </ul>
+        </div>
+        <div data-page-node-id="cRsTMciEUQgbD7CopikcsE">
+          <h4 data-i18n="footer.c4" data-page-node-id="iW099VDESOjtvFSER5JSiF">公司</h4>
+          <ul data-page-node-id="tKdeIK6Hbi3Sfms89G85lI">
+            <li data-page-node-id="FWhXYIKmSE0xLFr8YBQnlt"><a href="#" data-i18n="footer.l41" data-page-node-id="F2Aq6YQp0tBTkJNuXAoju5">关于我们</a></li>
+            <li data-page-node-id="iJtgBFR5Gj7iVIPcUJOCkm"><a href="#" data-i18n="footer.l42" data-page-node-id="nFCRQNcAc5F5pJpgOeA0N2">联系我们</a></li>
+            <li data-page-node-id="AjxPyg06DwdGSj7BmVRcp3"><a href="#" data-i18n="footer.l43" data-page-node-id="CdPwQAQlFPrQCHaRuEKvFX">合作伙伴</a></li>
+            <li data-page-node-id="obKqfwwFcEvCbMALb0jvC8"><a href="#" data-i18n="footer.l44" data-page-node-id="k6zwEG2KkBKcilyV2MAGWD">加入我们</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" data-page-node-id="MALB51tZyfJwAsWg1c00g7">
+        <span data-i18n="footer.copy" data-page-node-id="flaRlr9Gggw66fXi6EdIgB">© 2026 PowerCOM · 保留所有权利</span>
+        <span data-i18n="footer.icp" data-page-node-id="UAy7gezUsPgbnCnTg086f5">某ICP备XXXXXXXX号-X</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
