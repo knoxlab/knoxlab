@@ -29,14 +29,14 @@
         <a class="nav-link" data-nav="solutions" href="solutions.html" data-i18n="nav.solutions">解决方案</a>
         <a class="nav-link" data-nav="customers" href="customers.html" data-i18n="nav.customers">客户案例</a>
         <a class="nav-link" data-nav="pricing" href="pricing.html" data-i18n="nav.pricing">价格方案</a>
-        <a class="nav-link" href="#" data-i18n="nav.developers">开发者</a>
+        <a href="developer.html" class="nav-link" data-i18n="nav.developers">开发者</a>
       </nav>
       <div class="nav-actions">
         <div class="lang-toggle" role="group" aria-label="Language">
           <button type="button" data-lang="zh" class="active">中文</button>
           <button type="button" data-lang="en">EN</button>
         </div>
-        <a class="btn btn-ghost" href="#" data-i18n="nav.login">登录</a>
+        <a href="contact.html" class="btn btn-ghost" data-i18n="nav.login">登录</a>
         <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial">免费试用</a>
         <button class="menu-btn" aria-label="菜单">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0A1633" stroke-width="2" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
@@ -48,9 +48,9 @@
       <a href="solutions.html" data-i18n="nav.solutions">解决方案</a>
       <a href="customers.html" data-i18n="nav.customers">客户案例</a>
       <a href="pricing.html" data-i18n="nav.pricing">价格方案</a>
-      <a href="#" data-i18n="nav.developers">开发者</a>
+      <a href="developer.html" data-i18n="nav.developers">开发者</a>
       <div class="nav-cta-row">
-        <a class="btn btn-ghost" href="#" data-i18n="nav.login">登录</a>
+        <a href="contact.html" class="btn btn-ghost" data-i18n="nav.login">登录</a>
         <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial">免费试用</a>
       </div>
     </div>
@@ -88,8 +88,8 @@
           <div class="block-label" data-i18n="s.gainLabel">PowerCMS 方案</div>
           <ul class="gain-list">
             <li data-i18n="s.gov.g1">站点群统一建模、集中管控，一套平台管理全部站点</li>
-            <li data-i18n="s.gov.g2">三级审批工作流 + 全程审计留痕，对齐等保 2.0 要求</li>
-            <li data-i18n="s.gov.g3">人大金仓数据库、金蝶天燕中间件全栈信创适配</li>
+            <li data-i18n="s.gov.g2">多级审批工作流（任务制 + 会签）+ 全程审计留痕</li>
+            <li data-i18n="s.gov.g3">国产数据库与中间件适配持续推进，具体环境支持以实测为准</li>
             <li data-i18n="s.gov.g4">政务公开目录自动生成，栏目内容规范化发布</li>
           </ul>
           <div class="ind-result">
@@ -127,14 +127,14 @@
           <div class="block-label" data-i18n="s.gainLabel">PowerCMS 方案</div>
           <ul class="gain-list">
             <li data-i18n="s.edu.g1">站点群模板统一品牌规范，子站点一键开通</li>
-            <li data-i18n="s.edu.g2">UVE 可视化编辑器零代码搭建专题，当天上线</li>
+            <li data-i18n="s.edu.g2">UVE 可视化编辑器低代码搭建专题，当天上线</li>
             <li data-i18n="s.edu.g3">多语言站点支持国际招生与全球传播</li>
             <li data-i18n="s.edu.g4">媒体库统一沉淀校园影像素材，全院系共享复用</li>
           </ul>
           <div class="ind-result">
             <div class="rmetric">
               <div><b>60<em>+</em></b><span data-i18n="s.edu.m1s">站点群</span></div>
-              <div><b>80%</b><span data-i18n="s.edu.m2s">零代码页面</span></div>
+              <div><b>80%</b><span data-i18n="s.edu.m2s">低代码页面</span></div>
               <div><b>5<em>×</em></b><span data-i18n="s.edu.m3s">专题上线速度</span></div>
             </div>
           </div>
@@ -173,7 +173,7 @@
           <div class="ind-result">
             <div class="rmetric">
               <div><b>100%</b><span data-i18n="s.fin.m1s">审计覆盖</span></div>
-              <div><b>99.99%</b><span data-i18n="s.fin.m2s">服务可用性</span></div>
+              <div><b>高可用</b><span data-i18n="s.fin.m2s">服务可用性</span></div>
               <div><b>0</b><span data-i18n="s.fin.m3s">数据出域</span></div>
             </div>
           </div>
@@ -205,7 +205,7 @@
           <div class="block-label" data-i18n="s.gainLabel">PowerCMS 方案</div>
           <ul class="gain-list">
             <li data-i18n="s.ene.g1">多品牌多站点架构，统一治理与分级授权</li>
-            <li data-i18n="s.ene.g2">媒体智能流水线：上传即自动转码、打标、审核</li>
+            <li data-i18n="s.ene.g2">媒体处理流水线：上传即自动转码与多规格输出</li>
             <li data-i18n="s.ene.g3">定时发布与灰度上线，重大宣传节点零失误</li>
             <li data-i18n="s.ene.g4">支持内网 / 隔离网络部署，满足保密要求</li>
           </ul>
@@ -260,6 +260,31 @@
     </div>
   </section>
 
+  <!-- ================= 专项方案 ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="kicker" data-i18n="ss.kicker">专项方案</span>
+        <h2 class="section-title" data-i18n="ss.title">面向特定业务场景的专项方案</h2>
+        <p class="section-sub" data-i18n="ss.sub">在通用平台能力之上，为高价值场景提供开箱即用的专项方案。</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card" style="padding:32px;">
+          <div class="icon-tile" style="margin-bottom:14px;">🎙️</div>
+          <h3 style="margin-bottom:10px;" data-i18n="ss.c1t">媒体与音视频出版</h3>
+          <p style="color:var(--muted);margin-bottom:18px;" data-i18n="ss.c1d">面向广电、报业与出版机构的音视频内容生产、审核与多端发布一体化方案。</p>
+          <a href="solutions-media.html" class="btn btn-primary" data-i18n="ss.c1a">查看方案</a>
+        </div>
+        <div class="card" style="padding:32px;">
+          <div class="icon-tile" style="margin-bottom:14px;">🏢</div>
+          <h3 style="margin-bottom:10px;" data-i18n="ss.c2t">多产品线内容中台</h3>
+          <p style="color:var(--muted);margin-bottom:18px;" data-i18n="ss.c2d">为多品牌、多业务线组织构建统一内容资产与分发中枢，一次创作、全域复用。</p>
+          <a href="solutions-hub.html" class="btn btn-primary" data-i18n="ss.c2a">查看方案</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= 部署方式 ================= -->
   <section class="section section-soft">
     <div class="container">
@@ -277,12 +302,12 @@
         <div class="card reveal">
           <div class="icon-tile">🇨🇳</div>
           <h3 data-i18n="s.dep.2t">信创环境</h3>
-          <p data-i18n="s.dep.2d">适配人大金仓数据库与金蝶天燕中间件，支持国产 CPU 与操作系统。</p>
+          <p data-i18n="s.dep.2d">国产数据库与中间件适配持续推进，支持主流国产 CPU 与操作系统的部署验证。</p>
         </div>
         <div class="card reveal">
           <div class="icon-tile">☁️</div>
           <h3 data-i18n="s.dep.3t">托管云服务</h3>
-          <p data-i18n="s.dep.3d">由 PowerCOM 运营团队托管运维，快速起步、按需扩展。</p>
+          <p data-i18n="s.dep.3d">由 PowerCOM 运营团队为组织专属环境托管运维（非共享多租户），快速起步、按需扩展。</p>
         </div>
       </div>
     </div>
@@ -293,7 +318,7 @@
     <h2 data-i18n="s.cta.title">看看 PowerCMS 12 如何落地你的场景</h2>
     <p data-i18n="s.cta.sub">告诉我们你的行业与挑战，解决方案专家将为你定制演示内容。</p>
     <div class="hero-cta">
-      <a class="btn btn-light btn-lg" href="#" data-i18n="s.cta.b1">联系解决方案专家</a>
+      <a href="contact.html" class="btn btn-light btn-lg" data-i18n="s.cta.b1">联系解决方案专家</a>
       <a class="btn btn-outline-light btn-lg" href="customers.html" data-i18n="s.cta.b2">查看客户案例</a>
     </div>
   </section>
@@ -310,7 +335,7 @@
             </svg>
             <span class="brand-name">PowerCMS <em>12</em></span>
           </a>
-          <p class="ft-tag" data-i18n="footer.tag">面向政府、事业单位与大型企业的新一代 Headless 内容平台。让内容成为组织的核心数字资产。</p>
+          <p class="ft-tag" data-i18n="footer.tag">面向政府、事业单位与大型企业的新一代 Headless 内容平台。让内容成为可信的数字资产。</p>
         </div>
         <div>
           <h4 data-i18n="footer.c1">产品</h4>
@@ -318,7 +343,7 @@
             <li><a href="product.html" data-i18n="footer.l11">产品能力</a></li>
             <li><a href="product.html" data-i18n="footer.l12">可视化编辑器</a></li>
             <li><a href="product.html" data-i18n="footer.l13">媒体智能</a></li>
-            <li><a href="#" data-i18n="footer.l14">开发者中心</a></li>
+            <li><a href="developer.html" data-i18n="footer.l14">开发者中心</a></li>
           </ul>
         </div>
         <div>
@@ -333,25 +358,26 @@
         <div>
           <h4 data-i18n="footer.c3">资源</h4>
           <ul>
-            <li><a href="#" data-i18n="footer.l31">文档中心</a></li>
+            <li><a href="developer.html" data-i18n="footer.l31">文档中心</a></li>
             <li><a href="customers.html" data-i18n="footer.l32">案例研究</a></li>
-            <li><a href="#" data-i18n="footer.l33">版本发布</a></li>
-            <li><a href="#" data-i18n="footer.l34">博客</a></li>
+            <li><a href="developer.html" data-i18n="footer.l33">版本发布</a></li>
+            <li><a href="developer.html" data-i18n="footer.l34">博客</a></li>
           </ul>
         </div>
         <div>
           <h4 data-i18n="footer.c4">公司</h4>
           <ul>
-            <li><a href="#" data-i18n="footer.l41">关于我们</a></li>
-            <li><a href="#" data-i18n="footer.l42">联系我们</a></li>
-            <li><a href="#" data-i18n="footer.l43">合作伙伴</a></li>
-            <li><a href="#" data-i18n="footer.l44">加入我们</a></li>
+            <li><a href="contact.html" data-i18n="footer.l41">关于我们</a></li>
+            <li><a href="contact.html" data-i18n="footer.l42">联系我们</a></li>
+            <li><a href="contact.html" data-i18n="footer.l43">合作伙伴</a></li>
+            <li><a href="contact.html" data-i18n="footer.l44">加入我们</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
+        <a href="https://www.powercom.net.cn" target="_blank" rel="noopener" data-i18n="footer.official">宝丽通 PowerCom 官网</a>
         <span data-i18n="footer.copy">© 2026 PowerCOM · 保留所有权利</span>
-        <span data-i18n="footer.icp">某ICP备XXXXXXXX号-X</span>
+        <span data-i18n="footer.icp">京ICP备08104445号-1</span>
       </div>
     </div>
   </footer>

@@ -22,7 +22,8 @@
   /* ---------- 当前页导航高亮 ---------- */
   var page = (location.pathname.split("/").pop() || "index.html").replace(".html", "");
   document.querySelectorAll("[data-nav]").forEach(function (a) {
-    if (a.getAttribute("data-nav") === page) a.classList.add("active");
+    var nav = a.getAttribute("data-nav");
+    if (nav === page || page.indexOf(nav + "-") === 0) a.classList.add("active");
   });
 
   /* ---------- Tabs ---------- */
@@ -68,6 +69,10 @@
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var key = el.getAttribute("data-i18n");
       if (dict[key] != null) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll("[data-ph-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-ph-i18n");
+      if (dict[key] != null) el.setAttribute("placeholder", dict[key]);
     });
     document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
     document.querySelectorAll(".lang-toggle button").forEach(function (b) {

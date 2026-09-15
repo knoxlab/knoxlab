@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系我们 — PowerCMS 12</title>
+  <meta name="description" content="联系 PowerCMS 12 解决方案专家：预约演示、私有化部署、信创适配与迁移评估咨询。">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= 头部导航 ================= -->
+  <header class="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+          <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2E5BFF"/><stop offset="1" stop-color="#00C2A8"/>
+          </linearGradient></defs>
+          <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#lg)"/>
+          <path d="M20 46V18h13c7.2 0 12 4.6 12 11.4S40.2 41 33 41h-7v5h-6zm6-11h6.6c3.6 0 6-2.2 6-5.6s-2.4-5.4-6-5.4H26v11z" fill="#fff"/>
+          <circle cx="49" cy="15" r="4" fill="#fff" opacity=".9"/>
+        </svg>
+        <span class="brand-name">PowerCMS <em>12</em></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-link" data-nav="product" href="product.html" data-i18n="nav.product">产品能力</a>
+        <a class="nav-link" data-nav="solutions" href="solutions.html" data-i18n="nav.solutions">解决方案</a>
+        <a class="nav-link" data-nav="customers" href="customers.html" data-i18n="nav.customers">客户案例</a>
+        <a class="nav-link" data-nav="pricing" href="pricing.html" data-i18n="nav.pricing">价格方案</a>
+        <a href="developer.html" class="nav-link" data-i18n="nav.developers">开发者</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="zh" class="active">中文</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <a href="contact.html" class="btn btn-ghost" data-i18n="nav.login">登录</a>
+        <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial">免费试用</a>
+        <button class="menu-btn" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0A1633" stroke-width="2" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav">
+      <a href="product.html" data-i18n="nav.product">产品能力</a>
+      <a href="solutions.html" data-i18n="nav.solutions">解决方案</a>
+      <a href="customers.html" data-i18n="nav.customers">客户案例</a>
+      <a href="pricing.html" data-i18n="nav.pricing">价格方案</a>
+      <a href="developer.html" data-i18n="nav.developers">开发者</a>
+      <div class="nav-cta-row">
+        <a href="contact.html" class="btn btn-ghost" data-i18n="nav.login">登录</a>
+        <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial">免费试用</a>
+      </div>
+    </div>
+  </header>
+
+    <!-- ================= 页面 Hero ================= -->
+  <section class="sol-hero">
+    <div class="container">
+      <span class="kicker" data-i18n="ct.hero.kicker">联系我们</span>
+      <h1 data-i18n="ct.hero.title">聊聊你的内容运营场景</h1>
+      <p data-i18n="ct.hero.sub">告诉我们你的行业与规模，解决方案专家将在一个工作日内与你联系。</p>
+    </div>
+  </section>
+
+  <!-- ================= 联系表单 ================= -->
+  <section class="ind-section">
+    <div class="container">
+      <div class="grid grid-2" style="gap:48px;align-items:start;">
+        <form class="card" style="padding:32px;" onsubmit="return false;">
+          <h3 style="margin-bottom:20px;" data-i18n="ct.form.t">预约演示 / 咨询</h3>
+          <div style="display:grid;gap:14px;">
+            <input type="text" placeholder="姓名" data-i18n="ct.form.name" data-ph-i18n="ct.form.name" style="padding:12px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <input type="text" placeholder="单位名称" data-ph-i18n="ct.form.org" style="padding:12px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <input type="tel" placeholder="联系电话" data-ph-i18n="ct.form.tel" style="padding:12px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;">
+            <textarea rows="3" placeholder="想了解的内容（可选）" data-ph-i18n="ct.form.msg" style="padding:12px 14px;border:1px solid var(--line);border-radius:8px;font-size:15px;resize:vertical;"></textarea>
+            <button class="btn btn-primary" style="justify-content:center;" type="submit" data-i18n="ct.form.submit">提交预约</button>
+          </div>
+        </form>
+        <div>
+          <div class="card" style="padding:28px;margin-bottom:20px;">
+            <h3 style="margin-bottom:12px;" data-i18n="ct.contact.t">联系方式</h3>
+            <p style="color:var(--muted);margin-bottom:8px;" data-i18n="ct.note">提交即表示同意我们通过上述联系方式与你沟通产品方案。也可以直接联系我们：</p>
+            <p style="margin-bottom:6px;">✉️ <a href="mailto:marketing@powercom.net.cn" data-i18n="ct.mail">marketing@powercom.net.cn</a></p>
+            <p>📞 <span data-i18n="ct.phone">400-XXX-XXXX</span></p>
+          </div>
+          <div class="card" style="padding:28px;">
+            <h3 style="margin-bottom:12px;" data-i18n="ct.official">访问宝丽通 PowerCom 官网</h3>
+            <p style="color:var(--muted);margin-bottom:0;" data-i18n="ct.visit">了解更多公司信息、新闻动态与更多产品线，请访问官网：</p><p style="color:var(--muted);margin-bottom:0;"><a href="https://www.powercom.net.cn" target="_blank" rel="noopener">www.powercom.net.cn</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= 页脚 ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+              <rect x="2" y="2" width="60" height="60" rx="14" fill="#2E5BFF"/>
+              <path d="M20 46V18h13c7.2 0 12 4.6 12 11.4S40.2 41 33 41h-7v5h-6zm6-11h6.6c3.6 0 6-2.2 6-5.6s-2.4-5.4-6-5.4H26v11z" fill="#fff"/>
+            </svg>
+            <span class="brand-name">PowerCMS <em>12</em></span>
+          </a>
+          <p class="ft-tag" data-i18n="footer.tag">面向政府、事业单位与大型企业的新一代 Headless 内容平台。让内容成为可信的数字资产。</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c1">产品</h4>
+          <ul>
+            <li><a href="product.html" data-i18n="footer.l11">产品能力</a></li>
+            <li><a href="product.html" data-i18n="footer.l12">可视化编辑器</a></li>
+            <li><a href="product.html" data-i18n="footer.l13">媒体智能</a></li>
+            <li><a href="developer.html" data-i18n="footer.l14">开发者中心</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c2">解决方案</h4>
+          <ul>
+            <li><a href="solutions.html" data-i18n="footer.l21">政府与事业单位</a></li>
+            <li><a href="solutions.html" data-i18n="footer.l22">教育与科研</a></li>
+            <li><a href="solutions.html" data-i18n="footer.l23">金融</a></li>
+            <li><a href="solutions.html" data-i18n="footer.l24">能源与集团企业</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c3">资源</h4>
+          <ul>
+            <li><a href="developer.html" data-i18n="footer.l31">文档中心</a></li>
+            <li><a href="customers.html" data-i18n="footer.l32">案例研究</a></li>
+            <li><a href="developer.html" data-i18n="footer.l33">版本发布</a></li>
+            <li><a href="developer.html" data-i18n="footer.l34">博客</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c4">公司</h4>
+          <ul>
+            <li><a href="contact.html" data-i18n="footer.l41">关于我们</a></li>
+            <li><a href="contact.html" data-i18n="footer.l42">联系我们</a></li>
+            <li><a href="contact.html" data-i18n="footer.l43">合作伙伴</a></li>
+            <li><a href="contact.html" data-i18n="footer.l44">加入我们</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="https://www.powercom.net.cn" target="_blank" rel="noopener" data-i18n="footer.official">宝丽通 PowerCom 官网</a>
+        <span data-i18n="footer.copy">© 2026 PowerCOM · 保留所有权利</span>
+        <span data-i18n="footer.icp">京ICP备08104445号-1</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

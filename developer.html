@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>价格方案 — PowerCMS 12</title>
-  <meta name="description" content="PowerCMS 12 价格方案：社区版免费、专业版、企业版与私有化部署，满足从试用到信创落地的全部需求。">
+  <title>开发者中心 — PowerCMS 12</title>
+  <meta name="description" content="PowerCMS 12 开发者中心：部署与运维指南、API 与模板开发文档、版本发布记录。">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -56,100 +56,42 @@
     </div>
   </header>
 
-  <!-- ================= 页面 Hero ================= -->
+    <!-- ================= 页面 Hero ================= -->
   <section class="sol-hero">
     <div class="container">
-      <span class="kicker" data-i18n="pr.hero.kicker">价格方案</span>
-      <h1 data-i18n="pr.hero.title">从起步到信创落地，总有一档适合你</h1>
-      <p data-i18n="pr.hero.sub">透明的订阅方案与可定制的私有化交付，随组织规模与合规要求弹性选择。</p>
+      <span class="kicker" data-i18n="dv.hero.kicker">开发者中心</span>
+      <h1 data-i18n="dv.hero.title">为开发者打造的文档与资源</h1>
+      <p data-i18n="dv.hero.sub">API 参考、部署指南、模板开发与版本发布记录，一处获取。</p>
     </div>
   </section>
 
-  <!-- ================= 价格卡片 ================= -->
-  <section class="section">
+  <!-- ================= 文档三支柱 ================= -->
+  <section class="ind-section">
     <div class="container">
-      <div class="price-grid">
-        <div class="card price-card reveal">
-          <div class="plan-name" data-i18n="pr.p1.name">社区版</div>
-          <p class="plan-desc" data-i18n="pr.p1.desc">个人学习、原型验证与小团队起步</p>
-          <div class="plan-price" data-i18n="pr.p1.price">免费</div>
-          <div class="plan-cta"><a href="developer.html" class="btn btn-ghost" data-i18n="pr.p1.btn">立即下载</a></div>
-          <ul>
-            <li data-i18n="pr.p1.f1">1 个站点 · 3 个用户</li>
-            <li data-i18n="pr.p1.f2">基础内容建模与版本管理</li>
-            <li data-i18n="pr.p1.f3">Headless 交付 API</li>
-            <li data-i18n="pr.p1.f4">社区论坛支持</li>
-          </ul>
+      <div class="grid grid-3">
+        <div class="card" style="padding:28px;">
+          <div class="icon-tile" style="margin-bottom:14px;">⚙️</div>
+          <h3 style="margin-bottom:10px;" data-i18n="dv.s1t">部署与运维指南</h3>
+          <p style="color:var(--muted);margin-bottom:16px;" data-i18n="dv.s1d">私有化部署、托管云服务与日常运维的最佳实践文档。</p>
+          <a href="contact.html" class="btn btn-ghost" style="padding:8px 14px;" data-i18n="dv.docs">文档中心</a>
         </div>
-        <div class="card price-card reveal">
-          <div class="plan-name" data-i18n="pr.p2.name">专业版</div>
-          <p class="plan-desc" data-i18n="pr.p2.desc">成长型团队的完整内容运营</p>
-          <div class="plan-price" data-i18n="pr.p2.price">¥4,999<small data-i18n="pr.p2.unit">/站点/月起</small></div>
-          <div class="plan-cta"><a href="contact.html" class="btn btn-ghost" data-i18n="pr.p2.btn">开始 30 天试用</a></div>
-          <ul>
-            <li data-i18n="pr.p2.f1">5 个站点 · 20 个用户</li>
-            <li data-i18n="pr.p2.f2">可视化编辑器 UVE + 模板主题</li>
-            <li data-i18n="pr.p2.f3">多级审批工作流与审计</li>
-            <li data-i18n="pr.p2.f4">多语言站点管理</li>
-            <li data-i18n="pr.p2.f5">工作时间在线支持</li>
-          </ul>
+        <div class="card" style="padding:28px;">
+          <div class="icon-tile" style="margin-bottom:14px;">🧩</div>
+          <h3 style="margin-bottom:10px;" data-i18n="dv.s2t">API 与模板开发</h3>
+          <p style="color:var(--muted);margin-bottom:16px;" data-i18n="dv.s2d">Headless API 参考、FreeMarker 模板开发与可视化组件接入手册。</p>
+          <a href="contact.html" class="btn btn-ghost" style="padding:8px 14px;" data-i18n="dv.blog">技术博客</a>
         </div>
-        <div class="card price-card featured reveal">
-          <div class="plan-flag" data-i18n="pr.p3.flag">最受欢迎</div>
-          <div class="plan-name" data-i18n="pr.p3.name">企业版</div>
-          <p class="plan-desc" data-i18n="pr.p3.desc">大型组织的全能力内容平台</p>
-          <div class="plan-price" data-i18n="pr.p3.price">定制报价</div>
-          <div class="plan-cta"><a href="contact.html" class="btn btn-primary" data-i18n="pr.p3.btn">联系销售</a></div>
-          <ul>
-            <li data-i18n="pr.p3.f1">不限站点与用户数</li>
-            <li data-i18n="pr.p3.f2">媒体智能 + AI 内容流水线</li>
-            <li data-i18n="pr.p3.f3">细粒度权限与审计（SSO/MFA 规划中）</li>
-            <li data-i18n="pr.p3.f4">统计分析与开放数据接口</li>
-            <li data-i18n="pr.p3.f5">专属客户成功经理 · SLA 按合同约定</li>
-          </ul>
-        </div>
-        <div class="card price-card reveal">
-          <div class="plan-name" data-i18n="pr.p4.name">私有化部署</div>
-          <p class="plan-desc" data-i18n="pr.p4.desc">信创环境与数据不出域场景</p>
-          <div class="plan-price" data-i18n="pr.p4.price">定制报价</div>
-          <div class="plan-cta"><a href="contact.html" class="btn btn-ghost" data-i18n="pr.p4.btn">预约咨询</a></div>
-          <ul>
-            <li data-i18n="pr.p4.f1">全栈私有化 · 数据完全不出域</li>
-            <li data-i18n="pr.p4.f2">信创环境适配：国产数据库 / 中间件（推进中）</li>
-            <li data-i18n="pr.p4.f3">私有化大模型接入</li>
-            <li data-i18n="pr.p4.f4">专业服务团队现场实施</li>
-            <li data-i18n="pr.p4.f5">7×24 运维保障 · 灰度发布支持</li>
-          </ul>
+        <div class="card" style="padding:28px;">
+          <div class="icon-tile" style="margin-bottom:14px;">🚀</div>
+          <h3 style="margin-bottom:10px;" data-i18n="dv.s3t">版本发布记录</h3>
+          <p style="color:var(--muted);margin-bottom:16px;" data-i18n="dv.s3d">各版本新特性、兼容性说明与升级路径，随版本持续更新。</p>
+          <a href="contact.html" class="btn btn-ghost" style="padding:8px 14px;" data-i18n="dv.releases">版本发布</a>
         </div>
       </div>
-      <p style="text-align:center;margin-top:32px;color:var(--muted);font-size:14px;" data-i18n="pr.note">教育科研与事业单位享有专项优惠 · 采购流程支持政府采购云平台</p>
-    </div>
-  </section>
-
-  <!-- ================= FAQ ================= -->
-  <section class="section section-soft">
-    <div class="container">
-      <div class="section-head center">
-        <span class="kicker" data-i18n="pr.faq.kicker">常见问题</span>
-        <h2 class="section-title" data-i18n="pr.faq.title">你可能想知道</h2>
-      </div>
-      <div class="faq">
-        <details open>
-          <summary data-i18n="pr.q1">如何开始试用？</summary>
-          <div class="faq-body" data-i18n="pr.a1">专业版提供 30 天全功能免费试用，无需绑定支付方式。提交申请后，客户经理将在 1 个工作日内为你开通环境并提供入门指导。</div>
-        </details>
-        <details>
-          <summary data-i18n="pr.q2">是否支持国产化（信创）环境？</summary>
-          <div class="faq-body" data-i18n="pr.a2">支持。PowerCMS 12 面向信创环境的数据库与中间件适配持续推进中，具体环境支持度以项目实测与厂商认证为准，可提供配套交付与实施服务。</div>
-        </details>
-        <details>
-          <summary data-i18n="pr.q3">数据安全如何保障？</summary>
-          <div class="faq-body" data-i18n="pr.a3">平台按安全合规基线设计：细粒度权限、全量审计日志与传输/存储加密；SSO/MFA 与等保对标整改推进中。私有化部署版本中所有数据保存在组织自有机房或专有云，实现数据零出域。</div>
-        </details>
-        <details>
-          <summary data-i18n="pr.q4">可以从现有 CMS 迁移过来吗？</summary>
-          <div class="faq-body" data-i18n="pr.a4">可以。我们提供结构化迁移服务：从内容模型评估、数据映射到灰度切换，全程由专业服务团队执行，历史版本与附件可完整保留。</div>
-        </details>
+      <div class="ind-result" style="margin-top:8px;">
+        <div class="rmetric">
+          <div><b>🚧</b><span data-i18n="dv.soon">文档与示例陆续上线中，如需资料可先联系我们。</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -159,10 +101,11 @@
     <h2 data-i18n="pr.cta.title">还有疑问？和我们的专家聊聊</h2>
     <p data-i18n="pr.cta.sub">无论是采购流程、信创适配还是迁移评估，我们都准备好了。</p>
     <div class="hero-cta">
-      <a href="contact.html" class="btn btn-light btn-lg" data-i18n="pr.cta.b1">联系销售</a>
-      <a class="btn btn-outline-light btn-lg" href="customers.html" data-i18n="pr.cta.b2">看看客户怎么说</a>
+      <a href="contact.html" class="btn btn-light btn-lg" data-i18n="dv.cta">申请获取资料</a>
+      <a href="pricing.html" class="btn btn-outline-light btn-lg" data-i18n="nav.trial">免费试用</a>
     </div>
   </section>
+
 
   <!-- ================= 页脚 ================= -->
   <footer class="footer">
