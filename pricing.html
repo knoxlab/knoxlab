@@ -25,6 +25,7 @@
         <span class="brand-name">PowerCMS <em>12</em></span>
       </a>
       <nav class="nav">
+        <a class="nav-link" data-nav="ai" href="ai.html" data-i18n="nav.ai">AI 能力</a>
         <a class="nav-link" data-nav="product" href="product.html" data-i18n="nav.product">产品能力</a>
         <a class="nav-link" data-nav="solutions" href="solutions.html" data-i18n="nav.solutions">解决方案</a>
         <a class="nav-link" data-nav="customers" href="customers.html" data-i18n="nav.customers">客户案例</a>
@@ -44,6 +45,7 @@
       </div>
     </div>
     <div class="mobile-nav">
+      <a href="ai.html" data-i18n="nav.ai">AI 能力</a>
       <a href="product.html" data-i18n="nav.product">产品能力</a>
       <a href="solutions.html" data-i18n="nav.solutions">解决方案</a>
       <a href="customers.html" data-i18n="nav.customers">客户案例</a>
@@ -79,6 +81,7 @@
             <li data-i18n="pr.p1.f2">基础内容建模与版本管理</li>
             <li data-i18n="pr.p1.f3">Headless 交付 API</li>
             <li data-i18n="pr.p1.f4">社区论坛支持</li>
+            <li data-i18n="pr.p1.f5">不含 AI 能力（可申请体验额度）</li>
           </ul>
         </div>
         <div class="card price-card reveal">
@@ -92,6 +95,7 @@
             <li data-i18n="pr.p2.f3">多级审批工作流与审计</li>
             <li data-i18n="pr.p2.f4">多语言站点管理</li>
             <li data-i18n="pr.p2.f5">工作时间在线支持</li>
+            <li data-i18n="pr.p2.f6">AI 内容生成：编辑器 AI 创作 + 智能标签（含月度额度）</li>
           </ul>
         </div>
         <div class="card price-card featured reveal">
@@ -106,6 +110,7 @@
             <li data-i18n="pr.p3.f3">细粒度权限与审计（SSO/MFA 规划中）</li>
             <li data-i18n="pr.p3.f4">统计分析与开放数据接口</li>
             <li data-i18n="pr.p3.f5">专属客户成功经理 · SLA 按合同约定</li>
+            <li data-i18n="pr.p3.f6">AI 全能力：语义检索 + 溯源问答 + 自动化审核 + MCP 工具面</li>
           </ul>
         </div>
         <div class="card price-card reveal">
@@ -119,10 +124,46 @@
             <li data-i18n="pr.p4.f3">私有化大模型接入</li>
             <li data-i18n="pr.p4.f4">专业服务团队现场实施</li>
             <li data-i18n="pr.p4.f5">7×24 运维保障 · 灰度发布支持</li>
+            <li data-i18n="pr.p4.f6">私有化大模型接入 + BYOK 站点级密钥隔离</li>
           </ul>
         </div>
       </div>
       <p style="text-align:center;margin-top:32px;color:var(--muted);font-size:14px;" data-i18n="pr.note">教育科研与事业单位享有专项优惠 · 采购流程支持政府采购云平台</p>
+    </div>
+  </section>
+
+  <!-- ================= AI 能力分层 ================= -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="kicker" data-i18n="pr.ai.kicker">AI 能力分层</span>
+        <h2 class="section-title" data-i18n="pr.ai.title">AI 按版本开放，按站点计量</h2>
+        <p class="section-sub" data-i18n="pr.ai.sub">AI 由站点级总开关控制（默认关闭、按需开启）；开启后所有模型调用计入站点配额与审计，不产生无主的 AI 行为。</p>
+      </div>
+      <div class="matrix-wrap reveal">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th data-i18n="pr.ai.h1">AI 能力</th>
+              <th data-i18n="pr.ai.h2">社区版</th>
+              <th data-i18n="pr.ai.h3">专业版</th>
+              <th data-i18n="pr.ai.h4">企业版</th>
+              <th data-i18n="pr.ai.h5">私有化部署</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="pr.ai.r1c">编辑器 AI 创作</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.yes">✓</td><td data-i18n="pr.ai.yes">✓</td><td data-i18n="pr.ai.yes">✓</td></tr>
+            <tr><td data-i18n="pr.ai.r2c">智能标签 / Meta / JSON-LD</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.yes">✓</td><td data-i18n="pr.ai.yes">✓</td><td data-i18n="pr.ai.yes">✓</td></tr>
+            <tr><td data-i18n="pr.ai.r3c">自动化审核预检 + 风险摘要</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.yes">✓</td><td data-i18n="pr.ai.yes">✓</td></tr>
+            <tr><td data-i18n="pr.ai.r4c">语义检索</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.yes">✓</td><td data-i18n="pr.ai.yes">✓</td></tr>
+            <tr><td data-i18n="pr.ai.r5c">溯源问答（引用门禁）</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.yes">✓</td><td data-i18n="pr.ai.yes">✓</td></tr>
+            <tr><td data-i18n="pr.ai.r6c">MCP 工具面（71 工具）</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.yes">✓</td><td data-i18n="pr.ai.yes">✓</td></tr>
+            <tr><td data-i18n="pr.ai.r7c">媒体智能（Whisper / OCR）</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.add">加购</td><td data-i18n="pr.ai.yes">✓</td></tr>
+            <tr><td data-i18n="pr.ai.r8c">私有化模型 / BYOK 密钥隔离</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.no">—</td><td data-i18n="pr.ai.add">加购</td><td data-i18n="pr.ai.yes">✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="text-align:center;margin-top:22px;font-size:13px;color:var(--muted);" data-i18n="pr.ai.note">AI 调用按站点月度额度计量，超出部分可扩容；模型费用可自带密钥（BYOK）自行承担。</p>
     </div>
   </section>
 
@@ -149,6 +190,18 @@
         <details>
           <summary data-i18n="pr.q4">可以从现有 CMS 迁移过来吗？</summary>
           <div class="faq-body" data-i18n="pr.a4">可以。我们提供结构化迁移服务：从内容模型评估、数据映射到灰度切换，全程由专业服务团队执行，历史版本与附件可完整保留。</div>
+        </details>
+        <details>
+          <summary data-i18n="pr.q5">AI 会用我们的内容训练模型吗？数据会不会出网？</summary>
+          <div class="faq-body" data-i18n="pr.a5">不会用于训练。AI 通过统一适配层调用模型，站点可配置为完全私有化：模型调用走内网或客户自有密钥（BYOK），视频转写默认使用本地 Whisper，数据不出域。所有调用计入配额与审计，可随时关闭站点级 AI 总开关。</div>
+        </details>
+        <details>
+          <summary data-i18n="pr.q6">AI 额度怎么计算？超出后怎么办？</summary>
+          <div class="faq-body" data-i18n="pr.a6">按站点月度 Token 额度计量，AI 起草、语义检索、问答与媒体智能分别计数；额度使用情况在管理台实时可见，超出后可临时扩容或次月自动重置。使用自带密钥（BYOK）时平台不额外收取模型费用。</div>
+        </details>
+        <details>
+          <summary data-i18n="pr.q7">AI 生成的内容可以直接发布吗？</summary>
+          <div class="faq-body" data-i18n="pr.a7">不可以。AI 输出需先通过内容类型 schema 校验，再走四眼审批与会签；建议态内容在人工确认前不进入版本历史。AI 可以做预检、摘要与初稿，发布决定权始终在人工。</div>
         </details>
       </div>
     </div>
@@ -181,6 +234,7 @@
         <div>
           <h4 data-i18n="footer.c1">产品</h4>
           <ul>
+            <li><a href="ai.html" data-i18n="footer.l10">AI 能力</a></li>
             <li><a href="product.html" data-i18n="footer.l11">产品能力</a></li>
             <li><a href="product.html" data-i18n="footer.l12">可视化编辑器</a></li>
             <li><a href="product.html" data-i18n="footer.l13">媒体智能</a></li>
@@ -225,5 +279,6 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/ai.js"></script>
 </body>
 </html>

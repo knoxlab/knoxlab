@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerCMS 12 AI 能力 — AI 原生内容引擎 · 语义检索 · 溯源问答 · MCP 工具面</title>
+  <meta name="description" content="PowerCMS 12 内置 9 大 AI 能力域：可配置大模型底座、编辑器内 AI 创作、语义检索与溯源问答、GEO 优化、媒体智能、MCP 对外接入、智能体工作流、AI 审计治理与多源融合。私有化部署，数据不出域。">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= 头部导航 ================= -->
+  <header class="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+          <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2E5BFF"/><stop offset="1" stop-color="#00C2A8"/>
+          </linearGradient></defs>
+          <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#lg)"/>
+          <path d="M20 46V18h13c7.2 0 12 4.6 12 11.4S40.2 41 33 41h-7v5h-6zm6-11h6.6c3.6 0 6-2.2 6-5.6s-2.4-5.4-6-5.4H26v11z" fill="#fff"/>
+          <circle cx="49" cy="15" r="4" fill="#fff" opacity=".9"/>
+        </svg>
+        <span class="brand-name">PowerCMS <em>12</em></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-link" data-nav="ai" href="ai.html" data-i18n="nav.ai">AI 能力</a>
+        <a class="nav-link" data-nav="product" href="product.html" data-i18n="nav.product">产品能力</a>
+        <a class="nav-link" data-nav="solutions" href="solutions.html" data-i18n="nav.solutions">解决方案</a>
+        <a class="nav-link" data-nav="customers" href="customers.html" data-i18n="nav.customers">客户案例</a>
+        <a class="nav-link" data-nav="pricing" href="pricing.html" data-i18n="nav.pricing">价格方案</a>
+        <a class="nav-link" data-nav="developer" href="developer.html" data-i18n="nav.developers">开发者</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="zh" class="active">中文</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <a href="contact.html" class="btn btn-ghost" data-i18n="nav.login">登录</a>
+        <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial">免费试用</a>
+        <button class="menu-btn" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0A1633" stroke-width="2" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav">
+      <a href="ai.html" data-i18n="nav.ai">AI 能力</a>
+      <a href="product.html" data-i18n="nav.product">产品能力</a>
+      <a href="solutions.html" data-i18n="nav.solutions">解决方案</a>
+      <a href="customers.html" data-i18n="nav.customers">客户案例</a>
+      <a href="pricing.html" data-i18n="nav.pricing">价格方案</a>
+      <a href="developer.html" data-i18n="nav.developers">开发者</a>
+      <div class="nav-cta-row">
+        <a href="contact.html" class="btn btn-ghost" data-i18n="nav.login">登录</a>
+        <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial">免费试用</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Hero ================= -->
+  <section class="sol-hero">
+    <div class="container">
+      <span class="kicker" data-i18n="a.hero.kicker" style="background:rgba(46,91,255,.2);color:#8FB0FF;">AI · 治理之内</span>
+      <h1 data-i18n="a.hero.title">AI 不是加一个按钮<br>而是重做内容底座</h1>
+      <p data-i18n="a.hero.sub">内容的第一消费者正在从人变成 AI。PowerCMS 12 把大模型能力嵌入内容全生命周期：能写、能检索、能被 Agent 调用，但每一步都落结构化字段、走版本与审批链。</p>
+      <div class="hero-cta" style="justify-content:center;margin-top:32px;">
+        <a class="btn btn-light btn-lg" href="contact.html" data-i18n="a.hero.cta1">预约演示</a>
+        <a class="btn btn-outline-light btn-lg" href="#demo" data-i18n="a.hero.cta2">在线体验 AI 能力</a>
+      </div>
+      <p class="hero-note" style="text-align:center;margin-top:18px;" data-i18n="a.hero.note">AI 由站点级总开关控制（默认关闭、按需开启）· 全部调用计入配额与审计</p>
+      <div class="stats-band" style="margin-top:48px;">
+        <div class="stat"><b>9<em>大</em></b><span data-i18n="a.hero.s1">AI 能力域 · 从模型底座到审计治理</span></div>
+        <div class="stat"><b>71<em>个</em></b><span data-i18n="a.hero.s2">Agent 可调用工具 · 覆盖 6 大域</span></div>
+        <div class="stat"><b>3<em>级</em></b><span data-i18n="a.hero.s3">Token 权限 · L0 只读 / L1 草稿 / L2 发布</span></div>
+        <div class="stat"><b>100<em>%</em></b><span data-i18n="a.hero.s4">问答引用来自本次检索上下文</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AI 工作台控制台 ================= -->
+  <section class="section-dark" style="padding:0 0 92px;">
+    <div class="container">
+      <div class="mockup ai-console">
+        <div class="mockup-bar">
+          <i></i><i></i><i></i>
+          <span class="url">console.powercms.example / ai-workbench</span>
+        </div>
+        <div class="mockup-body">
+          <div class="mock-main">
+            <div class="ac-row me">
+              <div class="ac-bub" data-i18n="a.con.ask">为「政策解读」栏目起草 5 篇稿件，风格对齐已发布内容，完成后提交审批</div>
+            </div>
+            <div class="ac-row">
+              <div class="ac-bub">
+                <span class="ac-tag">✦ <span data-i18n="a.con.tag">AI 生成 · 已通过 schema 校验</span></span>
+                <div data-i18n="a.con.ans">已按栏目规则创建 5 篇草稿（D-1038 ~ D-1042），标题、摘要与关键词已按内容类型 schema 生成；正文 60% 由 AI 起草，涉及政策表述的 1 处已标记待人工确认。</div>
+                <div class="ac-cites">
+                  <b data-i18n="a.con.citeT">引用来源（top-3 / 已发布内容）</b>
+                  <span data-i18n="a.con.c1">[1] 政策解读 · 2026 年第三号文件解读 · v12.0</span>
+                  <span data-i18n="a.con.c2">[2] 政策解读 · 基层直达渠道建设问答 · v12.0</span>
+                  <span data-i18n="a.con.c3">[3] 栏目规则 · 政策解读写作规范 · v12.0</span>
+                </div>
+              </div>
+            </div>
+            <div class="ac-foot">
+              <span class="pill ok" data-i18n="a.con.p1">已提交审批</span>
+              <span class="pill info" data-i18n="a.con.p2">AI 参与已标识</span>
+              <span class="pill warn" data-i18n="a.con.p3">1 处待人工确认</span>
+              <span class="grow" data-i18n="a.con.meta">model=deepseek-v3（内网） · tokens=2,481 · audit=7</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 为什么 AI 要内生于内容底座 ================= -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="kicker" data-i18n="a.why.kicker">01 / 为什么必须是内生 AI</span>
+        <h2 class="section-title" data-i18n="a.why.title">外挂的 AI，解决不了内容治理问题</h2>
+        <p class="section-sub" data-i18n="a.why.sub">把大模型接在 CMS 之外，能生成文本，却拿不到内容模型、权限边界与发布事实。PowerCMS 12 把 AI 放进同一套治理框架里。</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <div class="icon-tile">🧩</div>
+          <h3 data-i18n="a.why.c1t">拿不到结构，只能生成文本</h3>
+          <p data-i18n="a.why.c1d">外挂工具不知道字段长度、枚举与关系约束，输出无法落库，最终仍靠人工复制粘贴。PowerCMS 12 的 AI 输出按内容类型 schema 校验后才可写入。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-tile">🔒</div>
+          <h3 data-i18n="a.why.c2t">看不见权限，容易越权</h3>
+          <p data-i18n="a.why.c2d">外挂检索绕开对象级 ACL，草稿也会被答出来。平台内 AI 的每一次检索都遵循同一套授权：访客只看已发布，后台按 ACL 看草稿。</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-tile">🧾</div>
+          <h3 data-i18n="a.why.c3t">留不下证据，无法审计</h3>
+          <p data-i18n="a.why.c3d">外挂生成的內容没有版本、没有审批、没有留痕，出事无法回溯。平台内 AI 动作与人工动作共用一套防篡改审计与版本链。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 九大 AI 能力域 ================= -->
+  <section class="section section-dark" id="caps">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="kicker" data-i18n="a.caps.kicker">02 / AI 能力全景</span>
+        <h2 class="section-title" data-i18n="a.caps.title">九大 AI 能力域，覆盖从底座到治理</h2>
+        <p class="section-sub" data-i18n="a.caps.sub">不是单点功能，而是一条能写、能检索、能被 Agent 调用、还能被审计的完整链路。</p>
+      </div>
+      <div class="cap-grid">
+        <div class="cap-card reveal">
+          <span class="cap-no">01</span>
+          <h3 data-i18n="a.cap.1t">可配置大模型底座</h3>
+          <p data-i18n="a.cap.1d">统一 OpenAI 兼容适配层；通义 / 文心 / DeepSeek / 智谱 / Kimi / 豆包与 OpenAI / Claude 按配置接入；私有化部署，数据不出内网；BYOK 站点级密钥隔离。</p>
+          <div class="cap-tags" data-i18n="a.cap.1g"><span>私有化</span><span>BYOK</span><span>多路回退</span></div>
+        </div>
+        <div class="cap-card reveal">
+          <span class="cap-no">02</span>
+          <h3 data-i18n="a.cap.2t">编辑器内 AI 创作</h3>
+          <p data-i18n="a.cap.2d">字段级续写 / 改写 / 扩写 / 缩写 / 摘要 / 纠错 / 润色与 20+ 语言翻译；标题、摘要、关键词智能建议；输出按 schema 校验后才可落库。</p>
+          <div class="cap-tags" data-i18n="a.cap.2g"><span>字段级</span><span>20+ 语言</span><span>schema 校验</span></div>
+        </div>
+        <div class="cap-card reveal">
+          <span class="cap-no">03</span>
+          <h3 data-i18n="a.cap.3t">语义检索与溯源问答</h3>
+          <p data-i18n="a.cap.3d">内容自动向量化；关键词 + 向量混合检索（默认 0.4 / 0.6）；站内问答答案带引用条目与版本，出处不足即拒答，不编造。</p>
+          <div class="cap-tags" data-i18n="a.cap.3g"><span>bge-m3</span><span>混合检索</span><span>引用门禁</span></div>
+        </div>
+        <div class="cap-card reveal">
+          <span class="cap-no">04</span>
+          <h3 data-i18n="a.cap.4t">GEO 生成式引擎优化</h3>
+          <p data-i18n="a.cap.4d">schema.org JSON-LD 结构化标记自动生成；智能标签与分类、Meta 描述自动生成并做重复度检测，让内容在 AI 搜索中可发现、可正确引用。</p>
+          <div class="cap-tags" data-i18n="a.cap.4g"><span>JSON-LD</span><span>智能标签</span><span>SimHash</span></div>
+        </div>
+        <div class="cap-card reveal">
+          <span class="cap-no">05</span>
+          <h3 data-i18n="a.cap.5t">媒体智能</h3>
+          <p data-i18n="a.cap.5d">视频自动转写（本地 Whisper，数据不出域）、摘要与智能章节、字幕、关键帧与图片 Alt、图片 OCR、以图搜图 —— 媒体资产变成可检索内容。</p>
+          <div class="cap-tags" data-i18n="a.cap.5g"><span>Whisper</span><span>OCR</span><span>以图搜图</span></div>
+        </div>
+        <div class="cap-card reveal">
+          <span class="cap-no">06</span>
+          <h3 data-i18n="a.cap.6t">MCP 对外接入</h3>
+          <p data-i18n="a.cap.6d">一个 MCP Server 双传输并存，Tools / Resources / Prompts 三类能力；工具清单带版本可演进，平台无关、标准客户端即插即用。</p>
+          <div class="cap-tags" data-i18n="a.cap.6g"><span>71 工具</span><span>2025-06-18</span><span>即插即用</span></div>
+        </div>
+        <div class="cap-card reveal">
+          <span class="cap-no">07</span>
+          <h3 data-i18n="a.cap.7t">智能体工作流</h3>
+          <p data-i18n="a.cap.7d">AI 自动起草并提交审批、审批辅助摘要、规则化调度发布、异常自动回滚、运营洞察报告、多智能体协同编排 —— AI 是工作流的一等参与者。</p>
+          <div class="cap-tags" data-i18n="a.cap.7g"><span>自动起草</span><span>调度发布</span><span>异常回滚</span></div>
+        </div>
+        <div class="cap-card reveal">
+          <span class="cap-no">08</span>
+          <h3 data-i18n="a.cap.8t">AI 审计与治理</h3>
+          <p data-i18n="a.cap.8d">AI 参与标识、防篡改审计、独立版本与一键回滚、提示注入防护、站点级 AI 总开关、深度合成内容显式与隐式标识合规。</p>
+          <div class="cap-tags" data-i18n="a.cap.8g"><span>防篡改</span><span>注入防护</span><span>合成标识</span></div>
+        </div>
+        <div class="cap-card reveal">
+          <span class="cap-no">09</span>
+          <h3 data-i18n="a.cap.9t">多源内容融合</h3>
+          <p data-i18n="a.cap.9d">接入 DAM 文件资产与 PIM 产品参数；跨源关系建模 + 内容可信度治理（来源 / 版本 / 审批 / 有效期 / 可信等级），构成企业 AI 的内容事实源。</p>
+          <div class="cap-tags" data-i18n="a.cap.9g"><span>DAM</span><span>PIM</span><span>知识图谱</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 可交互演示 ================= -->
+  <section class="section section-soft" id="demo">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="kicker" data-i18n="a.demo.kicker">03 / 在线体验</span>
+        <h2 class="section-title" data-i18n="a.demo.title">五个场景，直接上手试</h2>
+        <p class="section-sub" data-i18n="a.demo.sub">以下演示在本页离线运行，数据不离开浏览器。产品环境中的对应能力由平台服务端与模型网关承载。</p>
+      </div>
+
+      <div class="tabs reveal" data-tab-group="ai">
+        <button class="tab active" type="button" data-tab="s1" data-i18n="a.tab.1">语义检索</button>
+        <button class="tab" type="button" data-tab="s2" data-i18n="a.tab.2">溯源问答</button>
+        <button class="tab" type="button" data-tab="s3" data-i18n="a.tab.3">AI 辅助编辑</button>
+        <button class="tab" type="button" data-tab="s4" data-i18n="a.tab.4">自动化审核</button>
+        <button class="tab" type="button" data-tab="s5" data-i18n="a.tab.5">智能推荐</button>
+      </div>
+
+      <div class="tab-panel active" data-panel-group="ai" data-panel="s1">
+        <div class="demo-shell reveal">
+          <div class="demo-head">
+            <span class="dh-title" data-i18n="a.d1.t">语义检索 · 关键词 vs 混合检索</span>
+            <span class="dh-note" data-i18n="a.d1.n">默认 BM25 0.4 + k-NN 0.6，权重可按站点覆盖</span>
+          </div>
+          <div class="demo-body">
+            <div id="demo-search"></div>
+            <ul class="check-list" style="margin-top:20px;font-size:14.5px;">
+              <li data-i18n="a.d1.l1">口语化提问也能命中：语义泛化把「怎么把视频里的语音转成文字」对齐到「视频转写 / 字幕」</li>
+              <li data-i18n="a.d1.l2">内容保存或发布时自动向量化（bge-m3 / 1024 维），增量更新，全量重建不中断检索</li>
+              <li data-i18n="a.d1.l3">向量检索 P95 ≤ 300 ms；管理索引与访客索引物理隔离，防越权检索</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel-group="ai" data-panel="s2">
+        <div class="demo-shell reveal">
+          <div class="demo-head">
+            <span class="dh-title" data-i18n="a.d2.t">溯源问答 · 引用门禁</span>
+            <span class="dh-note" data-i18n="a.d2.n">引用必须命中本次 top-k；出处不足即拒答</span>
+          </div>
+          <div class="demo-body">
+            <div id="demo-ask"></div>
+            <ul class="check-list" style="margin-top:20px;font-size:14.5px;">
+              <li data-i18n="a.d2.l1">答案携带条目、版本与发布时间，可回溯到具体内容版本</li>
+              <li data-i18n="a.d2.l2">访客问答只检索已发布内容；后台语义问答按对象级 ACL 检索草稿</li>
+              <li data-i18n="a.d2.l3">引用门禁默认失败关闭 —— 索引外内容零引用，不产生幻觉</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel-group="ai" data-panel="s3">
+        <div class="demo-shell reveal">
+          <div class="demo-head">
+            <span class="dh-title" data-i18n="a.d3.t">AI 辅助编辑 · 字段级创作</span>
+            <span class="dh-note" data-i18n="a.d3.n">输出按内容类型 schema 校验后才可落库</span>
+          </div>
+          <div class="demo-body">
+            <div id="demo-editor"></div>
+            <ul class="check-list" style="margin-top:20px;font-size:14.5px;">
+              <li data-i18n="a.d3.l1">结果以「插入 / 替换」回填并可二次编辑；建议态内容未确认不进入版本历史</li>
+              <li data-i18n="a.d3.l2">关系字段候选由服务端枚举，禁止模型凭空生成 ID</li>
+              <li data-i18n="a.d3.l3">按栏目规则自动起草并自动提交审批；批量任务异步执行、可续跑</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel-group="ai" data-panel="s4">
+        <div class="demo-shell reveal">
+          <div class="demo-head">
+            <span class="dh-title" data-i18n="a.d4.t">自动化内容审核 · 人机协同流水线</span>
+            <span class="dh-note" data-i18n="a.d4.n">AI 做预检与摘要，发布决定权始终在人工</span>
+          </div>
+          <div class="demo-body">
+            <div id="demo-pipe"></div>
+            <ul class="check-list" style="margin-top:20px;font-size:14.5px;">
+              <li data-i18n="a.d4.l1">提交即触发敏感词同步预检、事实性与重复度检测、深度合成标识校验</li>
+              <li data-i18n="a.d4.l2">AI 产出审批风险摘要与修改建议，人工四眼审批 / 会签，自审自批按策略禁止</li>
+              <li data-i18n="a.d4.l3">先审后发 / 先发后审双层审核，超时自动处置；全流程留痕与通知</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel-group="ai" data-panel="s5">
+        <div class="demo-shell reveal">
+          <div class="demo-head">
+            <span class="dh-title" data-i18n="a.d5.t">智能内容推荐 · 可解释可干预</span>
+            <span class="dh-note" data-i18n="a.d5.n">第一方行为 + 语义相似度 + 业务规则</span>
+          </div>
+          <div class="demo-body">
+            <div id="demo-rec"></div>
+            <ul class="check-list" style="margin-top:20px;font-size:14.5px;">
+              <li data-i18n="a.d5.l1">零第三方 Cookie 的第一方采集，访客匿名化，数据不出机房</li>
+              <li data-i18n="a.d5.l2">推荐位可在可视化编辑器中直接干预排序与兜底策略，结果可回放</li>
+              <li data-i18n="a.d5.l3">与栏目逐级下钻、内容表现统计口径一致，效果可度量</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AI 内容生产闭环 ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="feature-row">
+        <div class="fr-text reveal">
+          <span class="kicker" data-i18n="a.loop.kicker">04 / 生产闭环</span>
+          <h3 data-i18n="a.loop.title">从起草、优化到洞察，AI 贯穿全生命周期</h3>
+          <p class="lead" data-i18n="a.loop.lead">跑得最快的团队，恰恰是能证明自己自动化可控的团队 —— 每一环都落结构化字段、走版本与审批链。</p>
+          <ul class="check-list">
+            <li data-i18n="a.loop.li1"><b>起草：</b>按栏目规则自动起草，批量异步、进度可查、可续跑，完成后自动提交审批</li>
+            <li data-i18n="a.loop.li2"><b>优化：</b>JSON-LD 结构化标记、智能标签与 Meta 描述自动生成，SimHash 重复度检测防撞车</li>
+            <li data-i18n="a.loop.li3"><b>检索：</b>内容保存 / 发布自动向量化，混合检索支撑站内问答与相似内容召回</li>
+            <li data-i18n="a.loop.li4"><b>洞察：</b>定期生成运营报告（发布量、阅读 / 播放行为、AI 引用表现），可订阅、可导出</li>
+          </ul>
+        </div>
+        <div class="fr-visual reveal">
+          <div class="v-panel">
+            <div class="v-title" data-i18n="a.loop.vt">AI 内容生产闭环</div>
+            <div class="flow-step"><div class="no">1</div><div><b data-i18n="a.loop.s1t">起草 Draft</b><span data-i18n="a.loop.s1d">规则驱动 · 批量异步 · 自动提交审批</span></div></div>
+            <div class="flow-line"></div>
+            <div class="flow-step"><div class="no">2</div><div><b data-i18n="a.loop.s2t">优化 Optimize</b><span data-i18n="a.loop.s2d">GEO 标记 · 智能标签 · 重复度检测</span></div></div>
+            <div class="flow-line"></div>
+            <div class="flow-step"><div class="no">3</div><div><b data-i18n="a.loop.s3t">检索 Retrieve</b><span data-i18n="a.loop.s3d">自动向量化 · 混合检索 · 引用可溯源</span></div></div>
+            <div class="flow-line"></div>
+            <div class="flow-step"><div class="no">4</div><div><b data-i18n="a.loop.s4t">发布 Publish</b><span data-i18n="a.loop.s4d">规则化调度 · 确定性发布 · 一键回滚</span></div></div>
+            <div class="flow-line"></div>
+            <div class="flow-step"><div class="no">5</div><div><b data-i18n="a.loop.s5t">洞察 Insight</b><span data-i18n="a.loop.s5d">运营报告 · AI 引用表现 · 可订阅导出</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MCP 工具面 ================= -->
+  <section class="section section-dark" id="mcp">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="kicker" data-i18n="a.mcp.kicker">05 / MCP 与智能体生态</span>
+        <h2 class="section-title" data-i18n="a.mcp.title">一句话管全站：内容平台第一次长出工具面</h2>
+        <p class="section-sub" data-i18n="a.mcp.sub">内置 Agent 工作台 + 开放 MCP Server 双通道，共用同一套工具面、同一权限与审计面；人在确认点在，Agent 干活。</p>
+      </div>
+      <div class="mcp-grid">
+        <div class="mcp-card reveal">
+          <span class="mcp-key">MODEL</span>
+          <h4 data-i18n="a.mcp.1t">内容建模</h4>
+          <p data-i18n="a.mcp.1d">类型调研、自然语言生成类型提案、字段 / 关系 / 分类法建议、类型复制、变更影响评估；Dry-run 预告影响面。</p>
+          <div class="mcp-tools"><code>model.propose</code><code>model.dryrun</code><code>model.clone</code></div>
+        </div>
+        <div class="mcp-card reveal">
+          <span class="mcp-key">TPL</span>
+          <h4 data-i18n="a.mcp.2t">模板与主题</h4>
+          <p data-i18n="a.mcp.2d">布局 JSON 与 FreeMarker 模板生成、沙箱静态校验、一次性预览链接、主题包生成、设计器与代码双通道互转。</p>
+          <div class="mcp-tools"><code>tpl.generate</code><code>tpl.validate</code><code>tpl.preview</code></div>
+        </div>
+        <div class="mcp-card reveal">
+          <span class="mcp-key">CONTENT</span>
+          <h4 data-i18n="a.mcp.3t">内容</h4>
+          <p data-i18n="a.mcp.3d">语义 + 关键词检索、内容读取与引用反查、草稿创建与更新、批量起草、媒体挂载、提交审批、内容表现查询。</p>
+          <div class="mcp-tools"><code>content.search</code><code>content.draft</code><code>content.submit</code></div>
+        </div>
+        <div class="mcp-card reveal">
+          <span class="mcp-key">MEDIA</span>
+          <h4 data-i18n="a.mcp.4t">媒体库</h4>
+          <p data-i18n="a.mcp.4d">检索与浏览、上传入库、元数据维护、AI 产物触发（转写 / 摘要 / Alt）、目录管理、清理与替换（先反查引用再确认）。</p>
+          <div class="mcp-tools"><code>media.upload</code><code>media.transcribe</code><code>media.replace</code></div>
+        </div>
+        <div class="mcp-card reveal">
+          <span class="mcp-key">FLOW</span>
+          <h4 data-i18n="a.mcp.5t">工作流与审核</h4>
+          <p data-i18n="a.mcp.5d">待办查询、内容预览、审批辅助摘要、审批执行、发布记录查询、回滚发起；审批执行默认收敛到管理台人工。</p>
+          <div class="mcp-tools"><code>flow.todo</code><code>flow.summarize</code><code>flow.rollback</code></div>
+        </div>
+        <div class="mcp-card reveal">
+          <span class="mcp-key">SITE</span>
+          <h4 data-i18n="a.mcp.6t">站点与栏目</h4>
+          <p data-i18n="a.mcp.6d">栏目搭建与调整、站点文件夹管理、站点配置只读视图与白名单内的受限修改、发布环境核查。</p>
+          <div class="mcp-tools"><code>site.section</code><code>site.inspect</code><code>site.env</code></div>
+        </div>
+      </div>
+      <div class="cap-card reveal" style="margin-top:26px;background:rgba(255,255,255,.05);">
+        <span class="cap-no" data-i18n="a.mcp.gk">治理底线</span>
+        <h3 data-i18n="a.mcp.gt">工具面的边界，就是治理的边界</h3>
+        <p data-i18n="a.mcp.g1">写操作三段式：生成 → 预览 / Diff → 携审批凭据落库；破坏性操作无凭据一律拒绝。</p>
+        <p data-i18n="a.mcp.g2" style="margin-top:10px;">审批凭据绑定 Diff 摘要（SHA-256）、30 分钟有效、一次性消费；Token 分级只能收窄不能扩大，越级调用一律 403 并落审计。</p>
+        <p data-i18n="a.mcp.g3" style="margin-top:10px;">删站点、权限配置、Token 管理、审计写入刻意不工具化，只留管理台人工。协议归一到 MCP 2025-06-18 修订版，服务端零平台特判。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 智能体工作流 ================= -->
+  <section class="section" id="agent">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="kicker" data-i18n="a.agent.kicker">06 / 智能体工作流</span>
+        <h2 class="section-title" data-i18n="a.agent.title">AI 是工作流的一等参与者</h2>
+        <p class="section-sub" data-i18n="a.agent.sub">不是替代人，而是把人可以放手的环节自动化，把必须人负责的环节留得更清楚。</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card reveal"><div class="icon-tile">✍️</div><h3 data-i18n="a.agent.c1t">自动起草与提交</h3><p data-i18n="a.agent.c1d">按栏目规则生成草稿并直接进入审批队列，附 AI 参与标识与风险摘要。</p></div>
+        <div class="card reveal"><div class="icon-tile">📋</div><h3 data-i18n="a.agent.c2t">审批辅助摘要</h3><p data-i18n="a.agent.c2d">为审核人生成变更要点、风险点与建议，缩短四眼审批的阅读成本。</p></div>
+        <div class="card reveal"><div class="icon-tile">⏰</div><h3 data-i18n="a.agent.c3t">规则化调度发布</h3><p data-i18n="a.agent.c3d">AI 内容按发布日历排队，走确定性发布工程，任何一步都可撤销。</p></div>
+        <div class="card reveal"><div class="icon-tile">↩️</div><h3 data-i18n="a.agent.c4t">异常自动回滚</h3><p data-i18n="a.agent.c4d">发布后监控可用性与错误率，异常按策略回退上一版本并通知责任人。</p></div>
+        <div class="card reveal"><div class="icon-tile">📊</div><h3 data-i18n="a.agent.c5t">运营洞察报告</h3><p data-i18n="a.agent.c5d">汇总发布量、阅读 / 播放行为与 AI 引用表现，定期生成、可订阅、可导出。</p></div>
+        <div class="card reveal"><div class="icon-tile">🕸️</div><h3 data-i18n="a.agent.c6t">多智能体协同编排</h3><p data-i18n="a.agent.c6d">调研 → 起草 → 配图 → 审核 → 发布多角色分工，人在关键确认点介入。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AI 治理护栏 ================= -->
+  <section class="section section-soft" id="governance">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="kicker" data-i18n="a.gov.kicker">07 / 治理护栏</span>
+        <h2 class="section-title" data-i18n="a.gov.title">可以写进招标文件的 AI 治理能力</h2>
+        <p class="section-sub" data-i18n="a.gov.sub">AI 由站点级总开关控制（默认关闭、按需开启）；开启后所有模型调用计入配额与审计，不产生无主的 AI 行为。</p>
+      </div>
+      <div class="guard-grid">
+        <div class="guard-item reveal"><div class="guard-ico">🎚️</div><div><b data-i18n="a.gov.g1t">站点级 AI 总开关</b><span data-i18n="a.gov.g1d">默认关闭、按需开启；关闭后平台退化为纯人工流程，功能不受影响。</span></div></div>
+        <div class="guard-item reveal"><div class="guard-ico">🔑</div><div><b data-i18n="a.gov.g2t">BYOK 与密钥隔离</b><span data-i18n="a.gov.g2d">站点级密钥隔离，模型多路路由与失败回退，全量调用审计可查。</span></div></div>
+        <div class="guard-item reveal"><div class="guard-ico">🛡️</div><div><b data-i18n="a.gov.g3t">提示注入防护</b><span data-i18n="a.gov.g3d">输入输出双向检测，越权工具调用一律拒绝并落审计。</span></div></div>
+        <div class="guard-item reveal"><div class="guard-ico">🏷️</div><div><b data-i18n="a.gov.g4t">AI 生成内容标识</b><span data-i18n="a.gov.g4d">深度合成内容显式与隐式标识合规，AI 参与动作全程可识别。</span></div></div>
+        <div class="guard-item reveal"><div class="guard-ico">🧷</div><div><b data-i18n="a.gov.g5t">防篡改审计</b><span data-i18n="a.gov.g5d">追加式留痕，可按主体 / 对象 / 动作 / 时间检索，AI 与人工同一口径。</span></div></div>
+        <div class="guard-item reveal"><div class="guard-ico">⏪</div><div><b data-i18n="a.gov.g6t">独立版本与一键回滚</b><span data-i18n="a.gov.g6d">AI 内容独立成版，支持字段级差异对比、一键恢复与时间机器回溯。</span></div></div>
+        <div class="guard-item reveal"><div class="guard-ico">📉</div><div><b data-i18n="a.gov.g7t">配额与限流</b><span data-i18n="a.gov.g7d">站点级配额、速率限制与成本可观测，写操作 dry-run → 确认 → 落库三级确认。</span></div></div>
+        <div class="guard-item reveal"><div class="guard-ico">🚫</div><div><b data-i18n="a.gov.g8t">引用门禁失败关闭</b><span data-i18n="a.gov.g8d">证据不足即拒绝作答，不编造；索引外内容零引用。</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 能力矩阵 ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="kicker" data-i18n="a.mx.kicker">08 / 能力矩阵</span>
+        <h2 class="section-title" data-i18n="a.mx.title">AI 能力交付状态</h2>
+        <p class="section-sub" data-i18n="a.mx.sub">以下为产品默认交付档位；标注「可配置」的能力需按项目开启，「路线图」项按版本节奏交付。</p>
+      </div>
+      <div class="matrix-wrap reveal">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th data-i18n="a.mx.h1">能力</th>
+              <th data-i18n="a.mx.h2">说明</th>
+              <th data-i18n="a.mx.h3">状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="a.mx.r1c">可配置大模型底座</td><td class="muted" data-i18n="a.mx.r1d">OpenAI 兼容适配层，国内外模型按配置接入，BYOK 站点级隔离</td><td><span class="badge core" data-i18n="a.mx.core">内置</span></td></tr>
+            <tr><td data-i18n="a.mx.r2c">编辑器内 AI 创作</td><td class="muted" data-i18n="a.mx.r2d">字段级续写 / 改写 / 摘要 / 翻译，schema 校验后落库</td><td><span class="badge core" data-i18n="a.mx.core">内置</span></td></tr>
+            <tr><td data-i18n="a.mx.r3c">语义检索</td><td class="muted" data-i18n="a.mx.r3d">自动向量化 + BM25/k-NN 混合检索，权重可按站点覆盖</td><td><span class="badge core" data-i18n="a.mx.core">内置</span></td></tr>
+            <tr><td data-i18n="a.mx.r4c">溯源问答</td><td class="muted" data-i18n="a.mx.r4d">引用带条目与版本，出处不足即拒答</td><td><span class="badge core" data-i18n="a.mx.core">内置</span></td></tr>
+            <tr><td data-i18n="a.mx.r5c">自动化内容审核</td><td class="muted" data-i18n="a.mx.r5d">敏感词预检、重复度与事实性检测、风险摘要 + 人工四眼审批</td><td><span class="badge core" data-i18n="a.mx.core">内置</span></td></tr>
+            <tr><td data-i18n="a.mx.r6c">GEO 生成式引擎优化</td><td class="muted" data-i18n="a.mx.r6d">JSON-LD 结构化标记、智能标签、Meta 描述与重复度检测</td><td><span class="badge core" data-i18n="a.mx.core">内置</span></td></tr>
+            <tr><td data-i18n="a.mx.r7c">MCP 工具面</td><td class="muted" data-i18n="a.mx.r7d">71 个结构化工具 / 6 大域，Tools · Resources · Prompts</td><td><span class="badge core" data-i18n="a.mx.core">内置</span></td></tr>
+            <tr><td data-i18n="a.mx.r8c">媒体智能</td><td class="muted" data-i18n="a.mx.r8d">本地 Whisper 转写、智能章节、字幕、关键帧、OCR、图片 Alt</td><td><span class="badge cfg" data-i18n="a.mx.cfg">可配置</span></td></tr>
+            <tr><td data-i18n="a.mx.r9c">媒体语义检索 / 以图搜图</td><td class="muted" data-i18n="a.mx.r9d">依赖媒体服务器（Knox-Media）向量索引，跨层协作</td><td><span class="badge cfg" data-i18n="a.mx.cfg">可配置</span></td></tr>
+            <tr><td data-i18n="a.mx.r10c">多源融合 DAM / PIM</td><td class="muted" data-i18n="a.mx.r10d">外部资产与参数映射为内容字段或关系，含可信度治理</td><td><span class="badge cfg" data-i18n="a.mx.cfg">可配置</span></td></tr>
+            <tr><td data-i18n="a.mx.r11c">智能内容推荐</td><td class="muted" data-i18n="a.mx.r11d">第一方行为 + 语义相似 + 业务规则，编辑可干预排序与兜底</td><td><span class="badge cfg" data-i18n="a.mx.cfg">可配置</span></td></tr>
+            <tr><td data-i18n="a.mx.r12c">多智能体协同编排</td><td class="muted" data-i18n="a.mx.r12d">调研 → 起草 → 配图 → 审核 → 发布多角色分工</td><td><span class="badge road" data-i18n="a.mx.road">路线图</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 预期效果 ================= -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="kicker" data-i18n="a.eff.kicker">09 / 预期效果</span>
+        <h2 class="section-title" data-i18n="a.eff.title">把 AI 的收益变成可验收的指标</h2>
+        <p class="section-sub" data-i18n="a.eff.sub">以下为同类政企项目的参考区间，实际值在 POC 阶段按客户内容量与流程基线复核后写入验收附件。</p>
+      </div>
+      <div class="ai-metrics">
+        <div class="ai-metric light reveal"><b>60<em>%</em></b><span data-i18n="a.eff.m1">起草环节耗时下降（AI 初稿 + 人工确认）</span></div>
+        <div class="ai-metric light reveal"><b>45<em>%</em></b><span data-i18n="a.eff.m2">审核环节人均处理量提升（AI 预检 + 风险摘要）</span></div>
+        <div class="ai-metric light reveal"><b>70<em>%</em></b><span data-i18n="a.eff.m3">内容检索「搜不到」比例下降（混合检索）</span></div>
+        <div class="ai-metric light reveal"><b>0</b><span data-i18n="a.eff.m4">无主 AI 行为 —— 全量调用进配额与审计</span></div>
+      </div>
+      <p style="text-align:center;margin-top:26px;font-size:13px;color:var(--muted);" data-i18n="a.eff.note">指标口径与统计模块一致，可在运营报告中按周期复核。</p>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta-band">
+    <div class="container">
+      <h2 data-i18n="a.cta.title">把 AI 放进治理框架里，再谈效率</h2>
+      <p data-i18n="a.cta.sub">预约演示，现场体验 AI 起草、语义检索、溯源问答与 MCP 一句话管全站。</p>
+      <div class="hero-cta">
+        <a class="btn btn-light btn-lg" href="contact.html" data-i18n="a.cta.b1">预约演示</a>
+        <a class="btn btn-outline-light btn-lg" href="pricing.html" data-i18n="a.cta.b2">查看价格方案</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 页脚 ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+              <rect x="2" y="2" width="60" height="60" rx="14" fill="#2E5BFF"/>
+              <path d="M20 46V18h13c7.2 0 12 4.6 12 11.4S40.2 41 33 41h-7v5h-6zm6-11h6.6c3.6 0 6-2.2 6-5.6s-2.4-5.4-6-5.4H26v11z" fill="#fff"/>
+            </svg>
+            <span class="brand-name">PowerCMS <em>12</em></span>
+          </a>
+          <p class="ft-tag" data-i18n="footer.tag">面向政府、事业单位与大型企业的新一代 Headless 内容平台。让内容成为可信的数字资产。</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c1">产品</h4>
+          <ul>
+            <li><a href="ai.html" data-i18n="footer.l10">AI 能力</a></li>
+            <li><a href="product.html" data-i18n="footer.l11">产品能力</a></li>
+            <li><a href="product.html" data-i18n="footer.l12">可视化编辑器</a></li>
+            <li><a href="product.html" data-i18n="footer.l13">媒体智能</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c2">解决方案</h4>
+          <ul>
+            <li><a href="solutions.html" data-i18n="footer.l21">政府与事业单位</a></li>
+            <li><a href="solutions.html" data-i18n="footer.l22">教育与科研</a></li>
+            <li><a href="solutions.html" data-i18n="footer.l23">金融</a></li>
+            <li><a href="solutions.html" data-i18n="footer.l24">能源与集团企业</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c3">资源</h4>
+          <ul>
+            <li><a href="developer.html" data-i18n="footer.l31">文档中心</a></li>
+            <li><a href="customers.html" data-i18n="footer.l32">案例研究</a></li>
+            <li><a href="developer.html" data-i18n="footer.l33">版本发布</a></li>
+            <li><a href="developer.html" data-i18n="footer.l34">博客</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c4">公司</h4>
+          <ul>
+            <li><a href="contact.html" data-i18n="footer.l41">关于我们</a></li>
+            <li><a href="contact.html" data-i18n="footer.l42">联系我们</a></li>
+            <li><a href="contact.html" data-i18n="footer.l43">合作伙伴</a></li>
+            <li><a href="contact.html" data-i18n="footer.l44">加入我们</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="https://www.powercom.net.cn" target="_blank" rel="noopener" data-i18n="footer.official">宝丽通 PowerCom 官网</a>
+        <span data-i18n="footer.copy">© 2026 PowerCOM · 保留所有权利</span>
+        <span data-i18n="footer.icp">京ICP备08104445号-1</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* 演示区文案（中英），供 js/ai.js 读取 */
+    window.AI_DEMO_I18N = {
+      "ds.run": ["检索", "Search"],
+      "ds.kw": ["关键词检索 BM25", "Keyword search (BM25)"],
+      "ds.kwn": ["仅字面匹配", "literal match only"],
+      "ds.hy": ["混合检索 BM25 0.4 + k-NN 0.6", "Hybrid search (BM25 0.4 + k-NN 0.6)"],
+      "ds.hyn": ["语义泛化", "semantic generalization"],
+      "ds.empty": ["无匹配结果", "No matches"],
+      "da.gen": ["AI 生成 · 已通过引用门禁", "AI generated · citation gate passed"],
+      "da.refuseTag": ["AI 拒答 · 引用门禁触发", "Refused · citation gate triggered"],
+      "da.refuse": ["未在已发布内容中检索到可靠依据。按引用门禁要求，此处拒绝作答，不生成推测性内容。",
+                   "No reliable evidence found in published content. Per the citation gate, this answer is declined rather than guessed."],
+      "da.refuseT": ["证据不足（top-k 相似度低于阈值）", "Insufficient evidence (top-k similarity below threshold)"],
+      "da.refuseD": ["索引外内容零引用 · 建议调整问法或转人工", "Zero citations from outside the index · rephrase or escalate"],
+      "da.pub": ["已发布", "published"],
+      "de.fields": ["内容字段", "Content fields"],
+      "de.f1": ["标题 TITLE", "Title"],
+      "de.f2": ["摘要 EXCERPT", "Excerpt"],
+      "de.f3": ["正文 BODY", "Body"],
+      "de.ops": ["字段级 AI 操作", "Field-level AI actions"],
+      "de.idle": ["选择字段并点击操作，AI 结果以「插入 / 替换」回填，可二次编辑",
+                  "Pick a field and click an action; AI output is inserted or replaced and stays editable"],
+      "de.check": ["schema 校验", "schema validation"],
+      "de.pass": ["通过后才可落库", "passes before persistence"],
+      "dp.run": ["运行一次审核", "Run a review"],
+      "dp.reset": ["重置", "Reset"],
+      "dp.note": ["全流程平均 4 分 12 秒；AI 承担预检与摘要，发布决定权始终在人工",
+                  "End-to-end average 4 min 12 s; AI handles pre-checks and summaries, humans keep the publish decision"],
+      "dp.wait": ["等待提交…", "Waiting for submission…"],
+      "dp.done": ["流水线完成 · 4 分 12 秒 · 人工介入 1 次", "Pipeline complete · 4 min 12 s · 1 human touchpoint"],
+      "dr.note": ["推荐依据：第一方行为（零第三方 Cookie）+ 内容语义相似度 + 业务规则；编辑可在可视化编辑器中干预排序与兜底策略。",
+                  "Signals: first-party behaviour (zero third-party cookies) + semantic similarity + business rules; editors can override ranking and fallback in the visual editor."],
+      "dr.reason": ["推荐理由", "Why"],
+      "dr.match": ["匹配度", "Match"]
+    };
+  </script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/ai.js"></script>
+</body>
+</html>

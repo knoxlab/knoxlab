@@ -25,6 +25,7 @@
         <span class="brand-name">PowerCMS <em>12</em></span>
       </a>
       <nav class="nav">
+        <a class="nav-link" data-nav="ai" href="ai.html" data-i18n="nav.ai">AI 能力</a>
         <a class="nav-link" data-nav="product" href="product.html" data-i18n="nav.product">产品能力</a>
         <a class="nav-link" data-nav="solutions" href="solutions.html" data-i18n="nav.solutions">解决方案</a>
         <a class="nav-link" data-nav="customers" href="customers.html" data-i18n="nav.customers">客户案例</a>
@@ -44,6 +45,7 @@
       </div>
     </div>
     <div class="mobile-nav">
+      <a href="ai.html" data-i18n="nav.ai">AI 能力</a>
       <a href="product.html" data-i18n="nav.product">产品能力</a>
       <a href="solutions.html" data-i18n="nav.solutions">解决方案</a>
       <a href="customers.html" data-i18n="nav.customers">客户案例</a>
@@ -96,6 +98,41 @@
     </div>
   </section>
 
+  <!-- ================= AI / MCP 开发者入口 ================= -->
+  <section class="ind-section alt">
+    <div class="container">
+      <div class="section-head center">
+        <span class="kicker" data-i18n="dv.ai.kicker">AI 与 MCP</span>
+        <h2 class="section-title" data-i18n="dv.ai.title">三种方式把 AI 接进你的工作流</h2>
+        <p class="section-sub" data-i18n="dv.ai.sub">REST / GraphQL 之外，PowerCMS 12 额外开放标准 MCP Server：71 个结构化工具、6 大域，任何标准 MCP 客户端即插即用。</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="icon-tile">🔌</div>
+          <h3 data-i18n="dv.ai.c1t">MCP Server</h3>
+          <p data-i18n="dv.ai.c1d">Tools / Resources / Prompts 三类能力，双传输并存；工具清单带版本可演进，协议归一到 MCP 2025-06-18 修订版。</p>
+          <div class="mcp-tools" style="margin-top:14px;"><code>content.search</code><code>content.draft</code><code>flow.todo</code></div>
+        </div>
+        <div class="card">
+          <div class="icon-tile">🧠</div>
+          <h3 data-i18n="dv.ai.c2t">AI 能力 API</h3>
+          <p data-i18n="dv.ai.c2d">起草、改写、摘要、翻译与向量检索以 API 暴露，返回结构按内容类型 schema 校验，可直接落库或进入审批。</p>
+          <div class="mcp-tools" style="margin-top:14px;"><code>POST /api/ai/draft</code><code>POST /api/ai/search</code></div>
+        </div>
+        <div class="card">
+          <div class="icon-tile">🔐</div>
+          <h3 data-i18n="dv.ai.c3t">Token 与权限</h3>
+          <p data-i18n="dv.ai.c3d">L0 只读 / L1 草稿 / L2 发布三级，只能收窄不能扩大；可限定站点、环境、Scope、有效期与来源，越级调用 403 并落审计。</p>
+          <div class="mcp-tools" style="margin-top:14px;"><code>L0</code><code>L1</code><code>L2</code></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:30px;">
+        <a class="btn btn-primary btn-lg" href="ai.html#mcp" data-i18n="dv.ai.cta">查看 MCP 工具面</a>
+        <a class="btn btn-ghost btn-lg" href="ai.html#demo" style="margin-left:12px;" data-i18n="h.ai.cta2">在线体验 AI 能力</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= CTA ================= -->
   <section class="cta-band">
     <h2 data-i18n="pr.cta.title">还有疑问？和我们的专家聊聊</h2>
@@ -124,6 +161,7 @@
         <div>
           <h4 data-i18n="footer.c1">产品</h4>
           <ul>
+            <li><a href="ai.html" data-i18n="footer.l10">AI 能力</a></li>
             <li><a href="product.html" data-i18n="footer.l11">产品能力</a></li>
             <li><a href="product.html" data-i18n="footer.l12">可视化编辑器</a></li>
             <li><a href="product.html" data-i18n="footer.l13">媒体智能</a></li>
@@ -168,5 +206,6 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/ai.js"></script>
 </body>
 </html>
