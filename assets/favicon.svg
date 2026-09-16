@@ -1,11 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#2E5BFF"/>
-      <stop offset="1" stop-color="#00C2A8"/>
-    </linearGradient>
-  </defs>
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#g)"/>
-  <path d="M20 46V18h13c7.2 0 12 4.6 12 11.4S40.2 41 33 41h-7v5h-6zm6-11h6.6c3.6 0 6-2.2 6-5.6s-2.4-5.4-6-5.4H26v11z" fill="#fff"/>
-  <circle cx="49" cy="15" r="4" fill="#fff" opacity=".9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PowerCMS 12">
+  <title>PowerCMS 12</title>
+  <style>
+    /* 与站点 token 对齐：--primary #2E5BFF / --ink-2 #12265C / 深色 accent #6FF0DC */
+    .tile { fill: #2E5BFF; }
+    .mark {
+      fill: #FFFFFF;
+      font-family: "Inter", "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      font-weight: 800;
+      font-size: 42px;
+      letter-spacing: -1px;
+    }
+    @media (prefers-color-scheme: dark) {
+      .tile { fill: #12265C; }
+      .mark { fill: #6FF0DC; }
+    }
+  </style>
+  <rect x="2" y="2" width="60" height="60" rx="14" class="tile"/>
+  <text x="32" y="47" class="mark" text-anchor="middle">P</text>
 </svg>
