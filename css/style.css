@@ -384,6 +384,54 @@ ul { list-style: none; }
 .case-metrics { display: flex; gap: 24px; border-top: 1px solid var(--line); margin-top: 20px; padding-top: 18px; }
 .case-metrics b { display: block; font-size: 22px; color: var(--primary); font-weight: 800; }
 .case-metrics span { font-size: 12px; color: var(--muted); }
+.case-card .case-avatar.as-ico { font-size: 21px; }
+.case-quote { flex: 1; }
+.case-quote .cq-label {
+  display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .08em;
+  color: var(--primary); background: var(--primary-050); border-radius: 999px;
+  padding: 3px 11px; margin-bottom: 12px;
+}
+.case-quote p { font-size: 15px; color: var(--text); }
+.case-tags {
+  display: flex; flex-wrap: wrap; gap: 7px;
+  border-top: 1px solid var(--line); margin-top: 20px; padding-top: 18px;
+}
+.case-tags span {
+  font-size: 12.5px; font-weight: 600; color: var(--primary);
+  background: var(--primary-050); border-radius: 999px; padding: 4px 11px;
+}
+
+/* ---------- 客户名录滚动墙 ---------- */
+.logo-marquee { position: relative; display: flex; flex-direction: column; gap: 14px; }
+.lm-fade { position: absolute; top: 0; bottom: 0; width: 90px; pointer-events: none; z-index: 2; }
+.lm-fade.l { left: 0; background: linear-gradient(90deg, #fff 10%, rgba(255,255,255,0)); }
+.lm-fade.r { right: 0; background: linear-gradient(270deg, #fff 10%, rgba(255,255,255,0)); }
+.lm-row { overflow: hidden; }
+.lm-track { display: flex; width: max-content; }
+.lm-group { display: flex; gap: 14px; padding-right: 14px; }
+.lm-track.lm-ready { animation: lm-scroll-left var(--lm-dur, 52s) linear infinite; }
+.lm-row.dir-r .lm-track.lm-ready { animation-name: lm-scroll-right; }
+.lm-row.sp-1 { --lm-dur: 52s; }
+.lm-row.sp-2 { --lm-dur: 60s; }
+.lm-row.sp-3 { --lm-dur: 48s; }
+.lm-row.sp-4 { --lm-dur: 56s; }
+.lm-row:hover .lm-track.lm-ready { animation-play-state: paused; }
+.lm-chip {
+  flex: none; white-space: nowrap; background: #fff; border: 1px solid var(--line);
+  border-radius: 10px; padding: 12px 22px; font-size: 14.5px; font-weight: 600;
+  color: #64748B; transition: color .25s, border-color .25s, box-shadow .25s, transform .25s;
+}
+.lm-chip:hover { color: var(--ink); border-color: #C9D8F5; box-shadow: var(--shadow); transform: translateY(-2px); }
+/* 若后续提供客户 logo 图片：把 chip 内的文字换成 <img>，灰度显示、悬停恢复彩色 */
+.lm-chip img { display: block; height: 22px; width: auto; filter: grayscale(1); opacity: .7; transition: filter .25s, opacity .25s; }
+.lm-chip:hover img { filter: none; opacity: 1; }
+@keyframes lm-scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes lm-scroll-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.logo-note { text-align: center; font-size: 13px; color: var(--muted); margin-top: 26px; max-width: 760px; margin-left: auto; margin-right: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .lm-track.lm-ready { animation: none; }
+  .lm-row { overflow-x: auto; }
+}
 
 /* ---------- 统计带 ---------- */
 .stats-band { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
@@ -500,6 +548,47 @@ ul { list-style: none; }
 .ind-result b { font-size: 28px; font-weight: 800; color: #fff; display: block; }
 .ind-result b em { font-style: normal; color: #00E5C7; }
 .ind-result span { font-size: 12.5px; color: #9FB2D9; }
+.ind-section, [id^="ind-"], #scenes { scroll-margin-top: 88px; }
+.ind-links { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 16px; font-size: 14px; font-weight: 600; }
+
+/* ---------- 解决方案页：页内锚点导航 ---------- */
+.sol-nav-band { padding: 30px 0; border-bottom: 1px solid var(--line); background: #fff; }
+.sol-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.sol-nav a {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--soft); border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 17px; font-size: 14px; font-weight: 600; color: var(--text);
+  transition: all .2s;
+}
+.sol-nav a:hover { background: #fff; border-color: #B9CCF5; color: var(--primary); transform: translateY(-2px); }
+.sol-nav a.sn-primary { background: var(--primary-050); border-color: #D5E0FF; color: var(--primary); }
+.sol-nav .sn-ico { font-size: 15px; line-height: 1; }
+
+/* ---------- 解决方案页：应用场景 ---------- */
+.sc-lead { text-align: center; color: var(--muted); font-size: 16px; max-width: 780px; margin: -18px auto 34px; }
+.sc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.sc-grid.sc-2 { grid-template-columns: repeat(2, 1fr); }
+.sc-card {
+  display: flex; flex-direction: column; background: #fff;
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 26px;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.sc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #C9D8F5; }
+.sc-card .sc-ico {
+  width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+  font-size: 21px; margin-bottom: 15px;
+  background: linear-gradient(135deg, var(--primary-050), #DFF9F4);
+}
+.sc-card h3 { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 9px; }
+.sc-card p { font-size: 14.5px; color: var(--muted); flex: 1; }
+.sc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px; padding-top: 16px; border-top: 1px dashed var(--line); }
+.sc-tags span {
+  font-size: 12.5px; font-weight: 600; color: var(--primary);
+  background: var(--primary-050); border-radius: 999px; padding: 4px 12px;
+}
+.sc-foot { text-align: center; margin-top: 34px; }
+.sc-foot .sc-foot-tip { font-size: 14.5px; color: var(--muted); margin-bottom: 18px; }
+.sc-foot .hero-cta { justify-content: center; }
 
 /* ---------- 价格页 ---------- */
 .price-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; align-items: stretch; }
@@ -962,4 +1051,30 @@ table.matrix td.muted { color: var(--muted); }
   .pipe { grid-template-columns: repeat(2, 1fr); }
   .ai-fab { right: 16px; bottom: 16px; width: 52px; height: 52px; }
   .ai-panel { right: 16px; left: 16px; bottom: 80px; width: auto; max-width: none; max-height: min(520px, calc(100vh - 170px)); }
+}
+
+/* ---------- 解决方案页：响应式补充 ---------- */
+@media (max-width: 1024px) {
+  .sc-grid { grid-template-columns: repeat(2, 1fr); }
+  .sol-nav { justify-content: flex-start; }
+}
+@media (max-width: 640px) {
+  .sc-grid, .sc-grid.sc-2 { grid-template-columns: 1fr; }
+  .sc-card { padding: 22px; }
+  .sc-lead { margin-top: -8px; }
+  .sol-nav a { font-size: 13px; padding: 7px 14px; }
+}
+
+/* ---------- 客户名录滚动墙：响应式 ---------- */
+@media (max-width: 640px) {
+  .lm-fade { width: 42px; }
+  .lm-row { overflow: hidden; }
+  .lm-group { gap: 10px; padding-right: 10px; }
+  .lm-chip { padding: 9px 16px; font-size: 13px; border-radius: 8px; }
+  .logo-marquee { gap: 10px; }
+  .lm-row.sp-1 { --lm-dur: 34s; }
+  .lm-row.sp-2 { --lm-dur: 40s; }
+  .lm-row.sp-3 { --lm-dur: 32s; }
+  .lm-row.sp-4 { --lm-dur: 38s; }
+  .case-card .case-quote p { font-size: 14.5px; }
 }
