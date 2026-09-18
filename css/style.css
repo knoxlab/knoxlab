@@ -198,6 +198,12 @@ ul { list-style: none; }
 .mobile-nav a { padding: 12px 8px; font-weight: 600; color: var(--ink); border-bottom: 1px solid var(--soft); }
 .mobile-nav .nav-cta-row { display: flex; gap: 12px; margin-top: 16px; }
 
+/* 占位菜单项（未挂载链接地址，如「客户案例 / 价格方案」）
+   —— 结构、尺寸、悬停与当前页高亮均与普通菜单项一致，保留可点击区域，但点击不跳转；
+      <a> 去掉 href 后浏览器默认光标变为箭头，这里补回手型以保持观感统一 */
+.nav-link:not([href]),
+.mobile-nav a:not([href]) { cursor: pointer; }
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative; overflow: hidden;
