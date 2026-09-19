@@ -1795,7 +1795,7 @@ window.I18N = {
     "pr.p3.f3": "Granular permissions and auditing (SSO/MFA on roadmap)",
     "pr.p3.f4": "Analytics and open data APIs",
     "pr.p3.f5": "Dedicated CSM · SLA per contract",
-    "pr.p4.name": "On-Premises",
+    "pr.p4.name": "Xinchuang Edition",
     "pr.p4.desc": "For Xinchuang environments and data residency",
     "pr.p4.price": "Custom Quote",
     "pr.p4.btn": "Book a Consultation",
