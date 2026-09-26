@@ -2,7 +2,8 @@ const fs = require("fs");
 const vm = require("vm");
 const dir = "F:/文档/项目文档/PowerCMS 12/市场推广/网站";
 const pages = ["index.html", "ai.html", "product.html", "solutions.html", "solutions-hub.html",
-  "solutions-media.html", "customers.html", "pricing.html", "developer.html", "contact.html"];
+  "solutions-media.html", "customers.html", "pricing.html", "developer.html", "contact.html",
+  "docs-deployment.html", "docs-api-templates.html"];
 const code = fs.readFileSync(dir + "/js/i18n.js", "utf8");
 const sandbox = { window: {} };
 vm.createContext(sandbox);

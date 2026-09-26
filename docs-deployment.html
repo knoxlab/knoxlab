@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>部署与运维指南 — PowerCMS 12 开发者中心</title>
+  <meta name="description" content="PowerCMS 12 部署与运维指南：私有化部署（Windows / Linux）、托管云服务与日常运维的最佳实践，覆盖环境要求、一键安装、备份恢复、升级与故障排查。">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ---- 文档页局部样式（仅本页生效） ---- */
+    .doc-wrap { display: grid; grid-template-columns: 220px minmax(0,1fr); gap: 48px; align-items: start; }
+    .doc-toc { position: sticky; top: 96px; border-left: 2px solid var(--line); padding-left: 18px; font-size: 14px; }
+    .doc-toc b { display: block; color: var(--ink); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+    .doc-toc a { display: block; color: var(--muted); padding: 5px 0; }
+    .doc-toc a:hover { color: var(--primary); }
+    .doc-body h2 { font-size: 26px; font-weight: 700; color: var(--ink); margin: 0 0 18px; padding-top: 34px; letter-spacing: -.01em; }
+    .doc-body h2:first-child { padding-top: 0; }
+    .doc-body h3 { font-size: 18px; font-weight: 700; color: var(--ink); margin: 26px 0 10px; }
+    .doc-body p, .doc-body li { color: var(--text); font-size: 15.5px; }
+    .doc-body p { margin-bottom: 12px; }
+    .doc-body ul { margin: 0 0 14px 18px; list-style: disc; }
+    .doc-body ul li { margin-bottom: 6px; }
+    .doc-body ol { margin: 0 0 14px 20px; }
+    .doc-body ol li { margin-bottom: 6px; }
+    .doc-body code { font-family: var(--mono); font-size: .88em; background: var(--soft); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; color: var(--ink-2); }
+    .doc-pre { background: var(--ink); color: #D7E3FA; border-radius: var(--radius-sm); padding: 18px 20px; overflow-x: auto; margin: 0 0 16px; }
+    .doc-pre code { background: none; border: 0; padding: 0; color: inherit; font-size: 13.5px; line-height: 1.7; }
+    .doc-table { width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 14.5px; }
+    .doc-table th { text-align: left; background: var(--primary-050); color: var(--ink); font-weight: 700; padding: 10px 12px; border: 1px solid var(--line); white-space: nowrap; }
+    .doc-table td { padding: 10px 12px; border: 1px solid var(--line); color: var(--text); vertical-align: top; }
+    .doc-callout { border: 1px solid var(--line); border-left: 4px solid var(--primary); background: var(--primary-050); border-radius: var(--radius-sm); padding: 14px 18px; margin: 0 0 16px; font-size: 14.5px; color: var(--text); }
+    .doc-callout.warn { border-left-color: #ED6D00; background: #FDF3E8; }
+    .doc-callout b { color: var(--ink); }
+    @media (max-width: 900px) {
+      .doc-wrap { grid-template-columns: 1fr; gap: 20px; }
+      .doc-toc { position: static; border-left: 0; padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= 头部导航 ================= -->
+  <header class="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="PowerCMS 12 首页">
+        <span class="brand-name">PowerCMS<span class="bn-ver">12</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-link" data-nav="ai" href="ai.html" data-i18n="nav.ai">AI 能力</a>
+        <a class="nav-link" data-nav="product" href="product.html" data-i18n="nav.product">产品能力</a>
+        <a class="nav-link" data-nav="solutions" href="solutions.html" data-i18n="nav.solutions">解决方案</a>
+        <a class="nav-link" data-nav="customers" data-i18n="nav.customers">客户案例</a>
+        <a class="nav-link" data-nav="pricing" data-i18n="nav.pricing">价格方案</a>
+        <a href="developer.html" class="nav-link" data-i18n="nav.developers">开发者</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="zh" class="active">中文</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <a href="contact.html" class="btn btn-ghost" data-i18n="nav.login">登录</a>
+        <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial">免费试用</a>
+        <button class="menu-btn" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0A1633" stroke-width="2" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav">
+      <a href="ai.html" data-i18n="nav.ai">AI 能力</a>
+      <a href="product.html" data-i18n="nav.product">产品能力</a>
+      <a href="solutions.html" data-i18n="nav.solutions">解决方案</a>
+      <a data-i18n="nav.customers">客户案例</a>
+      <a data-i18n="nav.pricing">价格方案</a>
+      <a href="developer.html" data-i18n="nav.developers">开发者</a>
+      <div class="nav-cta-row">
+        <a href="contact.html" class="btn btn-ghost" data-i18n="nav.login">登录</a>
+        <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial">免费试用</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 页面 Hero ================= -->
+  <section class="sol-hero">
+    <div class="container">
+      <h1 data-i18n="dv.d1.hero.title">部署与运维指南</h1>
+      <p data-i18n="dv.d1.hero.sub">从单机私有化到托管云服务：环境要求、一键安装、备份恢复、升级与故障排查的最佳实践。</p>
+    </div>
+  </section>
+
+  <!-- ================= 正文 ================= -->
+  <section class="ind-section">
+    <div class="container doc-wrap">
+      <aside class="doc-toc" aria-label="本页目录">
+        <b data-i18n="dv.d1.toc">本页目录</b>
+        <a href="#topology" data-i18n="dv.d1.s1">部署形态总览</a>
+        <a href="#requirements" data-i18n="dv.d1.s2">环境要求</a>
+        <a href="#onprem" data-i18n="dv.d1.s3">私有化部署</a>
+        <a href="#managed" data-i18n="dv.d1.s4">托管云服务</a>
+        <a href="#ops" data-i18n="dv.d1.s5">日常运维</a>
+        <a href="#upgrade" data-i18n="dv.d1.s6">升级与卸载</a>
+        <a href="#troubleshooting" data-i18n="dv.d1.s7">故障排查</a>
+        <a href="#security" data-i18n="dv.d1.s8">安全基线</a>
+      </aside>
+
+      <div class="doc-body">
+
+        <h2 id="topology" data-i18n="dv.d1.s1">部署形态总览</h2>
+        <p>PowerCMS 12 提供原生可执行文件（免 JDK/JRE）与容器化两种交付方式，按规模与合规要求可选择以下部署形态：</p>
+        <div class="doc-table" style="overflow-x:auto;">
+          <table class="doc-table">
+            <thead><tr><th>形态</th><th>适用场景</th><th>组成</th></tr></thead>
+            <tbody>
+              <tr><td><b>单机（内置库）</b></td><td>演示、试点、开发自测</td><td>应用 + 内置 H2 数据库 + 内存检索，零外部依赖，开箱即用</td></tr>
+              <tr><td><b>单机（外部库）</b></td><td>常规生产</td><td>应用 + PostgreSQL / MySQL + 可选 OpenSearch + Nginx 反代</td></tr>
+              <tr><td><b>容器 / 分布式</b></td><td>多实例、弹性伸缩</td><td>应用镜像 + 外部数据库 + OpenSearch 集群，通过 docker-compose 或编排平台组装</td></tr>
+              <tr><td><b>托管云服务</b></td><td>无运维团队、快速上线</td><td>由服务方托管应用与基础设施，用户通过管理端与 API 使用（见下文）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>所有形态共享同一套管理端（<code>/</code>）、Headless API（<code>/api/v1</code>）与站点渲染服务，应用架构和操作方式完全一致，迁移成本低。</p>
+
+        <h2 id="requirements" data-i18n="dv.d1.s2">环境要求</h2>
+        <div class="doc-table" style="overflow-x:auto;">
+          <table class="doc-table">
+            <thead><tr><th>项目</th><th>要求</th></tr></thead>
+            <tbody>
+              <tr><td>操作系统</td><td>Windows：Windows 10 1803+ / Windows Server 2016+（x64）；Linux：Ubuntu 20.04+ / Debian 11+ / CentOS 7+ / RHEL 8+ / openEuler / 统信 UOS 等（x86_64 或 aarch64）</td></tr>
+              <tr><td>内存</td><td>≥ 4 GB（同时安装 OpenSearch 建议 ≥ 8 GB）</td></tr>
+              <tr><td>磁盘</td><td>≥ 5 GB（建议 ≥ 10 GB；安装 OpenSearch 建议 ≥ 20 GB）</td></tr>
+              <tr><td>端口</td><td>8080（应用）、80（Nginx，可选）、9200（OpenSearch，仅本机）</td></tr>
+              <tr><td>数据库</td><td>无需预装（默认内置 H2）；选择 PostgreSQL / MySQL 时需先就绪实例</td></tr>
+              <tr><td>运行账户</td><td>Windows 需管理员 PowerShell（注册开机自启计划任务）；Linux 需 root（创建系统用户与 systemd 单元）</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="onprem" data-i18n="dv.d1.s3">私有化部署</h2>
+        <h3>3.1 安装包内容</h3>
+        <p>安装包为自包含目录，主要结构如下（Windows 与 Linux 一致）：</p>
+        <div class="doc-pre"><code>powercms-&lt;版本&gt;-windows-x64/          # Linux 为 powercms-&lt;版本&gt;-linux-x64.tar.gz
+├── install.ps1 / install.sh      一键安装（数据库可选，默认 H2）
+├── uninstall.ps1 / uninstall.sh  卸载（默认保留数据）
+├── bin/powercms(.exe)            原生可执行文件，免 JDK/JRE
+├── ui/admin-ui/dist/             管理端静态资源
+├── config/
+│   ├── nginx.conf                Nginx 反代配置模板
+│   └── application.example.yml   外部配置参考模板
+├── plugins/                      OpenSearch 中文分词插件（smartcn）
+├── components/                   第三方组件离线安装包放置目录
+└── docs/                         部署文档</code></div>
+
+        <h3>3.2 一键安装</h3>
+        <p>解压安装包后，在包根目录执行安装脚本。交互模式会依次询问数据库与可选组件：</p>
+        <div class="doc-pre"><code># Windows（管理员 PowerShell）
+.\install.ps1
+
+# Linux（root）
+chmod +x install.sh uninstall.sh
+./install.sh</code></div>
+        <p>无人值守模式通过参数指定数据库与组件，常用参数：</p>
+        <div class="doc-pre"><code># Windows：MySQL + OpenSearch + Git + Nginx
+.\install.ps1 -Db mysql -DbHost db01 -DbName powercms12 `
+              -DbUser root -DbPassword '******' `
+              -Search opensearch -WithGit -WithNginx -OpenFirewall
+
+# Linux 等价命令
+./install.sh --db mysql --db-host db01 --db-name powercms12 \
+             --db-user root --db-password '******' \
+             --search opensearch --with-git --with-nginx --open-firewall</code></div>
+        <div class="doc-table" style="overflow-x:auto;">
+          <table class="doc-table">
+            <thead><tr><th>参数（Windows / Linux）</th><th>默认值</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td><code>-InstallDir</code> / <code>--install-dir</code></td><td><code>C:\PowerCMS</code> / <code>/opt/powercms</code></td><td>安装目录，数据与日志在其 <code>data/</code> 下</td></tr>
+              <tr><td><code>-Db</code> / <code>--db</code></td><td><code>h2</code></td><td><code>h2</code> / <code>postgres</code> / <code>mysql</code></td></tr>
+              <tr><td><code>-DbHost/-DbPort/-DbName/-DbUser/-DbPassword</code> / <code>--db-*</code></td><td>—</td><td>外部数据库连接信息</td></tr>
+              <tr><td><code>-ServerPort</code> / <code>--server-port</code></td><td><code>8080</code></td><td>应用端口</td></tr>
+              <tr><td><code>-Search</code> / <code>--search</code></td><td><code>memory</code></td><td><code>memory</code>（内置检索）或 <code>opensearch</code></td></tr>
+              <tr><td><code>-WithGit / -WithNginx / -WithOpenSearch</code> / <code>--with-*</code></td><td>未指定</td><td>跳过交互直接安装对应组件</td></tr>
+              <tr><td><code>-Offline</code> / <code>--offline</code></td><td>关</td><td>完全离线安装，组件仅从 <code>components/</code> 目录获取</td></tr>
+              <tr><td><code>-NoStart</code> / <code>--no-start</code></td><td>关</td><td>安装完成后不启动、不做健康检查</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>3.3 数据库选择</h3>
+        <div class="doc-table" style="overflow-x:auto;">
+          <table class="doc-table">
+            <thead><tr><th>选项</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td><b>H2（默认）</b></td><td>零依赖，开箱即用；备份即拷贝 <code>data\</code> 目录。适合演示与小规模场景</td></tr>
+              <tr><td><b>PostgreSQL 14+</b></td><td>生产推荐；需先建库建用户</td></tr>
+              <tr><td><b>MySQL 8.0.19+</b></td><td>字符集需为 utf8mb4</td></tr>
+              <tr><td><b>金仓 KingbaseES / 达梦</b></td><td>数据库 profile（<code>db-kingbase</code>、<code>db-dameng</code>）已内置；需在源码侧启用 <code>-Pvendor-drivers</code> 重新构建原生二进制，详见安装包 <code>docs/native-image.md</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="doc-callout">安装后改库：编辑 <code>&lt;安装目录&gt;\config\application.yml</code>（参考包内 <code>application.example.yml</code>），重启服务生效。也可用环境变量覆盖（如 <code>POWERCMS_DB_PROFILE</code>、<code>POWERCMS_DB_HOST</code> 等）。</div>
+
+        <h3>3.4 可选组件</h3>
+        <ul>
+          <li><b>Git</b>：模板仓库 / 发布分支版本化所需，安装脚本可自动安装（支持离线包）。</li>
+          <li><b>Nginx</b>：站点反代与静态提速。默认将 80 端口反代到 <code>127.0.0.1:8080</code>，配置模板已含 <code>client_max_body_size 4g</code>、gzip 与关闭代理缓冲；以计划任务（Windows）或系统配置（Linux）自启，支持 <code>nginx -s reload</code> 热加载。</li>
+          <li><b>OpenSearch 3.8.0</b>：可选全文检索后端。预置单节点、中文分词插件（smartcn，需与 OpenSearch 版本一致）、堆内存 512 MB；<code>memory</code> 模式下应用完全不依赖 OpenSearch。</li>
+        </ul>
+        <div class="doc-callout warn">安装脚本预置的 OpenSearch 关闭了安全插件，<b>仅限内网使用</b>；需要暴露时必须启用其 security 插件并配置 TLS，或以防火墙 + 反代限制 9200 端口访问。</div>
+
+        <h3>3.5 安装后验证</h3>
+        <div class="doc-pre"><code># 状态与健康检查
+powershell -File C:\PowerCMS\status.ps1        # Linux: systemctl status powercms
+http://localhost:8080/actuator/health          # 返回 {"status":"UP"}
+http://localhost:8080/swagger-ui.html          # API 文档
+http://localhost:8080/                         # 管理端</code></div>
+        <p>日志位于 <code>&lt;安装目录&gt;\data\logs\powercms.log</code>。首次启动会自动执行数据库迁移（H2 约十余秒，PostgreSQL / MySQL 视数据规模而定）。</p>
+
+        <h2 id="managed" data-i18n="dv.d1.s4">托管云服务</h2>
+        <p>选择托管形态时，应用部署、版本升级、备份与基础设施监控由服务方负责，用户通过管理端与 API 使用平台，适合缺少专职运维团队或希望快速上线的组织。</p>
+        <ul>
+          <li><b>环境隔离</b>：每个站点默认提供 preview / staging / production 三套环境（对应 API 中的 <code>PREVIEW / STAGING / PRODUCTION</code>），内容创作、预览与正式发布互不干扰，与环境相关的域名可按站点绑定。</li>
+          <li><b>职责边界</b>：服务方负责应用可用性、版本升级与基础数据备份；用户负责账号与权限管理、内容运营及自身集成代码。</li>
+          <li><b>数据可迁移</b>：内容模型与内容可通过管理 API 导出，站点前台可通过公开 Delivery API 取数，后续如转为私有化部署，迁移路径清晰。</li>
+        </ul>
+        <div class="doc-callout">托管服务的方案配置与报价因规模而异，欢迎<a href="contact.html">联系我们</a>获取针对你所在行业的托管方案。</div>
+
+        <h2 id="ops" data-i18n="dv.d1.s5">日常运维</h2>
+        <h3>5.1 服务管理</h3>
+        <div class="doc-table" style="overflow-x:auto;">
+          <table class="doc-table">
+            <thead><tr><th>操作</th><th>Windows</th><th>Linux</th></tr></thead>
+            <tbody>
+              <tr><td>启动 / 停止 / 状态</td><td>安装目录下 <code>start.bat</code> / <code>stop.bat</code> / <code>status.ps1</code></td><td><code>systemctl start|stop|status powercms</code></td></tr>
+              <tr><td>开机自启</td><td>计划任务 <code>PowerCMS</code>（管理员安装 = 系统启动时）</td><td>systemd 单元 <code>powercms.service</code>（<code>enable</code>）</td></tr>
+              <tr><td>OpenSearch</td><td>服务 <code>PowerCMS-OpenSearch</code> 或 <code>opensearch-service.bat</code></td><td>systemd 单元 <code>powercms-opensearch</code></td></tr>
+              <tr><td>Nginx</td><td>计划任务 <code>PowerCMS-Nginx</code>；<code>nginx -s reload</code></td><td><code>systemctl reload nginx</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>5.2 监控与日志</h3>
+        <ul>
+          <li>健康检查：<code>GET /actuator/health</code>，返回 <code>{"status":"UP"}</code> 即正常，可接入现有监控平台的 HTTP 探针。</li>
+          <li>应用日志：<code>&lt;安装目录&gt;\data\logs\powercms.log</code>，后台控制台隐藏启动，一切以日志文件为准。</li>
+          <li>API 文档：<code>/swagger-ui.html</code> 可随时核对本环境开放的接口清单。</li>
+        </ul>
+
+        <h3>5.3 备份与恢复</h3>
+        <ul>
+          <li><b>H2（内置库）</b>：停止服务后整体拷贝 <code>data\</code> 目录即可；恢复 = 将目录放回原位后启动。</li>
+          <li><b>PostgreSQL / MySQL</b>：按数据库常规方式做实例级备份（逻辑备份或快照），并同步备份 <code>data\</code> 下的媒体等运行数据。</li>
+          <li>建议在业务低峰执行全量备份，并将备份文件保存到独立存储；重要变更（升级、改库）前先做一次手动备份。</li>
+        </ul>
+
+        <h2 id="upgrade" data-i18n="dv.d1.s6">升级与卸载</h2>
+        <h3>6.1 升级</h3>
+        <ol>
+          <li>备份现有 <code>data\</code>（或数据库实例）与 <code>config\application.yml</code>；</li>
+          <li>停止服务（<code>stop.bat</code> / <code>systemctl stop powercms</code>）；</li>
+          <li>用新版本安装包覆盖 <code>bin\powercms(.exe)</code>、<code>admin-ui\dist\</code>（如有插件变更，一并覆盖 <code>plugins\</code>）；</li>
+          <li>启动服务，数据库迁移自动执行。</li>
+        </ol>
+        <div class="doc-callout warn">升级过程<b>不要删除 <code>data\</code> 目录</b>——内容、媒体索引与运行数据都在其中。</div>
+
+        <h3>6.2 卸载</h3>
+        <p>Windows 执行 <code>.\uninstall.ps1</code>（Linux 为 <code>./uninstall.sh</code>），默认<b>保留数据</b>；加 <code>-Purge</code> 参数连数据一起删除。脚本会依次停止进程、卸载 OpenSearch 服务、删除计划任务 / systemd 单元、清理防火墙规则并移除程序目录。</p>
+
+        <h2 id="troubleshooting" data-i18n="dv.d1.s7">故障排查</h2>
+        <div class="doc-table" style="overflow-x:auto;">
+          <table class="doc-table">
+            <thead><tr><th>现象</th><th>处理</th></tr></thead>
+            <tbody>
+              <tr><td>端口被占用</td><td>更换 <code>-ServerPort</code> 重新安装，或排查占用进程（Windows：<code>Get-NetTCPConnection -LocalPort 8080 -State Listen</code>）</td></tr>
+              <tr><td>健康检查不过</td><td>查看 <code>data\logs\powercms.log</code>；多为数据库不可达、账号密码错误或库未创建</td></tr>
+              <tr><td>首次启动即退出</td><td>迁移失败或配置语法错误；确认 <code>config\application.yml</code> 为 UTF-8 且 YAML 缩进正确</td></tr>
+              <tr><td>管理端 404</td><td><code>admin-ui\dist</code> 缺失（安装包未含 UI 构建产物），补入后重启</td></tr>
+              <tr><td>OpenSearch 起不来</td><td>查看对应服务状态与 <code>components\opensearch-*\logs\</code>；内存不足时下调堆大小</td></tr>
+              <tr><td>计划任务未生效</td><td>非管理员安装只能"登录时启动"；以管理员重装或手动修改任务触发器</td></tr>
+              <tr><td>防火墙拦截</td><td>重跑安装脚本带 <code>-OpenFirewall</code> / <code>--open-firewall</code>，或手工添加入站规则</td></tr>
+              <tr><td>换库后起不来</td><td>核对 <code>config\application.yml</code> 的 profile 与连接串；可先切回 H2 验证应用本身正常</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="security" data-i18n="dv.d1.s8">安全基线</h2>
+        <ol>
+          <li>首次登录管理端<b>立即修改默认账号</b> <code>admin</code> 的密码；</li>
+          <li>替换 <code>config\application.yml</code> 中的数据库密码与 <code>powercms.play-token</code> 等默认密钥，支持通过环境变量注入；</li>
+          <li>OpenSearch 安全插件处于关闭状态，仅限内网使用；对外暴露必须启用 security 插件并配置 TLS，或以防火墙 + 反代限制 9200 端口；</li>
+          <li>生产环境在 Nginx 层启用 TLS（<code>listen 443 ssl</code>），应用端口 8080 仅绑定内网；</li>
+          <li>定期备份 <code>data\</code>（H2）或数据库实例（PostgreSQL / MySQL），并做恢复演练。</li>
+        </ol>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta-band">
+    <h2 data-i18n="pr.cta.title">还有疑问？和我们的专家聊聊</h2>
+    <p data-i18n="pr.cta.sub">无论是采购流程、信创适配还是迁移评估，我们都准备好了。</p>
+    <div class="hero-cta">
+      <a href="contact.html" class="btn btn-light btn-lg" data-i18n="dv.cta">申请获取资料</a>
+      <a href="pricing.html" class="btn btn-outline-light btn-lg" data-i18n="nav.trial">免费试用</a>
+    </div>
+  </section>
+
+  <!-- ================= 页脚 ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" aria-label="PowerCMS 12 首页">
+            <span class="brand-name">PowerCMS<span class="bn-ver">12</span></span>
+          </a>
+          <p class="ft-tag" data-i18n="footer.tag">面向政府、事业单位与大型企业的新一代 Headless 内容平台。让内容成为可信的数字资产。</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c1">产品</h4>
+          <ul>
+            <li><a href="ai.html" data-i18n="footer.l10">AI 能力</a></li>
+            <li><a href="product.html" data-i18n="footer.l11">产品能力</a></li>
+            <li><a href="product.html" data-i18n="footer.l12">可视化编辑器</a></li>
+            <li><a href="product.html" data-i18n="footer.l13">媒体智能</a></li>
+            <li><a href="developer.html" data-i18n="footer.l14">开发者中心</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c2">解决方案</h4>
+          <ul>
+            <li><a href="solutions.html#ind-gov" data-i18n="footer.l21">政府及公共服务</a></li>
+            <li><a href="solutions.html#ind-edu" data-i18n="footer.l22">学校及教育</a></li>
+            <li><a href="solutions.html#ind-fin" data-i18n="footer.l23">金融及保险</a></li>
+            <li><a href="solutions.html#ind-mfg" data-i18n="footer.l24">智能制造</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c3">资源</h4>
+          <ul>
+            <li><a href="docs-deployment.html" data-i18n="footer.l31">文档中心</a></li>
+            <li><a href="customers.html" data-i18n="footer.l32">案例研究</a></li>
+            <li><a href="developer.html" data-i18n="footer.l33">版本发布</a></li>
+            <li><a href="developer.html" data-i18n="footer.l34">博客</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c4">公司</h4>
+          <ul>
+            <li><a href="contact.html" data-i18n="footer.l41">关于我们</a></li>
+            <li><a href="contact.html" data-i18n="footer.l42">联系我们</a></li>
+            <li><a href="contact.html" data-i18n="footer.l43">合作伙伴</a></li>
+            <li><a href="contact.html" data-i18n="footer.l44">加入我们</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="https://www.powercom.net.cn" target="_blank" rel="noopener" data-i18n="footer.official">宝丽星通 PowerCOM 官网</a>
+        <span data-i18n="footer.copy">© 2026 PowerCOM · 保留所有权利</span>
+        <span data-i18n="footer.icp">京ICP备08104445号-1</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
