@@ -105,6 +105,8 @@
 
       <div class="doc-body">
 
+        <div class="doc-callout">本页内容以 <b>12.0.1</b> 为准（发布日期 2026-10-11），接口清单取自该版本运行实例的 OpenAPI 定义；历史版本差异见 <a href="docs-releases.html">《版本发布记录》</a>。</div>
+
         <h2 id="overview" data-i18n="dv.d2.s1">API 体系总览</h2>
         <p>PowerCMS 12 是 Headless CMS：内容模型与内容统一存储，任何前端（网站、App、小程序、大屏）都可以通过标准接口取数渲染。开放面包括：</p>
         <div class="doc-table" style="overflow-x:auto;">
@@ -150,25 +152,54 @@ Content-Type: application/json
  "details": []}</code></div>
 
         <h2 id="rest" data-i18n="dv.d2.s3">管理端 REST API</h2>
-        <p>管理端 API 覆盖平台全部后台能力（40 余个资源组、560 余条端点路径），全部以 <code>/api/v1</code> 为前缀，资源按站点隔离。常用资源组：</p>
+        <p>管理端 API 覆盖平台全部后台能力（40 余个资源组、610 余条端点路径），全部以 <code>/api/v1</code> 为前缀，资源按站点隔离。常用资源组：</p>
         <div class="doc-table" style="overflow-x:auto;">
           <table class="doc-table">
             <thead><tr><th>资源组</th><th>代表端点</th><th>说明</th></tr></thead>
             <tbody>
-              <tr><td>站点</td><td><code>GET /api/v1/sites</code>、<code>POST /api/v1/sites</code></td><td>站点与环境（preview / staging / production）、域名管理</td></tr>
+              <tr><td>站点</td><td><code>GET /api/v1/sites</code>、<code>POST /api/v1/sites</code>、<code>DELETE /api/v1/sites/{siteId}</code></td><td>站点与环境（preview / staging / production）、域名管理；已归档站点可物理删除，删除前用 <code>GET /api/v1/sites/{siteId}/deletion-preview</code> 查看级联影响</td></tr>
               <tr><td>内容模型</td><td><code>/api/v1/sites/{siteId}/content-types</code> 及版本、字段、生命周期子资源</td><td>内容类型的定义、版本与发布</td></tr>
-              <tr><td>内容</td><td><code>POST /api/v1/sites/{siteId}/contents</code>、<code>GET /api/v1/contents/{id}</code></td><td>内容条目的创建、检索与状态流转</td></tr>
+              <tr><td>内容</td><td><code>POST /api/v1/sites/{siteId}/contents</code>、<code>GET /api/v1/contents/{id}</code>、<code>DELETE /api/v1/contents/{id}</code></td><td>内容条目的创建、检索、状态流转与删除；批量操作走 <code>/sites/{siteId}/contents/batch-status</code>、<code>/batch-delete</code></td></tr>
+              <tr><td>内容分享</td><td><code>GET /api/v1/sites/{siteId}/contents/{contentId}/shares</code></td><td>资源分享链接签发与吊销（<code>POST /shares</code>、<code>POST /shares/{shareId}/revoke</code>）</td></tr>
+              <tr><td>会员</td><td><code>POST /api/v1/sites/{siteId}/frontend-users/{id}/approve</code>、<code>/unlock</code></td><td>会员注册审核通过与账号解锁</td></tr>
+              <tr><td>知识库（doc-kb）</td><td><code>/api/v1/sites/{siteId}/doc-kb/documents</code>、<code>/{docUnitId}/chunks</code>、<code>/publish</code></td><td>12.0.1 新增：文档解析与知识库（RAG）管理面，详见 §3.1</td></tr>
               <tr><td>分类与标签</td><td><code>GET /api/v1/categories/{categoryId}/contents</code></td><td>栏目 / 分类体系</td></tr>
-              <tr><td>媒体</td><td><code>/api/v1/sites/{siteId}/media/**</code></td><td>媒体库、文件夹、转码、Knox 对接、字幕 / 转写等</td></tr>
+              <tr><td>媒体</td><td><code>/api/v1/sites/{siteId}/media/**</code></td><td>媒体库、文件夹、转码、Knox 对接、字幕 / 转写等；列表与分页支持 <code>folderPath</code> 按目录浏览，文档预览按 <code>/media-preview/{siteId}/{assetId}?page=N</code> 取指定页</td></tr>
               <tr><td>页面与模板</td><td><code>/api/v1/sites/{siteId}/pages/**</code>、<code>template-projects</code></td><td>页面组装、模板工程与主题</td></tr>
               <tr><td>工作流</td><td><code>/api/v1/workflows/{id}/publish</code> 等</td><td>审批流定义与版本管理</td></tr>
               <tr><td>身份与权限</td><td><code>/api/v1/users</code>、<code>roles</code>、<code>access-policies</code></td><td>用户、角色与访问策略</td></tr>
               <tr><td>检索</td><td><code>GET /api/v1/sites/{siteId}/contents/search</code></td><td>后台全文检索</td></tr>
+              <tr><td>AI</td><td><code>GET /api/v1/ai/embedding-cache</code>（<code>siteId</code> 可选）</td><td>向量缓存用量与清理效果观测</td></tr>
+              <tr><td>媒体端点登记</td><td><code>POST /api/v1/knox/register</code></td><td>媒体服务器启动时凭 <code>client_secret</code> 登记端点，已注册则保持原配置</td></tr>
               <tr><td>系统</td><td><code>/api/v1/tasks</code>、<code>system-logs</code>、<code>notifications</code></td><td>异步任务、系统日志、通知</td></tr>
             </tbody>
           </table>
         </div>
-        <div class="doc-callout">完整清单以 <code>/swagger-ui.html</code> 为准；各端点的请求 / 响应 schema 也可从 <code>/v3/api-docs</code> 导出后生成客户端 SDK。</div>
+
+        <h3>3.1 12.0.1 新增：知识库（doc-kb）接口组</h3>
+        <p>文档解析与知识库是本版本主线，对应一套 <code>/api/v1/sites/{siteId}/doc-kb/**</code> 管理接口（均需站点级权限）：</p>
+        <div class="doc-table" style="overflow-x:auto;">
+          <table class="doc-table">
+            <thead><tr><th>端点</th><th>方法</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td><code>/doc-kb/documents</code></td><td>GET / POST</td><td>文档单元列表与创建</td></tr>
+              <tr><td><code>/doc-kb/documents/{docUnitId}</code></td><td>GET</td><td>文档单元详情（含解析状态与索引对账信息）</td></tr>
+              <tr><td><code>/doc-kb/documents/{docUnitId}/chunks</code></td><td>GET</td><td>该文档的分块列表</td></tr>
+              <tr><td><code>/doc-kb/documents/{docUnitId}/publish</code></td><td>POST</td><td>发布 / 下线，驱动访客所见索引同步</td></tr>
+              <tr><td><code>/doc-kb/documents/{docUnitId}/resync-public-index</code></td><td>POST</td><td>对账并重建公开索引</td></tr>
+              <tr><td><code>/doc-kb/documents/{docUnitId}/rechunk</code></td><td>POST</td><td>重新分块（结构调整后使用）</td></tr>
+              <tr><td><code>/doc-kb/documents/{docUnitId}/citation-check</code></td><td>POST</td><td>引用链接自检</td></tr>
+              <tr><td><code>/doc-kb/documents/{docUnitId}/preview</code></td><td>GET</td><td>解析结果预览</td></tr>
+              <tr><td><code>/doc-kb/documents/{docUnitId}/chunk-stats</code></td><td>GET</td><td>单文档分块统计与异常识别</td></tr>
+              <tr><td><code>/doc-kb/chunks/{chunkId}</code>、<code>/history</code>、<code>/rollback</code></td><td>GET / GET / POST</td><td>分块详情、修订历史与回滚</td></tr>
+              <tr><td><code>/doc-kb/documents/{docUnitId}/chunks/{ordinal}/rollback</code></td><td>POST</td><td>按序号回滚指定分块</td></tr>
+              <tr><td><code>/doc-kb/revisions/{revisionId}/diff</code>、<code>/revisions/diff</code></td><td>GET</td><td>分块修订比对结果</td></tr>
+              <tr><td><code>/doc-kb/stats</code></td><td>GET</td><td>知识库整体统计（配额页数据源）</td></tr>
+              <tr><td><code>/doc-kb/batch/{operation}</code>、<code>/batch/{operation}/preview</code></td><td>POST / GET</td><td>批量操作与执行前预览</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="doc-callout">完整清单以 <code>/swagger-ui.html</code> 为准；各端点的请求 / 响应 schema 也可从 <code>/v3/api-docs</code> 导出后生成客户端 SDK。知识库检索侧的多层 ACL、跨源 RRF 融合与重排降级对用户可见，详见 <a href="docs-releases.html#latest">12.0.1 发布说明</a>。</div>
 
         <h2 id="delivery" data-i18n="dv.d2.s4">Delivery API（前台取数）</h2>
         <p>Delivery API 面向站点前台公开（只读），无需登录即可按站点获取已发布内容，是 Headless 场景下前端取数的主通道：</p>
@@ -178,7 +209,19 @@ Content-Type: application/json
             <tbody>
               <tr><td><code>GET /api/v1/delivery/sites/{siteId}/contents</code></td><td><code>categoryId</code>、<code>page</code>、<code>size</code></td><td>按分类分页列出已发布内容</td></tr>
               <tr><td><code>GET /api/v1/delivery/sites/{siteId}/contents/{contentId}</code></td><td>—</td><td>内容详情（含动态字段）</td></tr>
-              <tr><td><code>GET /api/v1/delivery/sites/{siteId}/contents/query</code></td><td><code>contentType</code>（必填）、<code>limit</code>、<code>orderBy</code>、<code>status</code></td><td>按内容模型编码查询内容列表</td></tr>
+              <tr><td><code>GET /api/v1/delivery/sites/{siteId}/contents/query</code></td><td><code>contentType</code>（必填）、<code>limit</code>、<code>orderBy</code>、<code>status</code>、<code>forViewer</code></td><td>按内容模型编码查询内容列表；<code>forViewer</code> 按当前访客权限过滤</td></tr>
+              <tr><td><code>GET /api/v1/delivery/sites/{siteId}/folders</code></td><td>—</td><td>前台可见目录树（配合数字资源库按栏目浏览）</td></tr>
+              <tr><td><code>GET /api/v1/delivery/sites/{siteId}/content-forms/{code}</code></td><td>路径参数 <code>code</code></td><td>按编码取表单定义（12.0.1 起开放）</td></tr>
+              <tr><td><code>GET /api/v1/delivery/sites/{siteId}/contents/{contentId}/actions</code>、<code>POST /contents/{contentId}/like</code></td><td>—</td><td>内容可用动作查询与点赞上报</td></tr>
+              <tr><td><code>GET /api/v1/delivery/sites/{siteId}/me/favorites</code>、<code>PUT|DELETE /me/favorites/{contentId}</code></td><td>—</td><td>会员收藏列表、加入收藏与取消收藏</td></tr>
+              <tr><td><code>GET /api/v1/delivery/sites/{siteId}/me/history</code>、<code>POST /me/history/{contentId}</code></td><td>—</td><td>会员浏览历史列表与上报</td></tr>
+              <tr><td><code>GET /api/v1/delivery/sites/{siteId}/me/inbox</code>、<code>POST /me/inbox/read</code>、<code>POST /me/inbox/comments/{messageId}/replies</code></td><td>—</td><td>消息收件箱、已读标记与楼中楼回复</td></tr>
+              <tr><td><code>GET /api/v1/delivery/sites/{siteId}/me/uploads</code>、<code>POST /me/uploads/contents</code>、<code>POST /me/uploads/files</code>、<code>DELETE /me/uploads/{contentId}</code></td><td>—</td><td>会员上传中心：列表、创建条目、上传文件与删除</td></tr>
+              <tr><td><code>GET|POST /api/v1/delivery/sites/{siteId}/me/shares</code>、<code>POST /me/shares/{shareId}/revoke</code></td><td>—</td><td>会员分享链接创建、列表与吊销</td></tr>
+              <tr><td><code>POST /api/v1/delivery/sites/{siteId}/me/password</code></td><td>—</td><td>会员修改密码</td></tr>
+              <tr><td><code>GET|POST /api/v1/delivery/sites/{siteId}/member-registration</code></td><td>—</td><td>会员注册项查询与注册提交（12.0.1 起走注册审核流程）</td></tr>
+              <tr><td><code>GET /api/v1/delivery/sites/{siteId}/shares/{token}</code></td><td>路径参数 <code>token</code></td><td>凭分享令牌获取分享内容</td></tr>
+              <tr><td><code>GET /api/v1/delivery/sites/{siteId}/viewer</code></td><td>—</td><td>当前访客身份与权限上下文</td></tr>
               <tr><td><code>GET /api/v1/delivery/sites/{siteId}/pages</code></td><td>—</td><td>页面树 / 页面数据</td></tr>
               <tr><td><code>GET /api/v1/delivery/sites/{siteId}/search</code></td><td>关键词等</td><td>前台全文搜索</td></tr>
               <tr><td><code>POST /api/v1/delivery/sites/{siteId}/media/{assetId}/play-token</code></td><td>—</td><td>签发受控播放令牌（音视频点播）</td></tr>
@@ -196,6 +239,15 @@ Content-Type: application/json
   "tel_s": "010-62129317", "sales_s": "sales@example.com"
 }]</code></div>
         <div class="doc-callout">Delivery API 默认匿名可读。若站点内容涉密，可通过访问策略限制公开范围，仅放行需要公开的模型与字段。</div>
+
+        <h3>4.1 站点应用（webapps）部署与取数</h3>
+        <p>除 Headless 取数与 MVC 渲染外，12.0.1 起可把 React / Vue 前端产物直接部署为「站点应用」：</p>
+        <ul>
+          <li>按站点 Key 部署到 <code>webapps/{siteKey}/</code>，入口 <code>GET /webapps/{siteKey}</code>，匿名公开；</li>
+          <li>缺失尾斜杠的请求会 <b>302 补斜杠并保留查询参数</b>，避免 Vite 相对资源路径 404；</li>
+          <li>应用内可<b>相对路径</b>寻址 API（如 <code>./api/v1/delivery/...</code>），由请求改写过滤器归一到站点维度，前端无需硬编码站点 ID；</li>
+          <li>资源详情页等场景会自动注入第一方统计脚本 <code>analytics.js</code>，按资源上报 <code>PAGEVIEW</code> / <code>CONTENT_VIEW</code> / <code>DOWNLOAD</code>（预览与编辑态不注入，避免污染统计）。</li>
+        </ul>
 
         <h2 id="graphql" data-i18n="dv.d2.s5">GraphQL</h2>
         <p>每个站点拥有独立 GraphQL Schema，适合一次请求取回内容及其关联结构（如文章 + 作者 + 栏目）：</p>
@@ -216,7 +268,7 @@ Content-Type: application/json
         <h2 id="freemarker" data-i18n="dv.d2.s6">FreeMarker 模板开发</h2>
         <p>除了 Headless 取数，PowerCMS 12 也支持服务端渲染：页面、区块与组件模板使用 FreeMarker（<code>.ftl</code>）编写，由平台渲染后输出 HTML。内容类型的 <code>displayTemplate</code> 指向模板路径（如 <code>/templates/about-contact.ftl</code>）。</p>
 
-        <h3>6.1 渲染模型：顶层变量</h3>
+        <h3>6.1 渲染模型：顶层变量（以 12.0.1 为准）</h3>
         <p>模板渲染时平台注入统一的顶层模型。已登记的顶层变量全集如下（引用未登记的顶层名字会在模板保存校验时报错）：</p>
         <div class="doc-table" style="overflow-x:auto;">
           <table class="doc-table">
@@ -328,7 +380,7 @@ Content-Type: application/json
         </ul>
 
         <h2 id="mcp" data-i18n="dv.d2.s8">MCP Server</h2>
-        <p>面向 AI 客户端，PowerCMS 12 内置标准 MCP Server（端点 <code>/api/mcp</code>），提供 71 个结构化工具、覆盖 6 大域，任何标准 MCP 客户端即插即用；工具面与 REST API 同源，权限模型一致：</p>
+        <p>面向 AI 客户端，PowerCMS 12 内置标准 MCP Server（端点 <code>/api/mcp</code>），提供 Tools / Resources / Prompts 三类结构化工具面，覆盖内容、站点、工作流、媒体、知识库等域，任何标准 MCP 客户端即插即用；工具面与 REST API 同源，权限模型一致：</p>
         <div class="doc-pre"><code>content.search      # 内容检索
 content.draft       # 内容起草
 flow.todo           # 工作流待办</code></div>
@@ -337,6 +389,7 @@ flow.todo           # 工作流待办</code></div>
           <li>配额与审计：<code>GET /api/v1/mcp/quota</code> 查询配额，<code>/api/v1/sites/{siteId}/mcp-audit</code> 查看调用审计；</li>
           <li>工具 Token 权限分 L0 只读 / L1 草稿 / L2 发布三级，只能收窄不能扩大，越级调用返回 403 并落审计。</li>
         </ul>
+        <div class="doc-callout">工具数量与清单随版本演进，建议客户端在初始化时通过标准协议拉取 <code>tools/list</code>，以运行实例的实时清单为准。</div>
         <div class="doc-callout">MCP 工具面详情见 <a href="ai.html#mcp">AI 能力 · MCP 工具清单</a>。</div>
 
       </div>

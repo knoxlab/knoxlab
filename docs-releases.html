@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>版本发布记录 — PowerCMS 12 开发者中心</title>
+  <meta name="description" content="PowerCMS 12 版本发布记录：12.0.1 最新版本更新明细（新增 / 优化 / 修复）与下载地址，以及 12.0.0 首个正式版本的发布内容与历史下载链接。">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ---- 文档页局部样式（仅本页生效） ---- */
+    .doc-wrap { display: grid; grid-template-columns: 220px minmax(0,1fr); gap: 48px; align-items: start; }
+    .doc-toc { position: sticky; top: 96px; border-left: 2px solid var(--line); padding-left: 18px; font-size: 14px; }
+    .doc-toc b { display: block; color: var(--ink); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+    .doc-toc a { display: block; color: var(--muted); padding: 5px 0; }
+    .doc-toc a:hover { color: var(--primary); }
+    .doc-body h2 { font-size: 26px; font-weight: 700; color: var(--ink); margin: 0 0 18px; padding-top: 34px; letter-spacing: -.01em; }
+    .doc-body h2:first-child { padding-top: 0; }
+    .doc-body h3 { font-size: 18px; font-weight: 700; color: var(--ink); margin: 26px 0 10px; }
+    .doc-body p, .doc-body li { color: var(--text); font-size: 15.5px; }
+    .doc-body p { margin-bottom: 12px; }
+    .doc-body ul { margin: 0 0 14px 18px; list-style: disc; }
+    .doc-body ul li { margin-bottom: 6px; }
+    .doc-body ol { margin: 0 0 14px 20px; }
+    .doc-body ol li { margin-bottom: 6px; }
+    .doc-body code { font-family: var(--mono); font-size: .88em; background: var(--soft); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; color: var(--ink-2); }
+    .doc-pre { background: var(--ink); color: #D7E3FA; border-radius: var(--radius-sm); padding: 18px 20px; overflow-x: auto; margin: 0 0 16px; }
+    .doc-pre code { background: none; border: 0; padding: 0; color: inherit; font-size: 13.5px; line-height: 1.7; }
+    .doc-table { width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 14.5px; }
+    .doc-table th { text-align: left; background: var(--primary-050); color: var(--ink); font-weight: 700; padding: 10px 12px; border: 1px solid var(--line); white-space: nowrap; }
+    .doc-table td { padding: 10px 12px; border: 1px solid var(--line); color: var(--text); vertical-align: top; }
+    .doc-callout { border: 1px solid var(--line); border-left: 4px solid var(--primary); background: var(--primary-050); border-radius: var(--radius-sm); padding: 14px 18px; margin: 0 0 16px; font-size: 14.5px; color: var(--text); }
+    .doc-callout.warn { border-left-color: #ED6D00; background: #FDF3E8; }
+    .doc-callout b { color: var(--ink); }
+
+    /* 发布区块 */
+    .rel-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); background: #fff; margin-bottom: 32px; }
+    .rel-card.is-latest { border-color: rgba(46,91,255,.35); box-shadow: 0 12px 36px rgba(46,91,255,.10); }
+    .rel-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+    .rel-ver { font-size: 30px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; }
+    .rel-date { color: var(--muted); font-size: 14.5px; }
+    .rel-badge { display: inline-block; font-size: 12px; font-weight: 700; color: #fff; background: var(--primary); border-radius: 999px; padding: 4px 12px; }
+    .rel-badge.old { background: transparent; color: var(--muted); border: 1px solid var(--line); }
+    .rel-meta { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; margin: 20px 0 6px; }
+    .rel-meta div { background: var(--soft); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 12px 14px; }
+    .rel-meta span { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+    .rel-meta b { font-size: 14.5px; color: var(--ink); font-weight: 700; }
+    .rel-cat { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin: 14px 0 8px; }
+    .rel-cat > section { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 16px 18px; background: #fff; }
+    .rel-cat h4 { font-size: 15px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .rel-cat ul { margin: 0 0 0 16px; list-style: disc; font-size: 14.5px; color: var(--text); }
+    .rel-cat li { margin-bottom: 7px; }
+    .cat-add h4 { color: #0F9D58; }
+    .cat-imp h4 { color: var(--primary); }
+    .cat-fix h4 { color: #E5533D; }
+    .dl-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin: 14px 0 6px; }
+    .dl-item { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 16px; display: flex; flex-direction: column; gap: 6px; background: #fff; }
+    .dl-item .dl-plat { font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+    .dl-item .dl-name { font-family: var(--mono); font-size: 13.5px; color: var(--ink); word-break: break-all; }
+    .dl-item .dl-size { font-size: 12.5px; color: var(--muted); }
+    .dl-item .dl-go { font-weight: 600; color: var(--primary); font-size: 14.5px; display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; }
+    .dl-item .dl-go::after { content: "↓"; }
+    .dl-item.is-na { background: var(--soft); border-style: dashed; }
+    .dl-item.is-na .dl-name { color: var(--muted); }
+    .dl-item.is-na .dl-na { font-size: 13.5px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; }
+    .dl-item.is-na .dl-na::before { content: "—"; }
+    .rel-foot { font-size: 14px; color: var(--muted); margin-top: 14px; }
+    @media (max-width: 900px) {
+      .doc-wrap { grid-template-columns: 1fr; gap: 20px; }
+      .doc-toc { position: static; border-left: 0; padding-left: 0; }
+      .rel-meta { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .rel-cat { grid-template-columns: 1fr; }
+      .dl-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= 头部导航 ================= -->
+  <header class="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="PowerCMS 12 首页">
+        <span class="brand-name">PowerCMS<span class="bn-ver">12</span></span>
+      </a>
+      <nav class="nav">
+        <a class="nav-link" data-nav="ai" href="ai.html" data-i18n="nav.ai">AI 能力</a>
+        <a class="nav-link" data-nav="product" href="product.html" data-i18n="nav.product">产品能力</a>
+        <a class="nav-link" data-nav="solutions" href="solutions.html" data-i18n="nav.solutions">解决方案</a>
+        <a class="nav-link" data-nav="customers" data-i18n="nav.customers">客户案例</a>
+        <a class="nav-link" data-nav="pricing" data-i18n="nav.pricing">价格方案</a>
+        <a href="developer.html" class="nav-link" data-i18n="nav.developers">开发者</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="zh" class="active">中文</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <a href="contact.html" class="btn btn-ghost" data-i18n="nav.login">登录</a>
+        <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial">免费试用</a>
+        <button class="menu-btn" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0A1633" stroke-width="2" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav">
+      <a href="ai.html" data-i18n="nav.ai">AI 能力</a>
+      <a href="product.html" data-i18n="nav.product">产品能力</a>
+      <a href="solutions.html" data-i18n="nav.solutions">解决方案</a>
+      <a data-i18n="nav.customers">客户案例</a>
+      <a data-i18n="nav.pricing">价格方案</a>
+      <a href="developer.html" data-i18n="nav.developers">开发者</a>
+      <div class="nav-cta-row">
+        <a href="contact.html" class="btn btn-ghost" data-i18n="nav.login">登录</a>
+        <a class="btn btn-primary" href="pricing.html" data-i18n="nav.trial">免费试用</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 页面 Hero ================= -->
+  <section class="sol-hero">
+    <div class="container">
+      <h1 data-i18n="dv.d3.hero.title">版本发布记录</h1>
+      <p data-i18n="dv.d3.hero.sub">各版本新特性、兼容性说明与升级路径，随版本持续更新。</p>
+    </div>
+  </section>
+
+  <!-- ================= 正文 ================= -->
+  <section class="ind-section">
+    <div class="container doc-wrap">
+      <aside class="doc-toc" aria-label="本页目录">
+        <b data-i18n="dv.d3.toc">本页目录</b>
+        <a href="#latest" data-i18n="dv.d3.latest">最新版本 12.0.1</a>
+        <a href="#v1200" data-i18n="dv.d3.history">历史版本</a>
+        <a href="#support" data-i18n="dv.d3.support">支持矩阵</a>
+      </aside>
+
+      <div class="doc-body">
+
+        <h2 id="latest" data-i18n="dv.d3.latest">最新版本 12.0.1</h2>
+
+        <div class="rel-card is-latest">
+          <div class="rel-head">
+            <span class="rel-ver">12.0.1</span>
+            <span class="rel-badge" data-i18n="dv.d3.badge.latest">最新</span>
+            <span class="rel-date">发布日期：2026-10-11</span>
+          </div>
+          <div class="rel-meta">
+            <div><span data-i18n="dv.d3.baseline">对比基线</span><b>v12.0.0（2026-10-02）</b></div>
+            <div><span data-i18n="dv.d3.scale">变更规模</span><b>95 次提交 · 442 个文件</b></div>
+            <div><span data-i18n="dv.d3.migration">数据库迁移</span><b>V138 → V158（20 个）</b></div>
+            <div><span data-i18n="dv.d3.regression">回归测试</span><b>3607 用例 · 0 失败</b></div>
+          </div>
+
+          <div class="doc-callout" style="margin-top:18px;">
+            <b>一句话</b>：本版本主线是<b>文档解析与知识库（RAG）</b>从需求规格到可运行链路的完整落地，并捎带交付站点应用部署、统计报表当日可见、Windows 服务化安装与原生镜像稳定性修复。
+          </div>
+
+          <h3 data-i18n="dv.d3.changelog">更新记录</h3>
+          <div class="rel-cat">
+            <section class="cat-add">
+              <h4>＋ <span data-i18n="dv.d3.added">新增</span></h4>
+              <ul>
+                <li><b>文档解析与知识库（RAG）</b>：贯穿 <code>docreader → dockb → search → ai</code>，交付能力发现 / 任务提交 / 任务查询客户端契约、结构驱动分块器、分块索引与逐块向量、分块修订比对。</li>
+                <li><b>知识库管理台</b>：文档列表 / 详情 / 分块抽屉、批量操作、解析结果预览、引用链接自检、扫描件与 OCR 质量标记。</li>
+                <li><b>站点应用部署（webapps）</b>：React / Vue 前端部署到 <code>webapps/{siteKey}</code> 并自动匹配 API 路径。</li>
+                <li><b>React 数字资源库站点包样例</b>：可导入的前端站点包（本次随发布交付）。</li>
+                <li><b>统计报表当日可见</b>：新增日内增量聚合任务，当天数据不再等次日凌晨。</li>
+                <li><b>Windows 服务化安装</b>：<code>install.ps1 -Service</code>，经 WinSW 注册 Windows 服务（开机自启 + 崩溃自动拉起）。</li>
+                <li><b>会员体系</b>：会员注册审核、会员资源库条目、资源分享（新增 <code>V156 / V157 / V158</code> 迁移）。</li>
+              </ul>
+            </section>
+            <section class="cat-imp">
+              <h4>◈ <span data-i18n="dv.d3.improved">优化</span></h4>
+              <ul>
+                <li><b>离线安装</b>：Windows 包内置 <code>components/WinSW-x64.exe</code>，支持完全离线的服务化安装（带镜像回退与体积校验）。</li>
+                <li><b>数字资源库</b>：媒体列表新增 <code>folderPath</code> 按目录浏览；内容引用 / 媒体引用在编辑器中按列表选择。</li>
+                <li><b>媒体服务器</b>：启动时凭 <code>client_secret</code> 登记端点（<code>/api/v1/knox/register</code>），已注册则保持原配置。</li>
+                <li><b>向量缓存与配额</b>：跨文档向量复用、TTL 与容量上限清理、缓存效果可观测；批量回填的 token 与并发上限支持站点级覆盖。</li>
+                <li><b>内容管理</b>：内容搜索页支持归档、删除已归档内容与批量操作；会员分组分配与会员解锁。</li>
+                <li><b>检索质量</b>：跨源加权 RRF 融合、本地轻量重排与模型重排接入检索链路（默认关闭）、父块上下文扩展。</li>
+                <li><b>CI</b>：原生镜像工作流新增 <code>targets</code> 输入与动态矩阵；原生构建 locale 参数收敛为 <code>-H:IncludeLocales=zh-CN</code>。</li>
+              </ul>
+            </section>
+            <section class="cat-fix">
+              <h4>✓ <span data-i18n="dv.d3.fixed">修复</span></h4>
+              <ul>
+                <li><b>知识库"永远搜不到"</b>：分块文档缺失 <code>_visibleGroups</code> 导致全部被 ACL 拦截。</li>
+                <li><b>凌晨 T+1 聚合一直失败</b>：日聚合方法自调用绕过 Spring 代理，<code>REQUIRES_NEW</code> 事务从未生效。</li>
+                <li><b>原生镜像首启崩溃</b>：<code>@Lazy</code> 自注入改为 <code>ObjectProvider</code>，规避运行期 CGLIB 懒代理与 AOT 代理冲突。</li>
+                <li><b>站点应用入口 404</b>：无尾斜杠请求改为 302 补斜杠并保留查询参数。</li>
+                <li><b>Windows 干净系统无法启动</b>：安装包随附 VC++ 运行库 <code>vcruntime140*.dll</code>。</li>
+                <li>引用链接原先指向 <code>POST</code> 端点导致点击 405，已改指真实换票端点。</li>
+                <li>OpenSearch 端到端测试索引泄漏（真实集群曾累积 92 个残留索引）。</li>
+                <li><code>content ↔ workflow</code> 循环依赖：以依赖倒置解耦，恢复 Modulith 架构约束。</li>
+              </ul>
+            </section>
+          </div>
+
+          <h3 data-i18n="dv.d3.upgrade">升级指引</h3>
+          <ol>
+            <li>备份数据库与 <code>config/</code> 目录；</li>
+            <li>用 12.0.1 安装包替换可执行文件（原生版替换 <code>bin/powercms(.exe)</code>，<code>admin-ui/dist</code> 已内嵌二进制）；</li>
+            <li>Windows 需要服务化执行 <code>install.ps1 -Service</code>，Linux 执行 <code>install.sh</code>；</li>
+            <li>首次启动由 Flyway 自动执行 <code>V138 → V158</code> 迁移（均为向前兼容的增量变更，建议先建两侧备份）。</li>
+          </ol>
+
+          <h3 data-i18n="dv.d3.downloads">下载地址</h3>
+          <div class="doc-callout warn">
+            <b>下载提示</b>：发布仓库当前为<b>私有仓库</b>，未授权直接访问会返回 404。请先用具备仓库访问权限的 GitHub 账号登录后再下载；若暂无权限，<a href="contact.html">联系我们</a>获取授权或交付介质。
+          </div>
+          <div class="dl-grid">
+            <div class="dl-item">
+              <span class="dl-plat">Linux x64</span>
+              <span class="dl-name">powercms-12.0.1-linux-x64.tar.gz</span>
+              <span class="dl-size">约 121 MB · 含原生二进制 bin/powercms 与 install.sh / uninstall.sh</span>
+              <a class="dl-go" target="_blank" rel="noopener" href="https://github.com/knoxlab/PowerCMS12/releases/download/12.0.1/powercms-12.0.1-linux-x64.tar.gz" data-i18n="dv.d3.download">下载</a>
+            </div>
+            <div class="dl-item">
+              <span class="dl-plat">Windows x64</span>
+              <span class="dl-name">powercms-12.0.1-windows-x64.zip</span>
+              <span class="dl-size">约 131 MB · 含 <code>components/WinSW-x64.exe</code> 离线服务组件</span>
+              <a class="dl-go" target="_blank" rel="noopener" href="https://github.com/knoxlab/PowerCMS12/releases/download/12.0.1/powercms-12.0.1-windows-x64.zip" data-i18n="dv.d3.download">下载</a>
+            </div>
+            <div class="dl-item">
+              <span class="dl-plat" data-i18n="dv.d3.sitePkg">数字资源库站点包（样例）</span>
+              <span class="dl-name">react-dam.zip</span>
+              <span class="dl-size">约 630 KB · React 数字资源库前端样例，可从管理端「站点包」导入</span>
+              <a class="dl-go" target="_blank" rel="noopener" href="https://github.com/knoxlab/PowerCMS12/releases/download/12.0.1/react-dam.zip" data-i18n="dv.d3.download">下载</a>
+            </div>
+          </div>
+          <p class="rel-foot"><a class="link-arrow" target="_blank" rel="noopener" href="https://github.com/knoxlab/PowerCMS12/releases/tag/12.0.1">在 GitHub Releases 查看 12.0.1 全部资产与发布说明</a>　·　<a href="docs-deployment.html">安装步骤见《部署与运维指南》</a></p>
+        </div>
+
+        <h2 id="v1200" data-i18n="dv.d3.history">历史版本</h2>
+
+        <div class="rel-card">
+          <div class="rel-head">
+            <span class="rel-ver">12.0.0</span>
+            <span class="rel-badge old" data-i18n="dv.d3.initial">首个正式版本</span>
+            <span class="rel-date">发布日期：2026-10-02</span>
+          </div>
+          <div class="rel-meta">
+            <div><span data-i18n="dv.d3.baseline">对比基线</span><b>—</b></div>
+            <div><span data-i18n="dv.d3.scale">变更规模</span><b>379 次提交</b></div>
+            <div><span data-i18n="dv.d3.migration">数据库迁移</span><b>最高至 V137（136 个）</b></div>
+            <div><span data-i18n="dv.d3.regression">回归测试</span><b>2694 用例 · 0 失败</b></div>
+          </div>
+          <div class="doc-callout" style="margin-top:18px;">PowerCMS 12 的<b>首个正式发布版本</b>：26 个业务模块 + 39 个管理端页面，双模一体交付（MVC 渲染 + REST / GraphQL），支持 Windows / Linux（x86_64、arm64）原生二进制与五种数据库。</div>
+
+          <h3 data-i18n="dv.d3.changelog">更新记录</h3>
+          <div class="rel-cat">
+            <section class="cat-add">
+              <h4>＋ <span data-i18n="dv.d3.added">新增</span></h4>
+              <ul>
+                <li><b>身份与权限</b>：组织 / 用户 / 角色、对象级 ACL（继承与打破继承）、OAuth 与 API Token、失败登录锁定。</li>
+                <li><b>站点与环境</b>：多站点多环境、域名校验、站点蓝图、组件健康检查矩阵。</li>
+                <li><b>内容模型</b>：内容类型、19 类字段控件、内容关系（含自引用）、分类法、类型复制与模型设计器画布拖拽。</li>
+                <li><b>内容与版本</b>：不可变版本快照、字段级差异、版本对比 / 恢复、定时发布与"时间机器"回放。</li>
+                <li><b>媒体与 Knox</b>：媒体库与版本、秒传去重、Knox 后处理回调、播放令牌与防盗链。</li>
+                <li><b>工作流与发布</b>：可版本化流程、四眼会签、定时发布 / 撤回；Release → Artifact → Deployment 三级模型、原子回滚与发布门禁。</li>
+                <li><b>交付与检索</b>：REST、按站点动态 Schema 的 GraphQL、MVC 渲染与渲染缓存；管理索引与访客索引隔离。</li>
+                <li><b>统计与互动</b>：访问采集与聚合、评论、问卷、考试、聊天室、广告、留言板。</li>
+                <li><b>AI 能力（默认关闭）</b>：模型路由、站内问答、自动草稿、混合检索、知识图谱、智能体工作台、内置 MCP Server。</li>
+                <li><b>样例与迁移工具</b>：React 新闻站 / Vue 知识库两套站点包，V11 迁移工具包。</li>
+              </ul>
+            </section>
+            <section class="cat-imp">
+              <h4>◈ <span data-i18n="dv.d3.improved">优化</span></h4>
+              <ul>
+                <li><b>一套代码、多种数据库</b>：H2 / PostgreSQL / MySQL（8.4 与 5.5 双版本）/ 金仓 KingbaseES / 达梦 DM8 按 profile 自动切换，迁移脚本方言 token 化，业务代码零改动。</li>
+                <li><b>5 分钟开箱即用</b>：默认 H2 文件库零外部依赖，一键安装脚本支持 Git / Nginx / OpenSearch 组件离线安装。</li>
+                <li><b>原生打包</b>：GraalVM native-image 一次产出 Windows x64 / Linux x64 / Linux arm64（arm64 为交叉编译），管理端前端整体内嵌。</li>
+                <li><b>中文场景可用</b>：自研 OpenSearch 中文分词插件（smartcn）、standard / ik / ICU 分析器，管理端 6 语言。</li>
+                <li><b>内容访问统一判定链</b>：条件受限内容不进静态产物，公开档过滤与缓存失效统一生效。</li>
+                <li><b>管理端体验</b>：模型设计器结构控件拖入画布、富文本富媒体对象编辑、系统日志双轨采集与观测。</li>
+              </ul>
+            </section>
+            <section class="cat-fix">
+              <h4>✓ <span data-i18n="dv.d3.fixed">修复</span></h4>
+              <ul>
+                <li>P0 扩展回归 15 项：CSRF 放行 <code>/graphql/**</code>、冻结站点写入返回 423、内容字段类型与必填校验、富文本 iframe 限站内 <code>/media-play/</code>、部署凭据脱敏、Token 过期 401 语义、预览拒绝写审计等。</li>
+                <li>检索域：管理索引正文装配、向量重建脱离 PENDING 死锁、访客检索匿名 401、访客索引重建口径统一。</li>
+                <li>AI / 知识图谱域：模型配置词表归一、KG 边漂移对账、知识库访客索引泄露（P0）、时间列时区。</li>
+                <li>媒体域：DEF-MS-01 ~ 05 与观察项闭环、i18n 运行期文案稳定化。</li>
+                <li>平台域：<code>/assets</code> 嵌套静态资源被 SPA catch-all 遮蔽、静态资源删除后返回 404 而非 500。</li>
+                <li>原生化首启竞态：内置角色种子双重检查与 <code>saveAndFlush</code> 冲突复查。</li>
+              </ul>
+            </section>
+          </div>
+
+          <h3 data-i18n="dv.d3.downloads">下载地址</h3>
+          <div class="doc-callout warn">
+            <b>下载提示</b>：发布仓库当前为<b>私有仓库</b>，未授权直接访问会返回 404；历史版本建议直接升级到 <a href="#latest">12.0.1</a> 获取。
+          </div>
+          <div class="dl-grid">
+            <div class="dl-item">
+              <span class="dl-plat">Linux x64</span>
+              <span class="dl-name">powercms-12.0.0-linux-x64.tar.gz</span>
+              <span class="dl-size">约 1.11 GB</span>
+              <a class="dl-go" target="_blank" rel="noopener" href="https://github.com/knoxlab/PowerCMS12/releases/download/12.0.0/powercms-12.0.0-linux-x64.tar.gz" data-i18n="dv.d3.download">下载</a>
+            </div>
+            <div class="dl-item">
+              <span class="dl-plat">Windows x64</span>
+              <span class="dl-name">powercms-12.0.0-windows-x64.7z</span>
+              <span class="dl-size">约 1.06 GB · 历史版本包为 7z 格式，需使用解压工具</span>
+              <a class="dl-go" target="_blank" rel="noopener" href="https://github.com/knoxlab/PowerCMS12/releases/download/12.0.0/powercms-12.0.0-windows-x64.7z" data-i18n="dv.d3.download">下载</a>
+            </div>
+            <div class="dl-item is-na">
+              <span class="dl-plat" data-i18n="dv.d3.sitePkg">数字资源库站点包（样例）</span>
+              <span class="dl-name">react-dam.zip</span>
+              <span class="dl-size">该版本的 Release 未提供此资产</span>
+              <span class="dl-na" data-i18n="dv.d3.naHint">暂不可下载 · 请升级至 12.0.1</span>
+            </div>
+          </div>
+          <p class="rel-foot"><a class="link-arrow" target="_blank" rel="noopener" href="https://github.com/knoxlab/PowerCMS12/releases/tag/12.0.0">在 GitHub Releases 查看 12.0.0 全部资产与发布说明</a></p>
+        </div>
+
+        <h2 id="support" data-i18n="dv.d3.support">支持矩阵</h2>
+        <div class="doc-table" style="overflow-x:auto;">
+          <table class="doc-table">
+            <thead><tr><th>项目</th><th>12.0.0</th><th>12.0.1（当前）</th></tr></thead>
+            <tbody>
+              <tr><td>发布日期</td><td>2026-10-02</td><td><b>2026-10-11</b></td></tr>
+              <tr><td>Windows 安装包</td><td><code>.7z</code> 格式，约 1.06 GB</td><td><code>.zip</code> 格式，约 131 MB</td></tr>
+              <tr><td>Linux 安装包</td><td><code>.tar.gz</code>，约 1.11 GB</td><td><code>.tar.gz</code>，约 121 MB</td></tr>
+              <tr><td>Windows 服务化</td><td>计划任务自启</td><td>计划任务 / <b>WinSW 服务</b>（开机自启 + 崩溃自动拉起）</td></tr>
+              <tr><td>数据库迁移</td><td>≤ V137</td><td><b>V138 → V158</b>（启动自动执行）</td></tr>
+              <tr><td>运行要求</td><td>JDK 21 / 原生二进制免 JDK · Maven 3.6.3+ · Node.js 20+（仅管理端构建）</td><td>同左</td></tr>
+              <tr><td>支持平台</td><td>Windows / Linux（x86_64、arm64）；macOS 可源码运行</td><td>同左</td></tr>
+              <tr><td>数据库</td><td>H2 / PostgreSQL / MySQL（8.4、5.5）/ 金仓 KingbaseES / 达梦 DM8</td><td>同左</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="doc-callout">升级前请完整阅读 <a href="docs-deployment.html">《部署与运维指南》</a>；接口与模板开发相关变更见 <a href="docs-api-templates.html">《API 与模板开发》</a>。</div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta-band">
+    <h2 data-i18n="pr.cta.title">还有疑问？和我们的专家聊聊</h2>
+    <p data-i18n="pr.cta.sub">无论是采购流程、信创适配还是迁移评估，我们都准备好了。</p>
+    <div class="hero-cta">
+      <a href="contact.html" class="btn btn-light btn-lg" data-i18n="dv.cta">申请获取资料</a>
+      <a href="pricing.html" class="btn btn-outline-light btn-lg" data-i18n="nav.trial">免费试用</a>
+    </div>
+  </section>
+
+  <!-- ================= 页脚 ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" aria-label="PowerCMS 12 首页">
+            <span class="brand-name">PowerCMS<span class="bn-ver">12</span></span>
+          </a>
+          <p class="ft-tag" data-i18n="footer.tag">面向政府、事业单位与大型企业的新一代 Headless 内容平台。让内容成为可信的数字资产。</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c1">产品</h4>
+          <ul>
+            <li><a href="ai.html" data-i18n="footer.l10">AI 能力</a></li>
+            <li><a href="product.html" data-i18n="footer.l11">产品能力</a></li>
+            <li><a href="product.html" data-i18n="footer.l12">可视化编辑器</a></li>
+            <li><a href="product.html" data-i18n="footer.l13">媒体智能</a></li>
+            <li><a href="developer.html" data-i18n="footer.l14">开发者中心</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c2">解决方案</h4>
+          <ul>
+            <li><a href="solutions.html#ind-gov" data-i18n="footer.l21">政府及公共服务</a></li>
+            <li><a href="solutions.html#ind-edu" data-i18n="footer.l22">学校及教育</a></li>
+            <li><a href="solutions.html#ind-fin" data-i18n="footer.l23">金融及保险</a></li>
+            <li><a href="solutions.html#ind-mfg" data-i18n="footer.l24">智能制造</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c3">资源</h4>
+          <ul>
+            <li><a href="docs-deployment.html" data-i18n="footer.l31">文档中心</a></li>
+            <li><a href="customers.html" data-i18n="footer.l32">案例研究</a></li>
+            <li><a href="docs-releases.html" data-i18n="footer.l33">版本发布</a></li>
+            <li><a href="developer.html" data-i18n="footer.l34">博客</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.c4">公司</h4>
+          <ul>
+            <li><a href="contact.html" data-i18n="footer.l41">关于我们</a></li>
+            <li><a href="contact.html" data-i18n="footer.l42">联系我们</a></li>
+            <li><a href="contact.html" data-i18n="footer.l43">合作伙伴</a></li>
+            <li><a href="contact.html" data-i18n="footer.l44">加入我们</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="https://www.powercom.net.cn" target="_blank" rel="noopener" data-i18n="footer.official">宝丽星通 PowerCOM 官网</a>
+        <span data-i18n="footer.copy">© 2026 PowerCOM · 保留所有权利</span>
+        <span data-i18n="footer.icp">京ICP备08104445号-1</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

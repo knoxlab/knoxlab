@@ -106,6 +106,10 @@
       <div class="doc-body">
 
         <h2 id="topology" data-i18n="dv.d1.s1">部署形态总览</h2>
+        <div class="doc-callout">本指南以 <b>12.0.1</b> 为准（发布日期 2026-10-11）。安装包名为
+          <code>powercms-12.0.1-windows-x64.zip</code> / <code>powercms-12.0.1-linux-x64.tar.gz</code>，
+          包名版本取自 <code>pom.xml</code>；历史版本与下载入口见
+          <a href="docs-releases.html">《版本发布记录》</a>。</div>
         <p>PowerCMS 12 提供原生可执行文件（免 JDK/JRE）与容器化两种交付方式，按规模与合规要求可选择以下部署形态：</p>
         <div class="doc-table" style="overflow-x:auto;">
           <table class="doc-table">
@@ -138,19 +142,31 @@
         <h2 id="onprem" data-i18n="dv.d1.s3">私有化部署</h2>
         <h3>3.1 安装包内容</h3>
         <p>安装包为自包含目录，主要结构如下（Windows 与 Linux 一致）：</p>
-        <div class="doc-pre"><code>powercms-&lt;版本&gt;-windows-x64/          # Linux 为 powercms-&lt;版本&gt;-linux-x64.tar.gz
+        <div class="doc-pre"><code>powercms-12.0.1-windows-x64.zip     # Linux 为 powercms-12.0.1-linux-x64.tar.gz
 ├── install.ps1 / install.sh      一键安装（数据库可选，默认 H2）
-├── uninstall.ps1 / uninstall.sh  卸载（默认保留数据）
+├── uninstall.ps1 / uninstall.sh  卸载（默认保留数据，含服务化卸载）
 ├── bin/powercms(.exe)            原生可执行文件，免 JDK/JRE
-├── ui/admin-ui/dist/             管理端静态资源
+├── ui/admin-ui/dist/             管理端静态资源（已整体内嵌进原生二进制）
 ├── config/
 │   ├── nginx.conf                Nginx 反代配置模板
 │   └── application.example.yml   外部配置参考模板
 ├── plugins/                      OpenSearch 中文分词插件（smartcn）
-├── components/                   第三方组件离线安装包放置目录
+├── components/                   第三方组件离线安装包放置目录（含 WinSW-x64.exe）
 └── docs/                         部署文档</code></div>
 
-        <h3>3.2 一键安装</h3>
+        <h3>3.2 Windows 服务化安装（12.0.1 起）</h3>
+        <p>除默认的计划任务自启外，12.0.1 新增 <code>-Service</code> 参数，通过 <b>WinSW</b> 将应用注册为 Windows 服务，获得<b>开机自启 + 崩溃自动拉起</b>：</p>
+        <div class="doc-pre"><code># 需管理员 PowerShell；一行完成服务化安装
+.\install.ps1 -Db mysql -DbHost db01 -DbName powercms12 `
+              -DbUser root -DbPassword '******' -Service</code></div>
+        <ul>
+          <li>WinSW 包装器优先取 <code>components\WinSW-x64.exe</code>，缺失时联网下载（GitHub 直连慢会走镜像回退），并做体积校验 → <b>完全离线可安装</b>；</li>
+          <li>注册成功后可在「服务」中看到 <code>PowerCMS</code>：<code>Start-Service PowerCMS</code> / <code>Stop-Service PowerCMS</code>；</li>
+          <li>卸载时执行 <code>uninstall.ps1</code>，脚本会<b>先停服务再停进程</b>（服务带崩溃自拉起，直接杀进程会被重启），随后删除服务；</li>
+          <li>去掉 <code>-Service</code> 则沿用旧的计划任务自启方式。</li>
+        </ul>
+
+        <h3>3.3 一键安装</h3>
         <p>解压安装包后，在包根目录执行安装脚本。交互模式会依次询问数据库与可选组件：</p>
         <div class="doc-pre"><code># Windows（管理员 PowerShell）
 .\install.ps1
@@ -158,7 +174,9 @@
 # Linux（root）
 chmod +x install.sh uninstall.sh
 ./install.sh</code></div>
-        <p>无人值守模式通过参数指定数据库与组件，常用参数：</p>
+
+        <h3>3.4 无人值守安装与参数表</h3>
+        <p>通过参数指定数据库与组件即可无人值守安装，常用示例：</p>
         <div class="doc-pre"><code># Windows：MySQL + OpenSearch + Git + Nginx
 .\install.ps1 -Db mysql -DbHost db01 -DbName powercms12 `
               -DbUser root -DbPassword '******' `
@@ -180,11 +198,13 @@ chmod +x install.sh uninstall.sh
               <tr><td><code>-WithGit / -WithNginx / -WithOpenSearch</code> / <code>--with-*</code></td><td>未指定</td><td>跳过交互直接安装对应组件</td></tr>
               <tr><td><code>-Offline</code> / <code>--offline</code></td><td>关</td><td>完全离线安装，组件仅从 <code>components/</code> 目录获取</td></tr>
               <tr><td><code>-NoStart</code> / <code>--no-start</code></td><td>关</td><td>安装完成后不启动、不做健康检查</td></tr>
+              <tr><td><code>-Service</code>（仅 Windows）</td><td>关</td><td>注册为 Windows 服务（WinSW，开机自启 + 崩溃自动拉起），需管理员</td></tr>
+            </tbody>
             </tbody>
           </table>
         </div>
 
-        <h3>3.3 数据库选择</h3>
+        <h3>3.5 数据库选择</h3>
         <div class="doc-table" style="overflow-x:auto;">
           <table class="doc-table">
             <thead><tr><th>选项</th><th>说明</th></tr></thead>
@@ -198,7 +218,7 @@ chmod +x install.sh uninstall.sh
         </div>
         <div class="doc-callout">安装后改库：编辑 <code>&lt;安装目录&gt;\config\application.yml</code>（参考包内 <code>application.example.yml</code>），重启服务生效。也可用环境变量覆盖（如 <code>POWERCMS_DB_PROFILE</code>、<code>POWERCMS_DB_HOST</code> 等）。</div>
 
-        <h3>3.4 可选组件</h3>
+        <h3>3.6 可选组件</h3>
         <ul>
           <li><b>Git</b>：模板仓库 / 发布分支版本化所需，安装脚本可自动安装（支持离线包）。</li>
           <li><b>Nginx</b>：站点反代与静态提速。默认将 80 端口反代到 <code>127.0.0.1:8080</code>，配置模板已含 <code>client_max_body_size 4g</code>、gzip 与关闭代理缓冲；以计划任务（Windows）或系统配置（Linux）自启，支持 <code>nginx -s reload</code> 热加载。</li>
@@ -206,7 +226,7 @@ chmod +x install.sh uninstall.sh
         </ul>
         <div class="doc-callout warn">安装脚本预置的 OpenSearch 关闭了安全插件，<b>仅限内网使用</b>；需要暴露时必须启用其 security 插件并配置 TLS，或以防火墙 + 反代限制 9200 端口访问。</div>
 
-        <h3>3.5 安装后验证</h3>
+        <h3>3.7 安装后验证</h3>
         <div class="doc-pre"><code># 状态与健康检查
 powershell -File C:\PowerCMS\status.ps1        # Linux: systemctl status powercms
 http://localhost:8080/actuator/health          # 返回 {"status":"UP"}
@@ -229,8 +249,8 @@ http://localhost:8080/                         # 管理端</code></div>
           <table class="doc-table">
             <thead><tr><th>操作</th><th>Windows</th><th>Linux</th></tr></thead>
             <tbody>
-              <tr><td>启动 / 停止 / 状态</td><td>安装目录下 <code>start.bat</code> / <code>stop.bat</code> / <code>status.ps1</code></td><td><code>systemctl start|stop|status powercms</code></td></tr>
-              <tr><td>开机自启</td><td>计划任务 <code>PowerCMS</code>（管理员安装 = 系统启动时）</td><td>systemd 单元 <code>powercms.service</code>（<code>enable</code>）</td></tr>
+              <tr><td>启动 / 停止 / 状态</td><td>安装目录下 <code>start.bat</code> / <code>stop.bat</code> / <code>status.ps1</code>；服务化安装时用 <code>Start-Service PowerCMS</code> / <code>Stop-Service PowerCMS</code></td><td><code>systemctl start|stop|status powercms</code></td></tr>
+              <tr><td>开机自启</td><td>Windows 服务 <code>PowerCMS</code>（<code>-Service</code> 安装，支持崩溃自动拉起）或计划任务 <code>PowerCMS</code>（管理员安装 = 系统启动时）</td><td>systemd 单元 <code>powercms.service</code>（<code>enable</code>）</td></tr>
               <tr><td>OpenSearch</td><td>服务 <code>PowerCMS-OpenSearch</code> 或 <code>opensearch-service.bat</code></td><td>systemd 单元 <code>powercms-opensearch</code></td></tr>
               <tr><td>Nginx</td><td>计划任务 <code>PowerCMS-Nginx</code>；<code>nginx -s reload</code></td><td><code>systemctl reload nginx</code></td></tr>
             </tbody>
@@ -252,17 +272,19 @@ http://localhost:8080/                         # 管理端</code></div>
         </ul>
 
         <h2 id="upgrade" data-i18n="dv.d1.s6">升级与卸载</h2>
-        <h3>6.1 升级</h3>
+        <h3>6.1 升级（12.0.0 → 12.0.1）</h3>
         <ol>
           <li>备份现有 <code>data\</code>（或数据库实例）与 <code>config\application.yml</code>；</li>
-          <li>停止服务（<code>stop.bat</code> / <code>systemctl stop powercms</code>）；</li>
-          <li>用新版本安装包覆盖 <code>bin\powercms(.exe)</code>、<code>admin-ui\dist\</code>（如有插件变更，一并覆盖 <code>plugins\</code>）；</li>
-          <li>启动服务，数据库迁移自动执行。</li>
+          <li>停止服务（<code>stop.bat</code> / <code>systemctl stop powercms</code>；服务化安装的 Windows 先 <code>Stop-Service PowerCMS</code>）；</li>
+          <li>用 12.0.1 安装包覆盖 <code>bin\powercms(.exe)</code>（原生二进制已整体内嵌管理端 <code>admin-ui\dist\</code>）与 <code>components\WinSW-x64.exe</code>（需服务化时）；</li>
+          <li>需要服务化的环境重跑 <code>.\install.ps1 -Service</code> 注册 / 重建 Windows 服务；Linux 执行 <code>install.sh</code>；</li>
+          <li>启动服务，Flyway 自动执行 <code>V138 → V158</code> 共 20 个迁移（均为向前兼容的增量变更）。</li>
         </ol>
         <div class="doc-callout warn">升级过程<b>不要删除 <code>data\</code> 目录</b>——内容、媒体索引与运行数据都在其中。</div>
+        <div class="doc-callout">源码侧自行构建原生二进制时，务必<b>先构建管理端前端</b>（<code>admin-ui/dist</code>），否则 Maven 会跳过拷贝而不报错，导致打包出的二进制缺少管理端资源。</div>
 
         <h3>6.2 卸载</h3>
-        <p>Windows 执行 <code>.\uninstall.ps1</code>（Linux 为 <code>./uninstall.sh</code>），默认<b>保留数据</b>；加 <code>-Purge</code> 参数连数据一起删除。脚本会依次停止进程、卸载 OpenSearch 服务、删除计划任务 / systemd 单元、清理防火墙规则并移除程序目录。</p>
+        <p>Windows 执行 <code>.\uninstall.ps1</code>（Linux 为 <code>./uninstall.sh</code>），默认<b>保留数据</b>；加 <code>-Purge</code> 参数连数据一起删除。脚本会先停 Windows 服务 / 进程，再卸载 OpenSearch 服务、删除计划任务或 systemd 单元、清理防火墙规则并移除程序目录。</p>
 
         <h2 id="troubleshooting" data-i18n="dv.d1.s7">故障排查</h2>
         <div class="doc-table" style="overflow-x:auto;">
@@ -276,6 +298,7 @@ http://localhost:8080/                         # 管理端</code></div>
               <tr><td>OpenSearch 起不来</td><td>查看对应服务状态与 <code>components\opensearch-*\logs\</code>；内存不足时下调堆大小</td></tr>
               <tr><td>计划任务未生效</td><td>非管理员安装只能"登录时启动"；以管理员重装或手动修改任务触发器</td></tr>
               <tr><td>防火墙拦截</td><td>重跑安装脚本带 <code>-OpenFirewall</code> / <code>--open-firewall</code>，或手工添加入站规则</td></tr>
+              <tr><td>服务化安装失败</td><td>未以管理员运行，或 WinSW 未获取成功：先以管理员重跑 <code>install.ps1 -Service</code>；仍失败可手动下载 <code>WinSW-x64.exe</code> 放入 <code>components\</code> 后重试，或去掉 <code>-Service</code> 改用计划任务自启</td></tr>
               <tr><td>换库后起不来</td><td>核对 <code>config\application.yml</code> 的 profile 与连接串；可先切回 H2 验证应用本身正常</td></tr>
             </tbody>
           </table>
