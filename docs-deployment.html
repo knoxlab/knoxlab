@@ -106,8 +106,8 @@
       <div class="doc-body">
 
         <h2 id="topology" data-i18n="dv.d1.s1">部署形态总览</h2>
-        <div class="doc-callout">本指南以 <b>12.0.1</b> 为准（发布日期 2026-10-11）。安装包名为
-          <code>powercms-12.0.1-windows-x64.zip</code> / <code>powercms-12.0.1-linux-x64.tar.gz</code>，
+        <div class="doc-callout">本指南以 <b>12.0.2</b> 为准（发布日期 2026-10-26）。安装包名为
+          <code>powercms-12.0.2-windows-x64.zip</code> / <code>powercms-12.0.2-linux-x64.tar.gz</code>，
           包名版本取自 <code>pom.xml</code>；历史版本与下载入口见
           <a href="docs-releases.html">《版本发布记录》</a>。</div>
         <p>PowerCMS 12 提供原生可执行文件（免 JDK/JRE）与容器化两种交付方式，按规模与合规要求可选择以下部署形态：</p>
@@ -142,7 +142,7 @@
         <h2 id="onprem" data-i18n="dv.d1.s3">私有化部署</h2>
         <h3>3.1 安装包内容</h3>
         <p>安装包为自包含目录，主要结构如下（Windows 与 Linux 一致）：</p>
-        <div class="doc-pre"><code>powercms-12.0.1-windows-x64.zip     # Linux 为 powercms-12.0.1-linux-x64.tar.gz
+        <div class="doc-pre"><code>powercms-12.0.2-windows-x64.zip     # Linux 为 powercms-12.0.2-linux-x64.tar.gz
 ├── install.ps1 / install.sh      一键安装（数据库可选，默认 H2）
 ├── uninstall.ps1 / uninstall.sh  卸载（默认保留数据，含服务化卸载）
 ├── bin/powercms(.exe)            原生可执行文件，免 JDK/JRE
@@ -283,7 +283,18 @@ http://localhost:8080/                         # 管理端</code></div>
         <div class="doc-callout warn">升级过程<b>不要删除 <code>data\</code> 目录</b>——内容、媒体索引与运行数据都在其中。</div>
         <div class="doc-callout">源码侧自行构建原生二进制时，务必<b>先构建管理端前端</b>（<code>admin-ui/dist</code>），否则 Maven 会跳过拷贝而不报错，导致打包出的二进制缺少管理端资源。</div>
 
-        <h3>6.2 卸载</h3>
+        <h3>6.2 升级（12.0.1 → 12.0.2）</h3>
+        <ol>
+          <li>备份数据库（或 <code>data\</code>）与 <code>config\</code> 目录；</li>
+          <li>停止服务（<code>stop.bat</code> / <code>systemctl stop powercms</code>；服务化安装的 Windows 先 <code>Stop-Service PowerCMS</code>）；</li>
+          <li>用 12.0.2 安装包覆盖 <code>bin\powercms(.exe)</code>（原生二进制已整体内嵌管理端 <code>admin-ui\dist\</code>，<b>请使用本次分发包</b>）与 <code>components\WinSW-x64.exe</code>（需服务化时）；</li>
+          <li>需要服务化的环境重跑 <code>.\install.ps1 -Service</code> 注册 / 重建 Windows 服务；Linux 执行 <code>install.sh</code>；</li>
+          <li>启动服务，Flyway 自动执行 <code>V159 → V162</code> 共 4 个迁移（均为向前兼容的增量变更）。</li>
+          <li>启用版本分层时，确认 <code>powercms.license.enabled</code> / <code>enforce-edition-boundaries</code> 配置（参考 <code>config\application.example.yml</code>），并在管理端「版本与授权」导入离线授权。</li>
+        </ol>
+        <div class="doc-callout">12.0.2 起版本分层能力位与配额门禁<b>生产默认开启</b>：能力位越界返回 <code>403</code>、配额超限 <code>409</code>、授权到期转为只读 <code>402</code>。若升级后出现上述状态码，先核对「版本与授权」页的授权状态与配额用量。</div>
+
+        <h3>6.3 卸载</h3>
         <p>Windows 执行 <code>.\uninstall.ps1</code>（Linux 为 <code>./uninstall.sh</code>），默认<b>保留数据</b>；加 <code>-Purge</code> 参数连数据一起删除。脚本会先停 Windows 服务 / 进程，再卸载 OpenSearch 服务、删除计划任务或 systemd 单元、清理防火墙规则并移除程序目录。</p>
 
         <h2 id="troubleshooting" data-i18n="dv.d1.s7">故障排查</h2>

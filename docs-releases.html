@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>版本发布记录 — PowerCMS 12 开发者中心</title>
-  <meta name="description" content="PowerCMS 12 版本发布记录：12.0.1 最新版本更新明细（新增 / 优化 / 修复）与下载地址，以及 12.0.0 首个正式版本的发布内容与历史下载链接。">
+  <meta name="description" content="PowerCMS 12 版本发布记录：12.0.2 最新版本更新明细（新增 / 优化 / 修复）与下载地址，以及 12.0.1、12.0.0 历史版本的发布内容与下载链接。">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -129,19 +129,126 @@
     <div class="container doc-wrap">
       <aside class="doc-toc" aria-label="本页目录">
         <b data-i18n="dv.d3.toc">本页目录</b>
-        <a href="#latest" data-i18n="dv.d3.latest">最新版本 12.0.1</a>
+        <a href="#latest" data-i18n="dv.d3.latest">最新版本 12.0.2</a>
+        <a href="#v1201" data-i18n="dv.d3.v1201">12.0.1</a>
         <a href="#v1200" data-i18n="dv.d3.history">历史版本</a>
         <a href="#support" data-i18n="dv.d3.support">支持矩阵</a>
       </aside>
 
       <div class="doc-body">
 
-        <h2 id="latest" data-i18n="dv.d3.latest">最新版本 12.0.1</h2>
+        <h2 id="latest" data-i18n="dv.d3.latest">最新版本 12.0.2</h2>
 
         <div class="rel-card is-latest">
           <div class="rel-head">
-            <span class="rel-ver">12.0.1</span>
+            <span class="rel-ver">12.0.2</span>
             <span class="rel-badge" data-i18n="dv.d3.badge.latest">最新</span>
+            <span class="rel-date">发布日期：2026-10-26</span>
+          </div>
+          <div class="rel-meta">
+            <div><span data-i18n="dv.d3.baseline">对比基线</span><b>v12.0.1（2026-10-11）</b></div>
+            <div><span data-i18n="dv.d3.scale">变更规模</span><b>52 次提交 · 430 个文件</b></div>
+            <div><span data-i18n="dv.d3.migration">数据库迁移</span><b>V159 → V162（4 个）</b></div>
+            <div><span data-i18n="dv.d3.regression">回归测试</span><b>3969 用例 · 0 失败</b></div>
+          </div>
+
+          <div class="doc-callout" style="margin-top:18px;">
+            <b>一句话</b>：本版本主线是<b>版本分层与离线授权（Edition Tiering + License）</b>从规格到门禁、配额、签发工具与管理界面的完整落地；另一条线是 <b>DAM 资源体验与媒体播放</b>（预览 / PDF / 大图 / 音频播放 / 跨域嵌入 / 统计接入），并完成媒体服务器品牌 <b>Knox → PowerMedia</b> 重塑；同时补齐管理端五语译文、社区版拆分与工作流待办审核体验。
+          </div>
+
+          <h3 data-i18n="dv.d3.changelog">更新记录</h3>
+          <div class="rel-cat">
+            <section class="cat-add">
+              <h4>＋ <span data-i18n="dv.d3.added">新增</span></h4>
+              <ul>
+                <li><b>版本分层能力位与配额总门禁</b>：能力位越界 <code>403</code>、配额超限 <code>409</code>、授权到期只读 <code>402</code>，总开关 <code>powercms.license.enforce-edition-boundaries</code> 生产默认开启。</li>
+                <li><b>离线授权激活与续期</b>：离线激活、<b>P3 短激活码（策略 C）</b>离线续期、公钥指纹钉扎、<b>T-30 续期横幅</b>与签名吊销名单导入。</li>
+                <li><b>媒体服务器附属组件授权 grant</b>（专业版以上）：数量配额与单机最大并发配额，未领 grant 拒绝接入。</li>
+                <li><b>离线授权签发工具</b> <code>tools/license-tool</code>：独立 Maven 工程，覆盖签发 / 短激活码 / 规范化 JSON，公钥入库 <code>keys/pubkey-powercms-2026.pem</code>。</li>
+                <li><b>资源详情 PDF 阅读器与大图查看</b>：图片支持点击查看大图，<code>viewerRights</code> 授权贯通。</li>
+                <li><b>音频播放重做</b>：按 <code>music-player</code> 重做音频预览（<b>默认不自动播放</b>），随附 <code>docs/music-player.html</code> 播放器参考页。</li>
+                <li><b>播放页对接统计通道</b>：播放页接入 CMS12 汇总统计，播放代码新增「启用统计」开关。</li>
+                <li><b>内容搜索视图模式</b>：缩略图 / 列表 / 表格三种视图，带内容模型预览图。</li>
+                <li><b>只读审核弹窗</b>：按内容模型布局渲染待办字段（新增 <code>ContentReviewModal</code> / <code>ContentReadOnlyView</code> / <code>ContentMediaValue</code>）。</li>
+                <li><b>Java 回归门禁 CI</b>（<code>.github/workflows/test.yml</code>）：<code>cms-core</code> 单测与集成测试，H2 内存库，<b>无需外部数据库 / Docker / npm 构建</b>。</li>
+                <li><b>react-dam 独立仓库站点包</b>：<code>github.com/knoxlab/react-dam</code> 以子模块引用，站点包 <code>react-dam.zip</code> 随本 Release 发布。</li>
+              </ul>
+            </section>
+            <section class="cat-imp">
+              <h4>◈ <span data-i18n="dv.d3.improved">优化</span></h4>
+              <ul>
+                <li><b>媒体服务器品牌重塑</b>：媒体库与管理端 <b>Knox → PowerMedia</b>，界面文案与文档统一更名；自动探活直至 UP，操作区图标化并直达媒体服务器后台。</li>
+                <li><b>媒体库导入与本地媒体存储</b>：可从媒体服务器导入资源；社区版或媒体服务器不可达站点可改用本地媒体存储与路由。</li>
+                <li><b>播放能力</b>：自动配置雪碧图、自动播放开关与响应式尺寸嵌入代码、跨域播放嵌入、可配置 HLS TTL。</li>
+                <li><b>上传与编目</b>：上传表单页签化、编目字段精简、资料显示名同步 <code>sys_user</code>。</li>
+                <li><b>权限界面</b>：取消独立「保存访问策略」按钮，策略随「保存权限」一并提交；下载开关三态继承、拒绝原因分档、栏目 / 分类策略贯通媒体原件。</li>
+                <li><b>客户端表单控制器</b>：运行时与站点包贯通，站点包可声明表单控制器脚本。</li>
+                <li><b>重复组编辑</b>：修改显示名称后画布卡片即时同步。</li>
+                <li><b>实时监控</b>：按本地时区显示，并补充播放状态 / 观看时长 / 流量。</li>
+                <li><b>国际化</b>：批量补齐管理端 <b>393 条五语译文（28 个文件）</b>，另补「版本与授权」页 146 条。</li>
+                <li><b>社区版拆分</b>：<code>edition/community.json</code> 仓库清单、overlay 覆盖层与 <code>scripts/edition/</code> 生成 / 校验脚本。</li>
+                <li><b>首站引导</b>：站点列表为空时站点包页仍可导入。</li>
+              </ul>
+            </section>
+            <section class="cat-fix">
+              <h4>✓ <span data-i18n="dv.d3.fixed">修复</span></h4>
+              <ul>
+                <li><b>音频无法播放</b>：修复播放链路并重做 <code>music-player</code> 预览。</li>
+                <li><b>资源下载</b>：改为<b>附件下载</b>并给出准确拒绝原因，资源类型精简。</li>
+                <li><b>上传失败资源复传被哈希去重短路</b>（表单提交报「媒体资产不可引用」）。</li>
+                <li><b>非 PAGE 内容打开编辑器</b>不再误报「只有 PAGE 类型可以作为页面渲染」。</li>
+                <li><b>播放会话超时</b>收口改按<b>最后一次心跳</b>判活。</li>
+                <li><b>字幕 VTT 路径</b>修复，并透出 AI 能力状态。</li>
+                <li><b>中文乱码</b>：<code>cms-core</code> 三处中文注释 / 字符串的 UTF-8 被 GBK 误读问题。</li>
+                <li><b>审计与日志保留删除</b>真正执行并分批（原 LIMIT 方式实际不生效）。</li>
+                <li><b>待办列表只显示 UUID</b>：直出内容标题并按站点与对象权限过滤，避免点开即 403 / 404。</li>
+                <li><b>native-image 工作流未检出子模块</b>：<code>samples/react-dam</code> 为独立仓库，打包需要完整源码树。</li>
+              </ul>
+            </section>
+          </div>
+
+          <h3 data-i18n="dv.d3.upgrade">升级指引</h3>
+          <ol>
+            <li>备份数据库与 <code>config/</code> 目录；</li>
+            <li>用 12.0.2 安装包替换可执行文件（原生版替换 <code>bin/powercms(.exe)</code>，管理端前端已内嵌，<b>请使用本次分发包</b>）；</li>
+            <li>首次启动由 Flyway 自动执行 <code>V159 → V162</code> 迁移（均为向前兼容的增量变更）；</li>
+            <li>启用版本分层时确认 <code>powercms.license.enabled</code> / <code>enforce-edition-boundaries</code> 配置，并在管理端「版本与授权」导入离线授权；</li>
+            <li>Windows 需要服务化执行 <code>install.ps1 -Service</code>，Linux 执行 <code>install.sh</code>。</li>
+          </ol>
+
+          <h3 data-i18n="dv.d3.downloads">下载地址</h3>
+          <div class="doc-callout warn">
+            <b>下载提示</b>：发布仓库当前为<b>私有仓库</b>，未授权直接访问会返回 404。请先用具备仓库访问权限的 GitHub 账号登录后再下载；若暂无权限，<a href="contact.html">联系我们</a>获取授权或交付介质。
+          </div>
+          <div class="dl-grid">
+            <div class="dl-item">
+              <span class="dl-plat">Linux x64</span>
+              <span class="dl-name">powercms-12.0.2-linux-x64.tar.gz</span>
+              <span class="dl-size">Linux x86_64 原生二进制 · 含 <code>bin/powercms</code> 与 install.sh / uninstall.sh，无需安装 JDK</span>
+              <a class="dl-go" target="_blank" rel="noopener" href="https://github.com/knoxlab/PowerCMS12/releases/download/12.0.2/powercms-12.0.2-linux-x64.tar.gz" data-i18n="dv.d3.download">下载</a>
+            </div>
+            <div class="dl-item">
+              <span class="dl-plat">Windows x64</span>
+              <span class="dl-name">powercms-12.0.2-windows-x64.zip</span>
+              <span class="dl-size">Windows x64 原生二进制 · 内嵌管理端前端，随附 VC++ 运行库与 <code>WinSW</code> 离线服务组件，无需安装 JDK</span>
+              <a class="dl-go" target="_blank" rel="noopener" href="https://github.com/knoxlab/PowerCMS12/releases/download/12.0.2/powercms-12.0.2-windows-x64.zip" data-i18n="dv.d3.download">下载</a>
+            </div>
+            <div class="dl-item">
+              <span class="dl-plat" data-i18n="dv.d3.sitePkg">数字资源库站点包（样例）</span>
+              <span class="dl-name">react-dam.zip</span>
+              <span class="dl-size">React 数字资源库站点包（含 <code>site-package.yaml</code>），可从管理端「系统 → 站点包」导入</span>
+              <a class="dl-go" target="_blank" rel="noopener" href="https://github.com/knoxlab/react-dam/releases/download/v1.0.0/react-dam.zip" data-i18n="dv.d3.download">下载</a>
+            </div>
+          </div>
+          <p class="rel-foot"><a class="link-arrow" target="_blank" rel="noopener" href="https://github.com/knoxlab/PowerCMS12/releases/tag/12.0.2">在 GitHub Releases 查看 12.0.2 全部资产与发布说明</a>　·　<a href="docs-deployment.html">安装步骤见《部署与运维指南》</a></p>
+        </div>
+
+        <h2 id="v1201" data-i18n="dv.d3.v1201">12.0.1</h2>
+
+        <div class="rel-card">
+          <div class="rel-head">
+            <span class="rel-ver">12.0.1</span>
+            <span class="rel-badge old" data-i18n="dv.d3.prev">上一版本</span>
             <span class="rel-date">发布日期：2026-10-11</span>
           </div>
           <div class="rel-meta">
@@ -290,7 +397,7 @@
 
           <h3 data-i18n="dv.d3.downloads">下载地址</h3>
           <div class="doc-callout warn">
-            <b>下载提示</b>：发布仓库当前为<b>私有仓库</b>，未授权直接访问会返回 404；历史版本建议直接升级到 <a href="#latest">12.0.1</a> 获取。
+            <b>下载提示</b>：发布仓库当前为<b>私有仓库</b>，未授权直接访问会返回 404；历史版本建议直接升级到 <a href="#v1201">12.0.1</a> 获取。
           </div>
           <div class="dl-grid">
             <div class="dl-item">
@@ -318,16 +425,16 @@
         <h2 id="support" data-i18n="dv.d3.support">支持矩阵</h2>
         <div class="doc-table" style="overflow-x:auto;">
           <table class="doc-table">
-            <thead><tr><th>项目</th><th>12.0.0</th><th>12.0.1（当前）</th></tr></thead>
+            <thead><tr><th>项目</th><th>12.0.0</th><th>12.0.1</th><th>12.0.2（当前）</th></tr></thead>
             <tbody>
-              <tr><td>发布日期</td><td>2026-10-02</td><td><b>2026-10-11</b></td></tr>
-              <tr><td>Windows 安装包</td><td><code>.7z</code> 格式，约 1.06 GB</td><td><code>.zip</code> 格式，约 131 MB</td></tr>
-              <tr><td>Linux 安装包</td><td><code>.tar.gz</code>，约 1.11 GB</td><td><code>.tar.gz</code>，约 121 MB</td></tr>
-              <tr><td>Windows 服务化</td><td>计划任务自启</td><td>计划任务 / <b>WinSW 服务</b>（开机自启 + 崩溃自动拉起）</td></tr>
-              <tr><td>数据库迁移</td><td>≤ V137</td><td><b>V138 → V158</b>（启动自动执行）</td></tr>
-              <tr><td>运行要求</td><td>JDK 21 / 原生二进制免 JDK · Maven 3.6.3+ · Node.js 20+（仅管理端构建）</td><td>同左</td></tr>
-              <tr><td>支持平台</td><td>Windows / Linux（x86_64、arm64）；macOS 可源码运行</td><td>同左</td></tr>
-              <tr><td>数据库</td><td>H2 / PostgreSQL / MySQL（8.4、5.5）/ 金仓 KingbaseES / 达梦 DM8</td><td>同左</td></tr>
+              <tr><td>发布日期</td><td>2026-10-02</td><td>2026-10-11</td><td><b>2026-10-26</b></td></tr>
+              <tr><td>Windows 安装包</td><td><code>.7z</code> 格式，约 1.06 GB</td><td><code>.zip</code> 格式，约 131 MB</td><td><code>.zip</code> 格式，含 <code>WinSW</code> 离线服务组件</td></tr>
+              <tr><td>Linux 安装包</td><td><code>.tar.gz</code>，约 1.11 GB</td><td><code>.tar.gz</code>，约 121 MB</td><td><code>.tar.gz</code>，含 <code>bin/powercms</code></td></tr>
+              <tr><td>Windows 服务化</td><td>计划任务自启</td><td>计划任务 / <b>WinSW 服务</b>（开机自启 + 崩溃自动拉起）</td><td>同左</td></tr>
+              <tr><td>数据库迁移</td><td>≤ V137</td><td><b>V138 → V158</b>（启动自动执行）</td><td><b>V159 → V162</b>（启动自动执行）</td></tr>
+              <tr><td>运行要求</td><td>JDK 21 / 原生二进制免 JDK · Maven 3.6.3+ · Node.js 20+（仅管理端构建）</td><td>同左</td><td>同左</td></tr>
+              <tr><td>支持平台</td><td>Windows / Linux（x86_64、arm64）；macOS 可源码运行</td><td>同左</td><td>同左</td></tr>
+              <tr><td>数据库</td><td>H2 / PostgreSQL / MySQL（8.4、5.5）/ 金仓 KingbaseES / 达梦 DM8</td><td>同左</td><td>同左</td></tr>
             </tbody>
           </table>
         </div>

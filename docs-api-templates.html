@@ -105,7 +105,7 @@
 
       <div class="doc-body">
 
-        <div class="doc-callout">本页内容以 <b>12.0.1</b> 为准（发布日期 2026-10-11），接口清单取自该版本运行实例的 OpenAPI 定义；历史版本差异见 <a href="docs-releases.html">《版本发布记录》</a>。</div>
+        <div class="doc-callout">本页内容以 <b>12.0.2</b> 为准（发布日期 2026-10-26），接口清单取自运行实例的 OpenAPI 定义；历史版本差异见 <a href="docs-releases.html">《版本发布记录》</a>。</div>
 
         <h2 id="overview" data-i18n="dv.d2.s1">API 体系总览</h2>
         <p>PowerCMS 12 是 Headless CMS：内容模型与内容统一存储，任何前端（网站、App、小程序、大屏）都可以通过标准接口取数渲染。开放面包括：</p>
@@ -199,7 +199,7 @@ Content-Type: application/json
             </tbody>
           </table>
         </div>
-        <div class="doc-callout">完整清单以 <code>/swagger-ui.html</code> 为准；各端点的请求 / 响应 schema 也可从 <code>/v3/api-docs</code> 导出后生成客户端 SDK。知识库检索侧的多层 ACL、跨源 RRF 融合与重排降级对用户可见，详见 <a href="docs-releases.html#latest">12.0.1 发布说明</a>。</div>
+        <div class="doc-callout">完整清单以 <code>/swagger-ui.html</code> 为准；各端点的请求 / 响应 schema 也可从 <code>/v3/api-docs</code> 导出后生成客户端 SDK。知识库检索侧的多层 ACL、跨源 RRF 融合与重排降级对用户可见，详见 <a href="docs-releases.html#v1201">12.0.1 发布说明</a>。</div>
 
         <h2 id="delivery" data-i18n="dv.d2.s4">Delivery API（前台取数）</h2>
         <p>Delivery API 面向站点前台公开（只读），无需登录即可按站点获取已发布内容，是 Headless 场景下前端取数的主通道：</p>
@@ -268,7 +268,7 @@ Content-Type: application/json
         <h2 id="freemarker" data-i18n="dv.d2.s6">FreeMarker 模板开发</h2>
         <p>除了 Headless 取数，PowerCMS 12 也支持服务端渲染：页面、区块与组件模板使用 FreeMarker（<code>.ftl</code>）编写，由平台渲染后输出 HTML。内容类型的 <code>displayTemplate</code> 指向模板路径（如 <code>/templates/about-contact.ftl</code>）。</p>
 
-        <h3>6.1 渲染模型：顶层变量（以 12.0.1 为准）</h3>
+        <h3>6.1 渲染模型：顶层变量（以 12.0.2 为准）</h3>
         <p>模板渲染时平台注入统一的顶层模型。已登记的顶层变量全集如下（引用未登记的顶层名字会在模板保存校验时报错）：</p>
         <div class="doc-table" style="overflow-x:auto;">
           <table class="doc-table">
