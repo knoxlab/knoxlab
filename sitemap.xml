@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- lastmod 取版本库各页最后内容提交日期；新增页面随发布更新。 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://powercms.powercom.net.cn/</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://powercms.powercom.net.cn/product.html</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://powercms.powercom.net.cn/ai.html</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://powercms.powercom.net.cn/solutions.html</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://powercms.powercom.net.cn/solutions-hub.html</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://powercms.powercom.net.cn/solutions-media.html</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://powercms.powercom.net.cn/customers.html</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://powercms.powercom.net.cn/pricing.html</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://powercms.powercom.net.cn/developer.html</loc><lastmod>2026-10-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://powercms.powercom.net.cn/docs-api-templates.html</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://powercms.powercom.net.cn/docs-deployment.html</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://powercms.powercom.net.cn/docs-releases.html</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://powercms.powercom.net.cn/contact.html</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+</urlset>

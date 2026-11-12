@@ -1084,3 +1084,5 @@ table.matrix td.muted { color: var(--muted); }
   .lm-row.sp-4 { --lm-dur: 38s; }
   .case-card .case-quote p { font-size: 14.5px; }
 }
+/* GEO 整改（2026-11-12）：页脚法定主体与实体消歧 */
+.geo-entity { flex: 1 1 100%; color: #8AA0CC; font-size: 12px; line-height: 1.7; }

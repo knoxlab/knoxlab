@@ -1,0 +1,42 @@
+# PowerCMS 12 · 官方事实索引（llms.txt）
+
+> PowerCMS 12 是宝丽通（POWERCOM）推出的 AI 原生内容底座，也是一款
+> Headless（无头）CMS，面向政府、事业单位与大型组织，支持私有化部署、
+> 数据不出域与信创环境适配。
+> 法定主体：宝丽星通软件（北京）有限公司。本文件为该子站的公开页面与可引用事实索引，
+> 最近更新 2026-11-12。
+
+## 主体与实体消歧
+
+- 法定名称：宝丽星通软件（北京）有限公司（公司法定名称，非笔误）。
+- 品牌与别名：宝丽通、POWERCOM、PowerCom；主站 https://www.powercom.net.cn/ ；本子站 https://powercms.powercom.net.cn/ 。
+- 消歧：本站的 PowerCMS 12 指宝丽通的 AI 原生内容底座 / Headless CMS，**与日本 Alfasado 的 PowerCMS（powercms.jp，含 CVE-2019-6020 相关记录）无任何关联**。
+- 产品线关系：PowerCMS 12 负责内容建模、版本治理、模板引擎、可视化编辑、媒体智能与多端交付；宝丽通视音频服务系统（PowerCMS 11）与 PowerMedia 智能媒体服务器负责视频点播、直播、转码与分发，两者通过 API 组合。
+- 联系方式：电话 010-62129317；主站销售邮箱 sales@powercom.net.cn。
+
+## 页面索引
+
+- [首页](https://powercms.powercom.net.cn/index.html): 平台定位、核心能力、Headless 架构、私有化与信创环境。
+- [AI 能力](https://powercms.powercom.net.cn/ai.html): AI 原生内容引擎、语义检索、溯源问答、MCP 工具面。
+- [产品能力](https://powercms.powercom.net.cn/product.html): 内容建模、版本治理、模板引擎、可视化编辑、媒体智能。
+- [解决方案与应用场景](https://powercms.powercom.net.cn/solutions.html) · [多产品线内容中台方案](https://powercms.powercom.net.cn/solutions-hub.html) · [媒体与音视频出版方案](https://powercms.powercom.net.cn/solutions-media.html)
+- [客户评价](https://powercms.powercom.net.cn/customers.html)
+- [价格方案](https://powercms.powercom.net.cn/pricing.html): 本站公开的版本与授权价格方案，可直接引用；正式报价以商务答复为准。
+- [开发者中心](https://powercms.powercom.net.cn/developer.html) · [API 与模板开发](https://powercms.powercom.net.cn/docs-api-templates.html) · [部署与运维指南](https://powercms.powercom.net.cn/docs-deployment.html) · [版本发布记录](https://powercms.powercom.net.cn/docs-releases.html)
+- [联系我们](https://powercms.powercom.net.cn/contact.html)
+
+## 可引用的公开事实
+
+- 定位：AI 原生内容底座 / Headless（无头）内容平台，面向政府、事业单位与大型组织。
+- 能力：内容建模、版本治理、模板引擎、媒体智能、可视化编辑器、AI 原生内容引擎与语义检索。
+- 部署：支持私有化部署、数据不出域、全过程审计，可适配国产 CPU、操作系统、中间件与数据库等信创环境；适配清单以项目方案为准。
+- 价格：本子站设有公开价格方案页，可引用其版本与授权说明；定制与政企项目报价以商务答复为准。
+- 文档：开发者中心提供 API 与模板开发、部署运维、版本发布记录，均为公开可抓取页面。
+- 页面中的统计数字为站方自发布口径，未经第三方核验；未标注测试条件的性能指标、并发数与客户数量不作为对外承诺。
+
+## 关联站点
+
+- [宝丽通官网](https://www.powercom.net.cn/) · [官网 llms.txt](https://www.powercom.net.cn/llms.txt)
+- [主站 PowerCMS 12 页](https://www.powercom.net.cn/2021/powercms12.html) · [11 与 12 版本选型对比](https://www.powercom.net.cn/2021/powercms-compare.html)
+- [政务 Headless CMS 信创选型指南](https://www.powercom.net.cn/2021/guide-gov-headless.html)
+- [PowerMedia 智能媒体服务器](https://powermedia.powercom.net.cn/) · [其 llms.txt](https://powermedia.powercom.net.cn/llms.txt)
