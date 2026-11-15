@@ -1,4 +1,4 @@
-/* PowerCMS 12 官网 - 交互脚本 */
+/* PowerNexus 官网 - 交互脚本 */
 (function () {
   "use strict";
 

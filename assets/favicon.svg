@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PowerCMS 12">
-  <title>PowerCMS 12</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PowerNexus">
+  <title>PowerNexus</title>
   <style>
     /* 与站点 token 对齐：--primary #2E5BFF / --ink-2 #12265C / 深色 accent #6FF0DC */
     .tile { fill: #2E5BFF; }

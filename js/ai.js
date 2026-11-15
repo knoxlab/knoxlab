@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PowerCMS 12 官网 - AI 能力交互层
+   PowerNexus 官网 - AI 能力交互层
    1) 全站悬浮「AI 站内助手」：本地语料 + 混合检索 + 引用溯源 + 证据不足拒答
    2) ai.html 五组可交互演示：语义检索对比 / 溯源问答 / AI 辅助编辑 / 自动化审核 / 智能推荐
    全部为纯前端离线实现，不发起任何外部请求，数据不出浏览器。
@@ -41,10 +41,10 @@
   var CORPUS = [
     {
       id: "ai-overview",
-      t: ["PowerCMS 12 的 AI 能力总览", "AI capabilities in PowerCMS 12"],
+      t: ["PowerNexus 的 AI 能力总览", "AI capabilities in PowerNexus"],
       k: ["ai 能力", "人工智能", "能力域", "总览", "ai overview", "capability"],
-      a: ["PowerCMS 12 内置 9 大 AI 能力域：可配置大模型底座、编辑器内 AI 创作、语义检索与溯源问答、GEO 生成式引擎优化、媒体智能、MCP 对外接入、智能体工作流、AI 审计与治理、多源内容融合 —— 覆盖从模型底座到审计治理的完整链路。",
-        "PowerCMS 12 ships nine AI capability domains: configurable model gateway, in-editor AI authoring, semantic search and cited Q&A, GEO optimization, media intelligence, MCP integration, agent workflows, AI audit and governance, and multi-source content fusion."],
+      a: ["PowerNexus 内置 9 大 AI 能力域：可配置大模型底座、编辑器内 AI 创作、语义检索与溯源问答、GEO 生成式引擎优化、媒体智能、MCP 对外接入、智能体工作流、AI 审计与治理、多源内容融合 —— 覆盖从模型底座到审计治理的完整链路。",
+        "PowerNexus ships nine AI capability domains: configurable model gateway, in-editor AI authoring, semantic search and cited Q&A, GEO optimization, media intelligence, MCP integration, agent workflows, AI audit and governance, and multi-source content fusion."],
       s: ["AI 战略与能力全景", "AI Strategy & Capability Map"],
       u: "ai.html#caps"
     },
@@ -352,8 +352,8 @@
   var T = {
     zh: {
       fabTitle: "AI 助手",
-      head: { t: "PowerCMS 12 AI 助手", s: "混合检索 · 引用溯源 · 证据不足即拒答" },
-      welcome: "你好，我是本站的 AI 助手。我可以基于本产品站的公开资料回答 PowerCMS 12 的 AI 能力、部署、治理与迁移问题，答案会附出处。",
+      head: { t: "PowerNexus AI 助手", s: "混合检索 · 引用溯源 · 证据不足即拒答" },
+      welcome: "你好，我是本站的 AI 助手。我可以基于本产品站的公开资料回答 PowerNexus 的 AI 能力、部署、治理与迁移问题，答案会附出处。",
       placeholder: "例如：AI 能力有哪些？语义检索怎么做？",
       send: "发送",
       hint: "演示版：基于本地语料离线检索，不调用外部大模型，也不会收集你的输入。",
@@ -365,8 +365,8 @@
     },
     en: {
       fabTitle: "AI Assistant",
-      head: { t: "PowerCMS 12 AI Assistant", s: "Hybrid retrieval · cited answers · refuses without evidence" },
-      welcome: "Hi — I'm the AI assistant for this site. I answer questions about PowerCMS 12's AI capabilities, deployment, governance and migration using public product material, and every answer comes with sources.",
+      head: { t: "PowerNexus AI Assistant", s: "Hybrid retrieval · cited answers · refuses without evidence" },
+      welcome: "Hi — I'm the AI assistant for this site. I answer questions about PowerNexus's AI capabilities, deployment, governance and migration using public product material, and every answer comes with sources.",
       placeholder: "e.g. What AI capabilities are included?",
       send: "Send",
       hint: "Demo build: offline retrieval over a local corpus. No external model is called and nothing you type is collected.",
@@ -676,7 +676,7 @@
   /* ---------- 演示 2：溯源问答 ---------- */
   var ASK_CASES = [
     {
-      q: ["PowerCMS 12 的 AI 会用到我们内网之外的数据吗？", "Does PowerCMS 12's AI use data outside our intranet?"],
+      q: ["PowerNexus 的 AI 会用到我们内网之外的数据吗？", "Does PowerNexus's AI use data outside our intranet?"],
       a: ["不会。AI 能力由统一 OpenAI 兼容适配层承载，可配置为完全私有化部署：模型调用走内网或客户自有密钥（BYOK，站点级隔离），视频转写默认使用本地 Whisper。开启后所有调用计入配额与审计。",
         "No. AI runs through a unified OpenAI-compatible adapter that can be deployed fully on-premises: model calls travel the intranet or use the customer's own keys (BYOK, isolated per site), and video transcription uses local Whisper by default. Once enabled, every call is metered and audited."],
       c: ["ai-private", "ai-model", "ai-switch"]
@@ -694,7 +694,7 @@
       c: ["ai-ask", "ai-audit"]
     },
     {
-      q: ["PowerCMS 12 支持量子加密通信吗？", "Does PowerCMS 12 support quantum-encrypted communication?"],
+      q: ["PowerNexus 支持量子加密通信吗？", "Does PowerNexus support quantum-encrypted communication?"],
       a: ["", ""],
       c: [],
       refuse: true

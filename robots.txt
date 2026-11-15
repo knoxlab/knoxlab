@@ -1,6 +1,6 @@
-# powercms.powercom.net.cn · PowerCMS 12 产品官网
+# powernexus.powercom.net.cn · PowerNexus 产品官网
 # 全站放行，不封禁 GPTBot / ClaudeBot / PerplexityBot / Google-Extended / Bingbot 等 AI 与搜索爬虫。
 User-agent: *
 Allow: /
 
-Sitemap: https://powercms.powercom.net.cn/sitemap.xml
+Sitemap: https://powernexus.powercom.net.cn/sitemap.xml

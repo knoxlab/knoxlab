@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PowerCMS 12 官网设计系统
+   PowerNexus 官网设计系统
    参考风格：contentful.com（平台化叙事 + 数据化案例） / dotcms.com（治理合规 + 行业方案）
    ========================================================================== */
 
@@ -93,8 +93,8 @@ ul { list-style: none; }
 .header.on-dark .lang-toggle { color: #fff; border-color: rgba(255,255,255,.3); }
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 28px; }
 /* ==========================================================================
-   PowerCMS 12 · 纯文字 Logo（页头左上角）
-   —— 无图片、无图标、无 SVG 图形，仅文字 + 数字 + CSS
+   PowerNexus · 纯文字 Logo（页头左上角）
+   —— 无图片、无图标、无 SVG 图形，仅文字 + CSS
    依赖：站点已有 --font / --ink / --ink-2 / --primary / --primary-600 / --teal
    放置位置：css/style.css  第 95–97 行（原 .brand / .brand-name / .brand-name em）
    说明：下面整段替换原三行，其余 .header.on-dark / .footer 规则保留不动
@@ -121,7 +121,7 @@ ul { list-style: none; }
   transition: color .22s ease;
 }
 
-/* 版本号：局部高亮的核心识别点 */
+/* 旧版版本号高亮样式（当前品牌名不含数字，规则保留备用） */
 .brand-name .bn-ver {
   font-weight: 800;
   font-size: 1.06em;                /* 视觉上略大于字名，形成锚点 */
